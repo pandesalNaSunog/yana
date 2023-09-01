@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <x-imports></x-imports>
+    <title>YANA | Log In</title>
+</head>
+<body class="vh-100">
+    
+    <img src="/yana/bilog.png" style="height: 75vh; width: auto; position: absolute; left: -400px; margin-top: 50px;" alt="">
+    <img src="/yana/bilog with stripe.png" style="height: 75vh; width: auto; position: absolute; right: -400px; margin-top: -300px; rotate: 40deg" alt="">
+    <div class="container h-100 d-flex align-items-center">
+        <div class="mx-auto col col-md-6 col-lg-4">
+            <div class="card shadow">
+                <div class="card-body text-center">
+                    <form action="/yana/login" method="POST">
+                        @csrf
+                        <input value="{{old('email')}}" name="email" type="email" placeholder="Email" class="form-control">
+                        @error('email')
+                        <x-error-text>{{$message}}</x-error-text>
+                        @enderror
+                        <input name="password" type="password" placeholder="Password" class="form-control mt-3">
+                        @error('password')
+                        <x-error-text>{{$message}}</x-error-text>
+                        @enderror
+                        
+                        
+                        <button class="primary-btn w-100 py-3 mt-3">Log In</button>
+                    </form>
+                    <button class="btn btn-link">Forgot Password?</button>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <p class="m-0 text-secondary mt-5">Don't have an account? <a href="/yana/signup">Sign Up</a></p>
+            </div>
+        </div>
+        
+    </div>
+    
+</body>
+</html>
