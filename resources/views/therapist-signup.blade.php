@@ -71,13 +71,29 @@
                             </div>
                             
                             <div class="col">
-                                <img class="img-fluid img-cover" style="height: 200px; width: 100%;" src="/yana/empty.jpeg" alt="">
+                                <img id="certification-img" class="img-fluid img-cover" style="height: 200px; width: 100%;" src="/yana/empty-image.png" alt="">
                                 @error('certification')
                                 <x-error-text>{{$message}}</x-error-text>
                                 @enderror
                                 <x-error-text></x-error-text>
                                 <input type="file" style="display: none" id="upload-certification" name="certification">
                                 <label for="upload-certification" style="cursor: pointer" class="primary-btn w-100 py-2 mt-3">Upload Certification</label>
+
+                                <script>
+                                    $(document).ready(function(){
+                                        let uploadCertification = $('#upload-certification');
+                                        let certificationImg = $('#certification-img');
+                                        uploadCertification.on('change', function(e){
+                                            let file = e.target.files[0];
+                                            var reader = new FileReader();
+
+                                            reader.onload = function(e){
+                                                certificationImg.attr('src', e.target.result)
+                                            }
+                                            reader.readAsDataURL(file)
+                                        })
+                                    })
+                                </script>
                                 
                             </div>
                             <div class="col d-flex align-items-center mt-5">
@@ -128,7 +144,8 @@
                 <br>
                 <div class="text-center">
                     <button class="primary-btn px-5 py-2">Create Account</button>
-                    
+                    <br>
+                    <a href="/yana/signup"><button class="primary-outline-btn px-5 py-2 mt-3">I'm a Patient</button></a>
                 </div>
             </form>
             
