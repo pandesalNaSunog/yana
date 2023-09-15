@@ -22,7 +22,15 @@ body{
 .primary-btn:hover{
     background-color: rgb(1, 1, 214);
 }
-
+.feature-card{
+    border-top: 1px solid blue; 
+    border-top-left-radius: 0; 
+    border-top-right-radius: 0; 
+    border-left: none; 
+    border-right: none; 
+    border-bottom: none;
+    padding: 20px;
+}
 .text-primary-color{
     color: var(--primary-color);
 }
