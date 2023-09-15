@@ -68,6 +68,7 @@ Route::middleware('auth')->group(function(){
     });
     Route::middleware('psych')->group(function(){
         Route::get('/therapist-approval', [UserController::class, 'therapistApproval']);
+        Route::get('/therapist',[UserController::class, 'therapistDashboard']);
     });
     Route::get('/logout', [UserController::class, 'logout']);
  

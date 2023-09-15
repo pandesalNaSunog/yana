@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Models\Matcher;
 class UserController extends Controller
 {
     public function changePassword(Request $request){
@@ -52,6 +53,27 @@ class UserController extends Controller
         return back()->withErrors([
             'certification' => 'Please choose an image'
         ])->onlyInput('certification');
+    }
+    public function therapistDashboard(){
+        $matchers = Matcher::where('therapist_id', auth()->user()->id)->latest()->paginate(5);
+        $name = "";
+        $submissionDate = "";
+        $onlineSessions = [];
+        foreach($matchers as $matcher){
+            $patient = User::where('id', $matcher->patient_id)->first();
+            if($patient){
+                $name = $patient->first_name . " " . $patient->last_name;
+            }
+            $submissionDate = $matcher->created_at->format('M d, Y h:i A');
+            $onlineSessions[] = [
+                'name' => $name,
+                'submission_date' => $submissionDate
+            ];
+        }
+        return view('therapist.therapist-dashboard', [
+            'onlineSessions' => $onlineSessions,
+            'matchers' => $matchers
+        ]);
     }
     public function updateProfile(Request $request){
         $fields = $request->validate([
