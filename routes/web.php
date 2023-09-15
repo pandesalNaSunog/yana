@@ -55,6 +55,8 @@ Route::middleware('auth')->group(function(){
         Route::post('/upload-profile-picture', [UserController::class, 'updateProfilePicture']);
         Route::post('/update-profile', [UserController::class, 'updateProfile']);
         Route::get('/therapist-list', [UserController::class, 'therapistList']);
+        Route::get('/matcher',[MatcherController::class, 'viewTracking']);
+        Route::post('/post-matcher', [MatcherController::class, 'postMatcher']);
     });
     Route::middleware('admin')->group(function(){
         Route::get('/admin/dashboard', [UserController::class, 'dashboard']);
