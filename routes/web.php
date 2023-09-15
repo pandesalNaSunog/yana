@@ -54,6 +54,7 @@ Route::middleware('auth')->group(function(){
         Route::get('/edit-profile',[UserController::class, 'editProfile']);
         Route::post('/upload-profile-picture', [UserController::class, 'updateProfilePicture']);
         Route::post('/update-profile', [UserController::class, 'updateProfile']);
+        Route::get('/therapist-list', [UserController::class, 'therapistList']);
     });
     Route::middleware('admin')->group(function(){
         Route::get('/admin/dashboard', [UserController::class, 'dashboard']);

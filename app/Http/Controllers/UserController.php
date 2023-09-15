@@ -119,6 +119,12 @@ class UserController extends Controller
             'user' => $user
         ]);
     }
+    public function therapistList(){
+        $therapists = User::where('role', 1)->where('approval', 1)->get();
+        return view('therapist-list',[
+            'therapists' => $therapists
+        ]);
+    }
     public function approveTherapist(Request $request){
         $fields = $request->validate([
             'therapist-id' => 'required'

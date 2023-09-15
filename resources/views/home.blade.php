@@ -119,7 +119,7 @@ ensuring personalized and effective care.</p>
                     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
                     </svg></span><span>Connect with them, Anywhere and Anytime</span>
                 </div>
-                <button class="primary-btn px-5 py-2 mt-3">Get Matched to a Psychologist</button>
+                <a href="/yana/therapist-list"><button class="primary-btn px-5 py-2 mt-3">Get Matched to a Psychologist</button></a>
             </div>
             <div class="col">
                 <img src="/yana/psychologist match 1.jpg" alt="" class="img-fluid">
