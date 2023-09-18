@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="row row-cols-1 row-cols-lg-2 vh-100 vw-100">
-        <div class="col col-lg-5 d-flex align-items-center" style="background-image: url('/yana/signup.png'); background-size: cover">
+        <div class="col col-lg-5 d-flex align-items-center" style="background-image: url('/signup.png'); background-size: cover">
             <div class="text-light text-center">
             <p class="m-0 fs-5">"What lies behind you and what lies in front of you, pales in comparison to what lies inside of you."</p>
             <p class="mt-3"><small>Ralph Waldo Emerson</small></p>
@@ -20,7 +20,7 @@
             <br>
             <br>
             <h5>Create Account</h5>
-            <form action="/yana/signup" method="POST">
+            <form action="/signup" method="POST">
                 @csrf
                 <div class="mt-5 card shadow">
                     <div class="card-body">
@@ -93,13 +93,13 @@
                 </div>
             </form>
             <div class="text-center mt-3">
-                <a href="/yana/signup-therapist"><button class="primary-outline-btn px-5 py-2">I'm a Therapist</button></a>
+                <a href="/signup-therapist"><button class="primary-outline-btn px-5 py-2">I'm a Therapist</button></a>
             </div>
            
             
             <div class="text-center mt-5">
                 
-                <p><small>Already have an Account? <a href="/yana/login">Sign In</a></small></p>
+                <p><small>Already have an Account? <a href="/login">Sign In</a></small></p>
             </div>
             
         </div>

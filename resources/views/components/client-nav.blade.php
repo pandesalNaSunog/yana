@@ -7,7 +7,7 @@
         <div id="navmenu" class="collapse navbar-collapse">
             <ul class="navbar-nav text-dark">
                 <li class="nav-item">
-                    <a href="/yana" class="nav-link fw-bold active-nav-link mx-3">Home</a>
+                    <a href="" class="nav-link fw-bold active-nav-link mx-3">Home</a>
                 </li>
                 <li class="nav-item mx-3">
                     <a href="#" class="nav-link fw-bold">Services</a>
@@ -27,9 +27,9 @@
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item d-flex align-items-center ms-auto">
                     @if(auth()->user()->profile_picture == "")
-                    <img src="/yana/empty.jpeg" class="rounded-circle" style="height: 30px; width: 30px; object-fit: cover" alt="">
+                    <img src="/empty.jpeg" class="rounded-circle" style="height: 30px; width: 30px; object-fit: cover" alt="">
                     @else
-                    <img src="/yana/public/storage/{{auth()->user()->profile_picture}}" class="rounded-circle" style="height: 30px; width: 30px; object-fit: cover" alt="">
+                    <img src="/public/storage/{{auth()->user()->profile_picture}}" class="rounded-circle" style="height: 30px; width: 30px; object-fit: cover" alt="">
                     @endif
                     <p class="nav-link ms-2 m-0">Welcome, {{auth()->user()->first_name}}</p>
                 </li>
@@ -38,13 +38,13 @@
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Account</a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="/yana/profile" class="dropdown-item">Profile</a>
+                                <a href="/profile" class="dropdown-item">Profile</a>
                             </li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
                             <li>
-                                <a href="/yana/logout" class="dropdown-item">Log Out</a>
+                                <a href="/logout" class="dropdown-item">Log Out</a>
                             </li>
                         </ul>
                     </div>
@@ -54,10 +54,10 @@
             @else
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a href="/yana/login" class="nav-link"><button class="primary-btn px-3 py-2">Sign In</button></a>
+                    <a href="/login" class="nav-link"><button class="primary-btn px-3 py-2">Sign In</button></a>
                 </li>
                 <li class="nav-item">
-                    <a href="/yana/signup" class="nav-link"><button class="primary-outline-btn px-3 py-2">Sign Up</button></a>
+                    <a href="/signup" class="nav-link"><button class="primary-outline-btn px-3 py-2">Sign Up</button></a>
                 </li>
             </ul>
             @endauth

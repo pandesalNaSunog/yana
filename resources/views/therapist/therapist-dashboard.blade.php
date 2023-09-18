@@ -17,16 +17,16 @@
                         <img class="img-fluid img-cover rounded-circle" style="height: 200px; width: 200px" src="
                                 <?php
                                     if(auth()->user()->profile_picture == ""){
-                                        echo '/yana/empty.jpeg';
+                                        echo '/empty.jpeg';
                                     }else{
-                                        echo '/yana/public/storage/' . auth()->user()->profile_picture;
+                                        echo '/public/storage/' . auth()->user()->profile_picture;
                                     }
                                 ?>
                                 
                                 " alt="">
                         <h3 class="fw-bold mt-3">{{auth()->user()->first_name . " " . auth()->user()->last_name}}</h3>
                         <p class="m-0"><em>{{auth()->user()->email}}</em></p>
-                        <a href="/yana/therapist/edit-profile"><button class="mt-4 primary-btn px-5 py-2">Edit Profile</button></a>
+                        <a href="/therapist/edit-profile"><button class="mt-4 primary-btn px-5 py-2">Edit Profile</button></a>
                         <hr>
                     </div>
                 </div>
@@ -59,7 +59,7 @@
                                                 {{$onlineSession['submission_date']}}
                                             </td>
                                             <td>
-                                                <form action="/yana/therapist/confirm-session" method="POST">
+                                                <form action="/therapist/confirm-session" method="POST">
                                                     @csrf
                                                     <input type="hidden" name="matcher_id" value="{{$onlineSession['matcher_id']}}">
                                                     <button class="primary-btn px-5 py-2">Confirm</button>

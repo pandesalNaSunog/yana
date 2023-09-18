@@ -22,7 +22,7 @@
                     <div class="card-body">
                         <div class="row row-cols-3">
                             <div class="col-3 text-center">
-                                <img src="/yana/empty.jpeg" style="height: 50px; width: 50px; object-fit: cover" class="rounded-circle" alt="">
+                                <img src="/empty.jpeg" style="height: 50px; width: 50px; object-fit: cover" class="rounded-circle" alt="">
                             </div>
                             <div class="col-6">
                                 <p class="fw-bold m-0 fs-6"><small>Lorem, ipsum dolor.</small></p>
