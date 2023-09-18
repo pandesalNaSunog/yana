@@ -9,7 +9,7 @@
 <body>
     <div class="row row-cols-1 row-cols-lg-2 vh-100">
         <div class="col col-lg-5 d-flex align-items-center" style="background-image: url('/signup.png'); background-size: cover">
-            <div class="text-light text-center">
+            <div class="text-light text-center py-5">
             <p class="m-0 fs-5">"What lies behind you and what lies in front of you, pales in comparison to what lies inside of you."</p>
             <p class="mt-3"><small>Ralph Waldo Emerson</small></p>
             </div>
