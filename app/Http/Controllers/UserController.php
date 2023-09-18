@@ -301,8 +301,8 @@ class UserController extends Controller
             'profile_picture' => "",
             'certification' => "",
             'approval' => 0,
-            'bio' => '',
-            'degree' => ''
+            'bio' => "",
+            'degree' => ""
         ];
         
         
