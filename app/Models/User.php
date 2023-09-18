@@ -28,7 +28,8 @@ class User extends Authenticatable
         'certification',
         'degree',
         'approval',
-        'role'
+        'role',
+        'bio'
     ];
 
     /**
