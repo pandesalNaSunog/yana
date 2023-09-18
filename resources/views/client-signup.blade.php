@@ -7,7 +7,7 @@
     <title>YANA | Sign Up</title>
 </head>
 <body>
-    <div class="row row-cols-1 row-cols-lg-2 vh-100 vw-100">
+    <div class="row row-cols-1 row-cols-lg-2 vh-100">
         <div class="col col-lg-5 d-flex align-items-center" style="background-image: url('/signup.png'); background-size: cover">
             <div class="text-light text-center">
             <p class="m-0 fs-5">"What lies behind you and what lies in front of you, pales in comparison to what lies inside of you."</p>
