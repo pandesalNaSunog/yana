@@ -144,7 +144,6 @@ class UserController extends Controller
             'contact_number' => 'required|min:10',
             'birth_date' => 'required|date',
             'password' => 'required|confirmed',
-            
         ]);
 
         $fields['approval'] = 0;
@@ -292,14 +291,18 @@ class UserController extends Controller
     }
     public function create(){
         $fields = [
-            'email' => 'arn@gmail.com',
+            'email' => 'admin@gmail.com',
             'password' => 'password',
             'role' => 0,
-            'first_name' => 'Arnesto',
-            'last_name' => 'Yasay',
-            'contact_number' => 'jklafj',
+            'first_name' => 'Admin',
+            'last_name' => 'Admin',
+            'contact_number' => '',
             'birth_date' => '1996-11-11',
             'profile_picture' => "",
+            'certification' => "",
+            'approval' => 0,
+            'bio' => '',
+            'degree' => ''
         ];
         
         
