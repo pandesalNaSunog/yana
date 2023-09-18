@@ -49,6 +49,7 @@ Route::middleware('guest')->group(function(){
 Route::middleware('auth')->group(function(){
     Route::get('/redirector', [UserController::class, 'redirector']);
     Route::post('/change-password', [UserController::class, 'changePassword']);
+    Route::get('/chats',[ChatController::class, 'chats']);
     Route::middleware('patient')->group(function(){ //patient routes
         Route::get('/profile',[UserController::class, 'patientProfile']);
         Route::get('/edit-profile',[UserController::class, 'editProfile']);
@@ -58,6 +59,7 @@ Route::middleware('auth')->group(function(){
         Route::get('/matcher',[MatcherController::class, 'viewTracking']);
         Route::post('/post-matcher', [MatcherController::class, 'postMatcher']);
     });
+
     Route::middleware('admin')->group(function(){
         Route::get('/admin/dashboard', [UserController::class, 'dashboard']);
         Route::post('/admin/logout', [UserController::class, 'logout']);
@@ -72,6 +74,7 @@ Route::middleware('auth')->group(function(){
         Route::get('/therapist/edit-profile', [UserController::class, 'therapistEditProfile']);
         Route::post('/therapist/upload-profile-picture', [UserController::class, 'therapistUpdateProfilePicture']);
         Route::post('/therapist/update-profile',[UserController::class, 'therapistUpdateProfile']);
+        Route::post('/therapist/confirm-session',[MatcherController::class, 'confirmSession']);
     });
     Route::get('/logout', [UserController::class, 'logout']);
  

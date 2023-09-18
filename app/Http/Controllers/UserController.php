@@ -63,11 +63,14 @@ class UserController extends Controller
             $patient = User::where('id', $matcher->patient_id)->first();
             if($patient){
                 $name = $patient->first_name . " " . $patient->last_name;
+            }else{
+                $name = "Unknown user";
             }
             $submissionDate = $matcher->created_at->format('M d, Y h:i A');
             $onlineSessions[] = [
                 'name' => $name,
-                'submission_date' => $submissionDate
+                'submission_date' => $submissionDate,
+                'matcher_id' => $matcher->id
             ];
         }
         return view('therapist.therapist-dashboard', [
@@ -200,15 +203,46 @@ class UserController extends Controller
     }
     public function patientProfile(Request $request){
         $user = User::where('id', auth()->user()->id)->first();
+        $matchers = Matcher::where('patient_id', auth()->user()->id)->latest()->paginate(5);
+        $onlineSessions = [];
+        $submissionDate = "";
+        foreach($matchers as $matcher){
+            $patient = User::where('id', $matcher->patient_id)->first();
+            $therapist = User::where('id', $matcher->therapist_id)->first();
+            if($matcher->approval == 1){
+                $status = "Ongoing";
+            }else{
+                $status = "Pending";
+            }
+            if($therapist){
+                $therapistName = "Dr. " . $therapist->first_name . " " . $therapist->last_name;
+            }else{
+                $therapistName = "Unknown user";
+            }
+            if($patient){
+                $name = $patient->first_name . " " . $patient->last_name;
+            }else{
+                $name = "Unknown user";
+            }
+            $submissionDate = $matcher->created_at->format('M d, Y h:i A');
+            $onlineSessions[] = [
+                'name' => $name,
+                'submission_date' => $submissionDate,
+                'therapist_name' => $therapistName,
+                'status' => $status
+            ];
+        }
         if(!$user){
             $request->session()->invalidate();
             $request->session()->regenerateToken();
             return redirect('/')->with('message', 'An error has occured. This account may have been deleted.');
         }
         $data = [
-            'user' => $user
+            'user' => $user,
+            'onlineSessions' => $onlineSessions,
+            'matchers' => $matchers
         ];
-        return view('profile', $user);
+        return view('profile', $data);
     }
     public function editProfile(){
         return view('edit-profile');

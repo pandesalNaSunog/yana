@@ -7,6 +7,20 @@ use App\Models\Matcher;
 use App\Models\User;
 class MatcherController extends Controller
 {
+    public function confirmSession(Request $request){
+        $fields = $request->validate([
+            'matcher_id' => 'required'
+        ]);
+
+        $matcher = Matcher::where('id', $fields['matcher_id'])->first();
+        if($matcher){
+            $matcher->update([
+                'approval' => 1
+            ]);
+        }
+
+        echo 'ok';
+    }
     public function postMatcher(Request $request){
         $fields = $request->validate([
             'therapist_id' => 'required'

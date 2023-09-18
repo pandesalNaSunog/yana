@@ -59,7 +59,12 @@
                                                 {{$onlineSession['submission_date']}}
                                             </td>
                                             <td>
-                                                <button class="primary-btn px-5 py-2">Confirm</button>
+                                                <form action="/yana/therapist/confirm-session" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" name="matcher_id" value="{{$onlineSession['matcher_id']}}">
+                                                    <button class="primary-btn px-5 py-2">Confirm</button>
+                                                </form>
+                                                
                                             </td>
                                         </tr>
                                         @endforeach
