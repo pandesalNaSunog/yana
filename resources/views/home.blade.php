@@ -14,7 +14,7 @@
 <body>
     <x-client-nav></x-client-nav>
     <x-toast></x-toast>
-    <div class="container h-100 d-flex align-items-center justify-content-between">
+    <div class="vh-100 container h-100 d-flex align-items-center justify-content-between">
 
         <div class="col text-center text-lg-start">
             <h1 class="fw-bold text-primary-color">YOU ARE NOT ALONE</h1>
