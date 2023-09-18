@@ -151,6 +151,7 @@ class UserController extends Controller
         $fields['certification'] = "";
         $fields['degree'] = "";
         $fields['role'] = 2;
+        $fields['bio'] = "";
 
         $user = User::create($fields);
         auth()->login($user);
