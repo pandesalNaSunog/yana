@@ -93,6 +93,24 @@ class UserController extends Controller
         $user->update($fields);
         return redirect('/profile')->with('message', 'Your profile has been successfully updated!');
     }
+    public function therapistUpdateProfile(Request $request){
+        $fields = $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'contact_number' => 'required|min:11',
+            'birth_date' => 'required|date'
+        ]);
+
+        $user = User::where('id', auth()->user()->id)->first();
+        if(!$user){
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+            return redirect('/')->with('message', 'An error has occured. This account may have been deleted.');
+        }
+
+        $user->update($fields);
+        return redirect('/therapist')->with('message', 'Your profile has been successfully updated!');
+    }
     public function therapistApproval(){
         return view('therapist.therapist-approval');
     }
@@ -195,8 +213,32 @@ class UserController extends Controller
     public function editProfile(){
         return view('edit-profile');
     }
+    public function therapistEditProfile(){
+        return view('therapist.edit-profile');
+    }
+
+
 
     public function updateProfilePicture(Request $request){
+        $user = User::where('id', auth()->user()->id)->first();
+        if(!$user){
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+            return redirect('/')->with('message', 'There was an error occured. Your account might have been deleted.');
+        }
+
+        if($request->hasFile('profile-picture')){
+            $fields['profile_picture'] = $request->file('profile-picture')->store('images','public');
+            $user->update($fields);
+            return back()->with('message', 'Profile Picture has been updated successfully!');
+        }
+        return back()->withErrors([
+            'profile-picture' => 'Please choose an image'
+        ]);
+        
+    }
+
+    public function therapistUpdateProfilePicture(Request $request){
         $user = User::where('id', auth()->user()->id)->first();
         if(!$user){
             $request->session()->invalidate();

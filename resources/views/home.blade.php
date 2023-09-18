@@ -14,13 +14,13 @@
 <body class="vh-100">
     <x-client-nav></x-client-nav>
     <x-toast></x-toast>
-    <div class="container h-100 d-lg-flex align-items-center justify-content-between">
+    <div class="container h-100 d-flex align-items-center justify-content-between">
 
-        <div class="col col-md-3 col-lg-4">
+        <div class="col text-center text-lg-start">
             <h1 class="fw-bold text-primary-color">YOU ARE NOT ALONE</h1>
             <a href="/yana/signup"><button class="primary-btn mt-4 px-5 py-2 fw-bold">Sign Up Now!</button></a>
         </div>
-        <div class="d-block col col-md-9 col-lg-8 h-100 d-flex justify-content-end">
+        <div class="d-lg-block d-none col">
             <img src="/yana/home background.jpg" class="img-fluid cover-img" alt="">
         </div>
 
@@ -29,9 +29,9 @@
 
     </div>
 
-    <div class="container py-5">
+    <div class="container py-5 text-center text-lg-start">
         <h3 class="fw-bold text-center">OUR FEATURES</h3>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3 mt-5">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-3 mt-5">
             <div class="col">
                 <div class="card shadow feature-card">
                     <div class="card-body">
@@ -103,27 +103,29 @@ needs,preferences, and goals to connect them with the most suitable licensed
 freelance psychologists and volunteer psychologist.Patients can choose from a diverse 
 pool of experienced psychologists with various specialties and backgrounds, 
 ensuring personalized and effective care.</p>
-
-                <div>
-                    <span class="me-4"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="text-primary bi bi-check-circle-fill" viewBox="0 0 16 16">
-                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
-                    </svg></span><span>100% free app designed to help you find the right Psychologist doctor for you. </span>
+                <div class="text-start">
+                    <div>
+                        <span class="me-4"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="text-primary bi bi-check-circle-fill" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                        </svg></span><span>100% free app designed to help you find the right Psychologist doctor for you. </span>
+                    </div>
+                    <div class="mt-2">
+                        <span class="me-4"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="text-primary bi bi-check-circle-fill" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                        </svg></span><span>Available Licensed Freelance Psychologist and Volunteer Psychologist.</span>
+                    </div>
+                    <div class="mt-2">
+                        <span class="me-4"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="text-primary bi bi-check-circle-fill" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                        </svg></span><span>Connect with them, Anywhere and Anytime</span>
+                    </div>
                 </div>
-                <div class="mt-2">
-                    <span class="me-4"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="text-primary bi bi-check-circle-fill" viewBox="0 0 16 16">
-                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
-                    </svg></span><span>Available Licensed Freelance Psychologist and Volunteer Psychologist.</span>
-                </div>
-                <div class="mt-2">
-                    <span class="me-4"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="text-primary bi bi-check-circle-fill" viewBox="0 0 16 16">
-                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
-                    </svg></span><span>Connect with them, Anywhere and Anytime</span>
-                </div>
+                
                 <a href="/yana/therapist-list"><button class="primary-btn px-5 py-2 mt-3">Get Matched to a Psychologist</button></a>
             </div>
             <div class="col">
-                <img src="/yana/psychologist match 1.jpg" alt="" class="img-fluid">
-                <img style="position: relative; left:50%; bottom: 20%" src="/yana/psychologist match 2.jpg" alt="" class="img-fluid">
+                <img id="home-image-1" src="/yana/psychologist match 1.jpg" alt="" class="img-fluid">
+                <img id="home-image-2" src="/yana/psychologist match 2.jpg" alt="" class="img-fluid">
             </div>
         </div>
     </div>

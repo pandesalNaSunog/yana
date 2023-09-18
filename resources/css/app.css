@@ -30,6 +30,7 @@ body{
     border-right: none; 
     border-bottom: none;
     padding: 20px;
+    height: 450px;
 }
 .text-primary-color{
     color: var(--primary-color);
@@ -57,4 +58,20 @@ body{
 .primary-outline-btn:hover{
     background-color: var(--primary-color);
     color: white;
+}
+
+#home-image-2{
+    position: relative;
+    left:35%; 
+    bottom: 20%
+}
+
+@media(max-width: 1200px){
+    
+    #home-image-2{
+        position: relative;
+        left:0; 
+        bottom:0;
+        margin-top: 20px;
+    }
 }

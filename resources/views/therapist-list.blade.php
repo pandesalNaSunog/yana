@@ -16,9 +16,9 @@
             <div class="col">
                 <div class="card shadow">
                     @if($therapist->profile_picture != "")
-                    <img src="/yana/public/storage/{{$therapist->profile_picture}}" class="card-img-top"></img>
+                    <img src="/yana/public/storage/{{$therapist->profile_picture}}" class="card-img-top" style="height: 300px; width: 100%; object-fit: cover; object-position: top;"></img>
                     @else
-                    <img src="/yana/empty.jpeg" class="card-img-top"></img>
+                    <img src="/yana/empty.jpeg" class="card-img-top" style="height: 300px; width: 100%; object-fit: cover; object-position: top;"></img>
                     @endif
                     <div class="card-body">
                         <h3 class="fw-bold">{{$therapist->first_name . " " . $therapist->last_name}}</h3>

@@ -69,6 +69,9 @@ Route::middleware('auth')->group(function(){
     Route::middleware('psych')->group(function(){
         Route::get('/therapist-approval', [UserController::class, 'therapistApproval']);
         Route::get('/therapist',[UserController::class, 'therapistDashboard']);
+        Route::get('/therapist/edit-profile', [UserController::class, 'therapistEditProfile']);
+        Route::post('/therapist/upload-profile-picture', [UserController::class, 'therapistUpdateProfilePicture']);
+        Route::post('/therapist/update-profile',[UserController::class, 'therapistUpdateProfile']);
     });
     Route::get('/logout', [UserController::class, 'logout']);
  
