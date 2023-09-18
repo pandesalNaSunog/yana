@@ -11,7 +11,7 @@
 
     
 </head>
-<body class="vh-100">
+<body>
     <x-client-nav></x-client-nav>
     <x-toast></x-toast>
     <div class="container h-100 d-flex align-items-center justify-content-between">
