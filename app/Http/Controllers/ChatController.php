@@ -9,6 +9,6 @@ use App\Models\Chats;
 class ChatController extends Controller
 {
     public function chats(){
-        
+        return view('chat');
     }
 }
