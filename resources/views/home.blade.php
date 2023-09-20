@@ -31,7 +31,7 @@
 
     <div class="container py-5 text-center text-lg-start">
         <h3 class="fw-bold text-center">OUR FEATURES</h3>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-3 mt-5">
+        <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-4 g-3 mt-5">
             <div class="col">
                 <div class="card shadow feature-card">
                     <div class="card-body">
