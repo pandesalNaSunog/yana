@@ -145,13 +145,13 @@
                 <div class="text-center">
                     <button class="primary-btn px-5 py-2">Create Account</button>
                     <br>
-                    <a href="/signup"><button class="primary-outline-btn px-5 py-2 mt-3">I'm a Patient</button></a>
+                    
                 </div>
             </form>
             
             
             <div class="text-center">
-                
+                <a href="/signup"><button class="primary-outline-btn px-5 py-2 mt-3">I'm a Patient</button></a>
                 <p><small>Already have an Account? <a href="/login">Sign In</a></small></p>
             </div>
             
