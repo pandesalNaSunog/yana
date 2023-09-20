@@ -46,6 +46,7 @@ class UserController extends Controller
             $fields['approval'] = 0;
             $fields['role'] = 1;
             $fields['profile_picture'] = "";
+            $fields['bio'] = "";
             $user = User::create($fields);
             auth()->login($user);
             return redirect('/redirector');
