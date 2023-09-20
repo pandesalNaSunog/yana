@@ -124,8 +124,8 @@ ensuring personalized and effective care.</p>
                 <a href="/therapist-list"><button class="primary-btn px-5 py-2 mt-3">Get Matched to a Psychologist</button></a>
             </div>
             <div class="col">
-                <img id="home-image-1" src="/psychologist match 1.jpg" alt="" class="img-fluid">
-                <img id="home-image-2" src="/psychologist match 2.jpg" alt="" class="img-fluid">
+                <img id="home-image-1" src="/psychologist match 1.png" alt="" class="img-fluid">
+                <img id="home-image-2" src="/psychologist match 2.png" alt="" class="img-fluid">
             </div>
         </div>
     </div>
