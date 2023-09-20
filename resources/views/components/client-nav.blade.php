@@ -24,8 +24,8 @@
             </ul>
             @auth
             
-            <ul class="navbar-nav ms-lg-auto">
-                <li class="nav-item d-flex align-items-center ms-auto">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item d-flex align-items-center ms-lg-auto">
                     @if(auth()->user()->profile_picture == "")
                     <img src="/empty.jpeg" class="rounded-circle" style="height: 30px; width: 30px; object-fit: cover" alt="">
                     @else
