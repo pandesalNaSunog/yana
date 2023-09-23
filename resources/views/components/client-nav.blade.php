@@ -54,10 +54,10 @@
             @else
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a href="/login" class="nav-link"><button class="primary-btn px-3 py-2">Sign In</button></a>
+                    <a href="/login" class="nav-link"><button class="w-100 w-lg-0 primary-btn px-3 py-2">Sign In</button></a>
                 </li>
                 <li class="nav-item">
-                    <a href="/signup" class="nav-link"><button class="primary-outline-btn px-3 py-2">Sign Up</button></a>
+                    <a href="/signup" class="nav-link"><button class="w-100 w-lg-0 primary-outline-btn px-3 py-2">Sign Up</button></a>
                 </li>
             </ul>
             @endauth
