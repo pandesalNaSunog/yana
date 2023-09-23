@@ -18,10 +18,13 @@
 
         <div class="col text-center text-lg-start">
             <h1 class="fw-bold text-primary-color">YOU ARE NOT ALONE</h1>
+            @auth
+            @else
             <a href="/signup"><button class="primary-btn mt-4 px-5 py-2 fw-bold">Sign Up Now!</button></a>
+            @endauth
         </div>
         <div class="d-lg-block d-none col">
-            <img src="/home background.jpg" class="img-fluid cover-img" alt="">
+            <img src="/yana/home background.jpg" class="img-fluid cover-img" alt="">
         </div>
 
 
@@ -124,8 +127,62 @@ ensuring personalized and effective care.</p>
                 <a href="/therapist-list"><button class="primary-btn px-5 py-2 mt-3">Get Matched to a Psychologist</button></a>
             </div>
             <div class="col">
-                <img id="home-image-1" src="/psychologist match 1.png" alt="" class="img-fluid">
-                <img id="home-image-2" src="/psychologist match 2.png" alt="" class="img-fluid">
+                <img id="home-image-1" src="/yana/psychologist match 1.png" alt="" class="img-fluid">
+                <img id="home-image-2" src="/yana/psychologist match 2.png" alt="" class="img-fluid">
+            </div>
+        </div>
+
+
+
+        <div class="py-5">
+            <h3 class="fw-bold text-center">HOW IT WORKS?</h3>
+            <div class="row row-cols-1 row-cols-xl-5 g-3 mt-5 text-center">
+                <div class="col">
+                    <div class="card shadow feature-card text-center" style="height: 550px;">
+                        <div class="card-body">
+                            <img src="/yana/choose.png" class="img-fluid" alt="">
+                            <p class="fs-4 fw-bold mt-5">Choose Your Option</p>
+                            <p class="lead">Select between YANA's free or 
+                                subscription-based options to access our 
+                                platform and connect with licensed
+                                psychologists.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-center d-none d-xl-block">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="text-primary-color w-75 h-100 bi bi-arrow-right" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+</svg>
+                </div>
+                <div class="col">
+                    <div class="card shadow feature-card text-center" style="height: 550px;">
+                        <div class="card-body">
+                            <img src="/yana/choose.png" class="img-fluid" alt="">
+                            <p class="fs-4 fw-bold mt-5">Choose Your Option</p>
+                            <p class="lead">Select between YANA's free or 
+                                subscription-based options to access our 
+                                platform and connect with licensed
+                                psychologists.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-center d-none d-xl-block">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="text-primary-color w-75 h-100 bi bi-arrow-right" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+</svg>
+                </div>
+                <div class="col">
+                    <div class="card shadow feature-card text-center" style="height: 550px;">
+                        <div class="card-body">
+                            <img src="/yana/choose.png" class="img-fluid" alt="">
+                            <p class="fs-4 fw-bold mt-5">Choose Your Option</p>
+                            <p class="lead">Select between YANA's free or 
+                                subscription-based options to access our 
+                                platform and connect with licensed
+                                psychologists.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
