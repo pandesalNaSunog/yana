@@ -11,7 +11,7 @@
 
     <div class="container py-5">
         <h2 class="fw-bold text-center">Our Psychologists</h2>
-        <div class="row row-cols-1 row-cols-lg-2 g-3">
+        <div class="row row-cols-1 row-cols-lg-4 g-3">
             @foreach($therapists as $therapist)
             <div class="col">
                 <div class="card shadow">
