@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="row row-cols-1 row-cols-lg-2 vh-100 vw-100">
-        <div class="col col-lg-5 d-flex align-items-center" style="background-image: url('/signup.png'); background-size: cover">
+        <div class="col col-lg-5 d-flex align-items-center" style="background-image: url('/yana/signup.png'); background-size: cover">
             <div class="text-light text-center">
             <p class="m-0 fs-5">"What lies behind you and what lies in front of you, pales in comparison to what lies inside of you."</p>
             <p class="mt-3"><small>Ralph Waldo Emerson</small></p>
@@ -20,7 +20,7 @@
             <br>
             <br>
             <h5>Create Account - Therapist</h5>
-            <form action="/signup-therapist" method="POST" enctype="multipart/form-data">
+            <form action="/yana/signup-therapist" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="mt-5 card shadow">
                     <div class="card-body">
@@ -71,7 +71,7 @@
                             </div>
                             
                             <div class="col">
-                                <img id="certification-img" class="img-fluid img-cover" style="height: 200px; width: 100%;" src="/empty-image.png" alt="">
+                                <img id="certification-img" class="img-fluid img-cover" style="height: 200px; width: 100%;" src="/yana/empty-image.png" alt="">
                                 @error('certification')
                                 <x-error-text>{{$message}}</x-error-text>
                                 @enderror
@@ -151,8 +151,8 @@
             
             
             <div class="text-center">
-                <a href="/signup"><button class="primary-outline-btn px-5 py-2 mt-3">I'm a Patient</button></a>
-                <p><small>Already have an Account? <a href="/login">Sign In</a></small></p>
+                <a href="/yana/signup"><button class="primary-outline-btn px-5 py-2 mt-3">I'm a Patient</button></a>
+                <p><small>Already have an Account? <a href="/yana/login">Sign In</a></small></p>
             </div>
             
         </div>

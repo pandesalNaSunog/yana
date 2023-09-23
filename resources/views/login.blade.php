@@ -8,13 +8,13 @@
 </head>
 <body class="vh-100">
     
-    <img src="/bilog.png" style="height: 75vh; width: auto; position: absolute; left: -400px; margin-top: 50px;" alt="">
-    <img src="/bilog with stripe.png" style="height: 75vh; width: auto; position: absolute; right: -400px; margin-top: -300px; rotate: 40deg" alt="">
+    <img src="/yana//bilog.png" style="height: 75vh; width: auto; position: absolute; left: -400px; margin-top: 50px;" alt="">
+    <img src="/yana/bilog with stripe.png" style="height: 75vh; width: auto; position: absolute; right: -400px; margin-top: -300px; rotate: 40deg" alt="">
     <div class="container h-100 d-flex align-items-center">
         <div class="mx-auto col col-md-6 col-lg-4">
             <div class="card shadow">
                 <div class="card-body text-center">
-                    <form action="/login" method="POST">
+                    <form action="/yana/login" method="POST">
                         @csrf
                         <input value="{{old('email')}}" name="email" type="email" placeholder="Email" class="form-control">
                         @error('email')
@@ -33,7 +33,7 @@
             </div>
 
             <div class="text-center">
-                <p class="m-0 text-secondary mt-5">Don't have an account? <a href="/signup">Sign Up</a></p>
+                <p class="m-0 text-secondary mt-5">Don't have an account? <a href="/yana/signup">Sign Up</a></p>
             </div>
         </div>
         

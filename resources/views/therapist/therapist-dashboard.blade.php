@@ -17,16 +17,16 @@
                         <img class="img-fluid img-cover rounded-circle" style="height: 200px; width: 200px" src="
                                 <?php
                                     if(auth()->user()->profile_picture == ""){
-                                        echo '/empty.jpeg';
+                                        echo '/yana/empty.jpeg';
                                     }else{
-                                        echo '/public/storage/' . auth()->user()->profile_picture;
+                                        echo '/yana/public/storage/' . auth()->user()->profile_picture;
                                     }
                                 ?>
                                 
                                 " alt="">
                         <h3 class="fw-bold mt-3">{{auth()->user()->first_name . " " . auth()->user()->last_name}}</h3>
                         <p class="m-0"><em>{{auth()->user()->email}}</em></p>
-                        <a href="/therapist/edit-profile"><button class="mt-4 primary-btn px-5 py-2">Edit Profile</button></a>
+                        <a href="/yana/therapist/edit-profile"><button class="mt-4 primary-btn px-5 py-2">Edit Profile</button></a>
                         <hr>
                     </div>
                 </div>
@@ -42,6 +42,7 @@
                                 <thead>
                                     <th scope="col">Name</th>
                                     <th scope="col">Submission Date</th>
+                                    <th scope="col">Status</th>
                                     <th scope="col">Action</th>
                                 </thead>
                                 <tbody>
@@ -59,12 +60,18 @@
                                                 {{$onlineSession['submission_date']}}
                                             </td>
                                             <td>
-                                                <form action="/therapist/confirm-session" method="POST">
+                                                {{$onlineSession['status']}}
+                                            </td>
+                                            <td>
+                                                @if($onlineSession['status'] == "Pending")
+                                                <form action="/yana/therapist/confirm-session" method="POST">
                                                     @csrf
                                                     <input type="hidden" name="matcher_id" value="{{$onlineSession['matcher_id']}}">
                                                     <button class="primary-btn px-5 py-2">Confirm</button>
                                                 </form>
-                                                
+                                                @else
+                                                <a href="/yana/chats"><button class="primary-btn px-5 py-2">View Conversation</button></a>
+                                                @endif
                                             </td>
                                         </tr>
                                         @endforeach

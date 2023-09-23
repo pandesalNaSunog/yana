@@ -68,10 +68,16 @@ class UserController extends Controller
                 $name = "Unknown user";
             }
             $submissionDate = $matcher->created_at->format('M d, Y h:i A');
+            if($matcher->approval == 0){
+                $status = 'Pending';
+            }else{
+                $status = 'Ongoing';
+            }
             $onlineSessions[] = [
                 'name' => $name,
                 'submission_date' => $submissionDate,
-                'matcher_id' => $matcher->id
+                'matcher_id' => $matcher->id,
+                'status' => $status
             ];
         }
         return view('therapist.therapist-dashboard', [

@@ -7,13 +7,13 @@
         <div id="navmenu" class="collapse navbar-collapse">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a href="/admin/dashboard" class="nav-link">Dashboard</a>
+                    <a href="/yana/admin/dashboard" class="nav-link">Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/admin/patients" class="nav-link">Patients</a>
+                    <a href="/yana/admin/patients" class="nav-link">Patients</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/admin/therapists" class="nav-link">Therapists</a>
+                    <a href="/yana/admin/therapists" class="nav-link">Therapists</a>
                 </li>
 
                 <li class="nav-item">
@@ -27,7 +27,7 @@
                                 <hr class="dropdown-divider">
                             </li>
                             <li>
-                                <a href="/logout" class="dropdown-item">Log Out</a>
+                                <a href="/yana/logout" class="dropdown-item">Log Out</a>
                             </li>
                         </ul>
                     </div>

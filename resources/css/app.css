@@ -13,6 +13,10 @@
     transition-duration: .3s;
     border: solid 2px var(--primary-color);
 }
+
+.light-blue-background{
+    background-color: lightblue;
+}
 body{
     overflow-x:hidden;
 }

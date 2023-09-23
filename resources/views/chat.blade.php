@@ -22,7 +22,7 @@
                     <div class="card-body">
                         <div class="row row-cols-3">
                             <div class="col-3 text-center">
-                                <img src="/empty.jpeg" style="height: 50px; width: 50px; object-fit: cover" class="rounded-circle" alt="">
+                                <img src="/yana/empty.jpeg" style="height: 50px; width: 50px; object-fit: cover" class="rounded-circle" alt="">
                             </div>
                             <div class="col-6">
                                 <p class="fw-bold m-0 fs-6"><small>Lorem, ipsum dolor.</small></p>
@@ -36,10 +36,34 @@
                 </div>
             </div>
         </div>
-        <div class="col col-lg-9">
-            <div class="card h-100" style="border-radius: 0">
-
+        <div class="col col-lg-9 p-4">
+            <div class="row row-cols-2 g-2">
+                <!-- for receivers message -->
+                <div class="col-1">
+                    <img src="/yana/empty.jpeg" alt="" class="img-fluid rounded-circle" style="height: 50px; width: 50px; object-fit:cover">
+                </div>
+                <div class="col-11 col-lg-8">
+                    <div class="card w-100">
+                        <div class="card-body">
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et ex enim perferendis molestiae fuga debitis blanditiis repellendus totam odit aut.
+                        </div>
+                    </div>
+                    <p class="text-secondary fs-6"><small>4:00 PM</small></p>
+                </div>
+                <!-- for senders message -->
+                <div class="col-11 col-lg-8 ms-auto">
+                    <div class="card bg-primary shadow w-100">
+                        <div class="card-body text-light text-end">
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et ex enim perferendis molestiae fuga debitis blanditiis repellendus totam odit aut.
+                        </div>
+                    </div>
+                    <p class="text-secondary fs-6 text-end"><small>4:00 PM</small></p>
+                </div>
+                <div class="col-1 text-end">
+                    <img src="/yana/empty.jpeg" alt="" class="img-fluid rounded-circle" style="height: 50px; width: 50px; object-fit:cover">
+                </div>
             </div>
+            
         </div>
     </div>
 </body>
