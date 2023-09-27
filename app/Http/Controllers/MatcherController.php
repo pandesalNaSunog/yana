@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Matcher;
 use App\Models\User;
 use App\Models\Chats;
+use App\Models\Message;
 class MatcherController extends Controller
 {
     public function confirmSession(Request $request){
@@ -15,16 +16,24 @@ class MatcherController extends Controller
 
         $matcher = Matcher::where('id', $fields['matcher_id'])->first();
         if($matcher){
-            $matcher->update([
-                'approval' => 1
-            ]);
-            Chats::create([
+            
+            $chat = Chats::create([
                 'user_1_id' => $matcher->therapist_id,
                 'user_2_id' => $matcher->patient_id,
                 'status' => 0
             ]);
+            $matcher->update([
+                'approval' => 1,
+                'chat_id' => $chat->id
+            ]);
+            Message::create([
+                'sender_id' => auth()->user()->id,
+                'receiver_id' => $matcher->patient_id,
+                'message' => 'Hello there. How may I help you?',
+                'chat_id' => $chat->id
+            ]);
         }
-
+        return redirect('/chats/convo/' . $chat->id);
         
     }
     public function postMatcher(Request $request){
@@ -46,6 +55,7 @@ class MatcherController extends Controller
         }while($trackingNumberMatch);
         $fields['tracking_number'] = $trackingNumber;
         $fields['read'] = 0;
+        $fields['chat_id'] = 0;
         $matcher = Matcher::create($fields);
         return redirect('/matcher?tracking=' . $trackingNumber);
 

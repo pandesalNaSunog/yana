@@ -70,7 +70,7 @@
                                                     <button class="primary-btn px-5 py-2">Confirm</button>
                                                 </form>
                                                 @else
-                                                <a href="/yana/chats"><button class="primary-btn px-5 py-2">View Conversation</button></a>
+                                                <a href="/yana/chats/convo/{{$onlineSession['chat_id']}}"><button class="primary-btn px-5 py-2">View Conversation</button></a>
                                                 @endif
                                             </td>
                                         </tr>

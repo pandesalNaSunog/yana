@@ -15,5 +15,6 @@ class Matcher extends Model
         'tracking_number',
         'approval',
         'read',
+        'chat_id',
     ];
 }

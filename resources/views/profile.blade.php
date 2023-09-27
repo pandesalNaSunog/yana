@@ -64,7 +64,7 @@
                                             </td>
                                             <td>
                                                 @if($onlineSession['status'] == "Ongoing")
-                                                <button class="primary-btn py-2 px-5">View Conversation</button>
+                                                <a href="/yana/chats/convo/{{$onlineSession['chat_id']}}"><button class="primary-btn py-2 px-5">View Conversation</button></a>
                                                 @endif
                                             </td>
                                         </tr>

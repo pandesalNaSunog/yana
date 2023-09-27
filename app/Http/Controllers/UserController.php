@@ -77,7 +77,8 @@ class UserController extends Controller
                 'name' => $name,
                 'submission_date' => $submissionDate,
                 'matcher_id' => $matcher->id,
-                'status' => $status
+                'status' => $status,
+                'chat_id' => $matcher->chat_id
             ];
         }
         return view('therapist.therapist-dashboard', [
@@ -236,7 +237,8 @@ class UserController extends Controller
                 'name' => $name,
                 'submission_date' => $submissionDate,
                 'therapist_name' => $therapistName,
-                'status' => $status
+                'status' => $status,
+                'chat_id' => $matcher->chat_id
             ];
         }
         if(!$user){

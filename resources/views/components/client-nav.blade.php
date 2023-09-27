@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light shadow sticky-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow sticky-top" style="height: 8vh">
     <div class="container">
         <div class="navbar-brand">
             <h4 class="fw-bold text-primary-color">YANA</h4>
