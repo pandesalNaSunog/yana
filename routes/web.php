@@ -50,6 +50,7 @@ Route::middleware('auth')->group(function(){
     Route::get('/redirector', [UserController::class, 'redirector']);
     Route::post('/change-password', [UserController::class, 'changePassword']);
     Route::get('/chats',[ChatController::class, 'chats']);
+    Route::post('/send-message', [ChatController::class, 'sendMessage'])->name('send-message');
     Route::middleware('patient')->group(function(){ //patient routes
         Route::get('/profile',[UserController::class, 'patientProfile']);
         Route::get('/edit-profile',[UserController::class, 'editProfile']);

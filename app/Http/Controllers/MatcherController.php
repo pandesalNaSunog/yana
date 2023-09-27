@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Matcher;
 use App\Models\User;
+use App\Models\Chats;
 class MatcherController extends Controller
 {
     public function confirmSession(Request $request){
@@ -17,9 +18,14 @@ class MatcherController extends Controller
             $matcher->update([
                 'approval' => 1
             ]);
+            Chats::create([
+                'user_1_id' => $matcher->therapist_id,
+                'user_2_id' => $matcher->patient_id,
+                'status' => 0
+            ]);
         }
 
-        echo 'ok';
+        
     }
     public function postMatcher(Request $request){
         $fields = $request->validate([

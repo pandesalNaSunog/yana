@@ -14,6 +14,9 @@
     border: solid 2px var(--primary-color);
 }
 
+.message-box{
+    width: 25%;
+}
 .light-blue-background{
     background-color: lightblue;
 }
@@ -77,5 +80,8 @@ body{
         left:0; 
         bottom:0;
         margin-top: 20px;
+    }
+    .message-box{
+        width: 100%;
     }
 }
