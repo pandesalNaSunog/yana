@@ -48,8 +48,8 @@
             </div>
         </div>
         <div class="col col-lg-9">
-            <div class="row row-cols-2 g-2 p-4" style="overflow: overlay; height: 92vh">
-
+            <div class="row row-cols-2 g-2 p-4" id="conversation-box" style="overflow: overlay; height: 92vh">
+                
                 @foreach($messageData as $messageDatum)
                     @if($messageDatum['mine'] == 0)
                     <!-- for receivers message -->
@@ -80,6 +80,7 @@
                     </div>
                     @endif
                 @endforeach
+                
             </div>
             <?php
                 if(!empty($chatData)){
@@ -89,7 +90,7 @@
                 ?>
                     <div class="card" id="write-message">
                         <div class="card-body" >
-                            <div class="input-group">
+                            <div class="input-group" id="message-input-group">
                                 <textarea required id="message" placeholder="Write Your Message Here..." class="w-75 form-control"></textarea>
                                 
                                 <button id="send-message" class="primary-btn">
@@ -101,11 +102,25 @@
                             </div>
                             <p class="m-0 small text-danger" id="message-error"></p>
                             <script>
+
+                                
                                 $(document).ready(function(){
+                                    
                                     let message = $('#message');
                                     let sendMessage = $('#send-message');
                                     let messageError = $('#message-error');
-
+                                    let conversationBox = $('#conversation-box');
+                                    let messageInputGroup = $('#message-input-group');
+                                    messageInputGroup.keydown(function(e){
+                                        if(e.keyCode == 13){
+                                            if(!e.shiftKey){
+                                                e.preventDefault();
+                                                sendMessage.click();
+                                            }
+                                            
+                                        }
+                                    })
+                                    scrollToBottomConversation(conversationBox);
                                     messageError.hide();
                                     message.keydown(function(){
                                         messageError.hide();
@@ -123,16 +138,37 @@
                                                     message: message.val(),
                                                     receiver_id: '{{$receiverId}}'
                                                 },
-                                                success: function(response){
-                                                    if(response == 'ok'){
-                                                        message.val('');
-                                                    }
+                                
+                                                success: function(messageData){
+                                                    
+                                                    
+                                                    displaySentMessage(messageData.chat_id, messageData.id, messageData.message, messageData.receiver_id, messageData.sender_id, messageData.created_at);
+                                                    scrollToBottomConversation(conversationBox);
+                                                    message.val('');
                                                 }
                                             })
                                         }
                                         
                                     })
-
+                                    function scrollToBottomConversation(conversationBox){
+                                        conversationBox.animate({
+                                            scrollTop: conversationBox.prop('scrollHeight')
+                                        },'slow');
+                                    }
+                                    function displaySentMessage(chatId, id, message, receiverId, senderId, createdAt){
+                                        conversationBox.append(`<div class="col-11">
+                                            <div class="card bg-primary message-box shadow ms-auto">
+                                                <div class="card-body text-light text-end">
+                                                    ${message}
+                                                </div>
+                                            </div>
+                                            <p class="text-secondary fs-6 text-end"><small>${createdAt}</small></p>
+                                        </div>
+                                        <div class="col-1 text-end">
+                                            
+                                            <img src="/yana/{{$messageDatum['image']}}" alt="" class="img-fluid rounded-circle" style="height: 50px; width: 50px; object-fit:cover">
+                                        </div>`)
+                                    }
                                 })
                             </script>
                         </div>

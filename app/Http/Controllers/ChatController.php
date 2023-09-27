@@ -51,9 +51,10 @@ class ChatController extends Controller
         }
         if(!empty($chatData)){
             $chatId = $chats->id;
-            $messages = Message::where('chat_id', $chatId)->get();
+            $messages = Message::where('chat_id', $chatId)->latest()->paginate(10);
             $messageData = [];
-            foreach($messages as $message){
+            $reversedMessages = $messages->reverse();
+            foreach($reversedMessages as $message){
                 $sender = User::where('id', $message->sender_id)->first();
 
                 if($sender){
@@ -143,7 +144,7 @@ class ChatController extends Controller
             'chat_id' => 'required'
         ]);
         $fields['sender_id'] = auth()->user()->id;
-        Message::create($fields);
-        return 'ok';
+        $message = Message::create($fields);
+        return response($message);
     }
 }
