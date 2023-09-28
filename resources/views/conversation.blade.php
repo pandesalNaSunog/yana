@@ -14,9 +14,54 @@
     @else
     <x-client-nav></x-client-nav>
     @endif
+
+
+    <div class="modal fade" id="conversation-modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Messages</h1>
+                    
+                </div>
+                <div class="modal-body">
+                    @foreach($chatData as $key => $chat)
+                    <a href="/yana/chats/convo/{{$chats[$key]->id}}" style="text-decoration: none">
+                        <div class="card" style="border-left: none; border-right: none; border-radius: 0; border-top: none">
+                            <div class="card-body">
+                                <div class="row row-cols-3">
+                                    
+                                    <div class="col-3 text-center">
+                                        @if($chat['image'] != "/empty.jpeg")
+                                        <img src="/yana/public/storage/{{$chat['image']}}" style="height: 50px; width: 50px; object-fit: cover" class="rounded-circle" alt="">
+                                        @else
+                                        <img src="/yana/{{$chat['image']}}" style="height: 50px; width: 50px; object-fit: cover" class="rounded-circle" alt="">
+                                        @endif
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="fw-bold m-0 fs-6"><small>{{$chat['name']}}</small></p>
+                                        <p class="m-0 text-truncate">{{$chat['latest_message']}}</p>
+                                    </div>
+                                    <div class="col-3 text-end">
+                                        <p class="lead text-secondary fs-6"><small>{{$chat['time']}}</small></p>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    @endforeach
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
     
     <div class="d-flex h-100">
-        <div class="col col-lg-3">
+        <div class="col col-lg-3 d-none d-lg-block">
             <div class="card h-100" style="border-radius: 0; overflow: overlay">
                 @foreach($chatData as $key => $chat)
                 <a href="/yana/chats/convo/{{$chats[$key]->id}}" style="text-decoration: none">
@@ -53,10 +98,10 @@
                 @foreach($messageData as $messageDatum)
                     @if($messageDatum['mine'] == 0)
                     <!-- for receivers message -->
-                    <div class="col-1">
+                    <div class="col-2 col-md-1">
                         <img src="/yana/{{$messageDatum['image']}}" alt="" class="img-fluid rounded-circle" style="height: 50px; width: 50px; object-fit:cover">
                     </div>
-                    <div class="col-11">
+                    <div class="col-10 col-md-11">
                         <div class="card shadow message-box">
                             <div class="card-body">
                                 {{$messageDatum['message']}}
@@ -66,7 +111,7 @@
                     </div>
                     @else
                     <!-- for senders message -->
-                    <div class="col-11">
+                    <div class="col-10 col-md-11">
                         <div class="card bg-primary message-box shadow ms-auto">
                             <div class="card-body text-light text-end">
                                 {{$messageDatum['message']}}
@@ -74,7 +119,7 @@
                         </div>
                         <p class="text-secondary fs-6 text-end"><small>{{$messageDatum['date_time']}}</small></p>
                     </div>
-                    <div class="col-1 text-end">
+                    <div class="col-2 col-md-1 text-end">
                         
                         <img src="/yana/{{$messageDatum['image']}}" alt="" class="img-fluid rounded-circle" style="height: 50px; width: 50px; object-fit:cover">
                     </div>

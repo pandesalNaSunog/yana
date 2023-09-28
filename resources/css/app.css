@@ -61,7 +61,11 @@ body{
     height: 100%;
     width: auto;
 }
-
+#write-message{
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+}
 .primary-outline-btn:hover{
     background-color: var(--primary-color);
     color: white;

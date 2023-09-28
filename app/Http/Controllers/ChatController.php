@@ -145,6 +145,14 @@ class ChatController extends Controller
         ]);
         $fields['sender_id'] = auth()->user()->id;
         $message = Message::create($fields);
-        return response($message);
+        return response([
+            'id' => $message->id,
+            'sender_id' => $message->sender_id,
+            'receiver_id' => $message->receiver_id,
+            'message' => $message->message,
+            'chat_id' => $message->chat_id,
+            'created_at' => $message->created_at->format('M d, Y h:i A'),
+            'updated_at' => $message->updated_at->format('M d, Y h:i A'),
+        ]);
     }
 }
