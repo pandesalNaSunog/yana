@@ -194,32 +194,26 @@ ensuring personalized and effective care.</p>
     </div>
     <div class="py-5 light-blue-background">
         <div class="container">
-        <div id="carouselExample" class="carousel slide">
+        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="row row-cols-1 row-cols-lg-2 g-5">
-                        <div class="col">
+                @foreach($feedbacks as $key => $feedback)
+                <div class="carousel-item <?php if($key == 0){ echo 'active';}?>">
+                    <div class="row row-cols-1 row-cols-lg-2 g-lg-5 g-2">
+                        <div class="col d-flex align-items-center">
+                            @if($feedback['image'] == "")
                             <img src="/yana/empty.jpeg" class="img-fluid shadow rounded-4" alt="">
+                            @else
+                            <img src="/yana/public/storage/{{$feedback['image']}}" class="img-fluid img-cover shadow rounded-4" style="height: 70%; width: 100%" alt="">
+                            @endif
                         </div>
-                        <div class="col p-5">
-                            <em class="fs-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, maxime corporis! Quae minima accusantium dolores facere incidunt officia. Eaque debitis tenetur impedit nisi, quo voluptates cumque explicabo illo eveniet est esse accusamus vel quisquam quis neque aliquam consequuntur? Facere, adipisci!</em>
-                            <h3 class="fw-bold mt-5">Jem Irall Flores</h3>
-                            <p class="lead fs-5">Student</p>
+                        <div class="col p-lg-5">
+                            <em class="fs-4">{{$feedback['feedback']}}</em>
+                            <h3 class="fw-bold mt-lg-5 mt-3">{{$feedback['name']}}</h3>
+                            <!-- <p class="lead fs-5">Student</p> -->
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <div class="row row-cols-1 row-cols-lg-2 g-5">
-                        <div class="col">
-                            <img src="/yana/empty.jpeg" class="img-fluid shadow rounded-4" alt="">
-                        </div>
-                        <div class="col p-5">
-                            <em class="fs-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, maxime corporis! Quae minima accusantium dolores facere incidunt officia. Eaque debitis tenetur impedit nisi, quo voluptates cumque explicabo illo eveniet est esse accusamus vel quisquam quis neque aliquam consequuntur? Facere, adipisci!</em>
-                            <h3 class="fw-bold mt-5">Jem Irall Flores</h3>
-                            <p class="lead fs-5">Student</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
                 
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -234,6 +228,32 @@ ensuring personalized and effective care.</p>
             
         </div>
     </div>
+    @auth
+    <div class="py-5 bg-light">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-lg-2 g-4">
+                <div class="col">
+                    <h4 class="fw-bold text-primary-color">Provide feedback to enhance our services</h4>
+                </div>
+                <div class="col">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <form action="/yana/write-feedback" method="POST">
+                                @csrf
+                                <input required type="text" name="feedback" placeholder="Write your feedback here..." class="form-control">
+                                @error('feedback')
+                                <x-error-text>{{$message}}</x-error-text>
+                                @enderror
+                                <button class="primary-btn w-100 py-2 mt-3">Submit</button>
+                            </form>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endauth
 
     <div class="py-5 bg-primary">
         <div class="container">

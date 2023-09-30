@@ -19,11 +19,14 @@
                     <a href="/yana/admin/library" class="nav-link">Library</a>
                 </li>
                 <li class="nav-item">
+                    <a href="/yana/admin/feedbacks" class="nav-link">Feedbacks</a>
+                </li>
+                <li class="nav-item">
                     <div class="dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Account</a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="#" class="dropdown-item">My Profile</a>
+                                <a href="/yana/admin/change-password" class="dropdown-item">Change Password</a>
                             </li>
                             <li>
                                 <hr class="dropdown-divider">

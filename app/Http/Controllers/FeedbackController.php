@@ -23,4 +23,52 @@ class FeedbackController extends Controller
         Feedback::create($fields);
         return back()->with('message', 'Feedback has been successfully posted.');
     }
+
+    public function feedbacks(){
+        $feedbacks = Feedback::latest()->paginate(5);
+        $data = [];
+        foreach($feedbacks as $feedback){
+            $user = User::where('id', $feedback->user_id)->first();
+            if($user){
+                $data[] = [
+                    'user' => $user,
+                    'feedback' => $feedback
+                ];
+            }
+        }
+        return view('admin.feedbacks',[
+            'feedbacks' => $data,
+            'feedbackItems' => $feedbacks
+        ]);
+    }
+    public function postFeedback(Feedback $feedback){
+        $feedback->update([
+            'approval' => 1
+        ]);
+        return back()->with('message', 'This feedback has been posted to Landing Page Testimonials');
+    }
+    public function showTestimonials(){
+        if(auth()->check()){
+            if(auth()->user()->role != 2){
+                return redirect('/redirector');
+            }
+            
+        }
+        $feedbacks = Feedback::where('approval', 1)->get();
+        $data = [];
+        foreach($feedbacks as $feedback){
+            $user = User::where('id', $feedback->user_id)->first();
+
+            if($user){
+                $data[] = [
+                    'name' => $user->first_name . " " . $user->last_name,
+                    'image' => $user->profile_picture,
+                    'feedback' => $feedback->feedback
+                ];
+            }
+        }
+        return view('home',[
+            'feedbacks' => $data
+        ]);
+    }
 }

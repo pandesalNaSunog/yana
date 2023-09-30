@@ -325,7 +325,12 @@ class UserController extends Controller
             'message' => 'ok'
         ]);
     }
-
+    public function adminProfile(){
+        $user = User::where('id', auth()->user()->id)->first();
+        return view('admin.profile', [
+            'user' => $user
+        ]);
+    }
     public function signup(){
         return view('client-signup');
     }

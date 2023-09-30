@@ -13,19 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [FeedbackController::class, 'showTestimonials']);
 Route::get('/create', [UserController::class, 'create']);
-Route::get('/', function(){
-    if(auth()->check()){
-        if(auth()->user()->role != 2){
-            return redirect('/redirector');
-        }
-        
-    }
-    return view('home');
-});
+
 Route::middleware('guest')->group(function(){
     
     Route::get('/login', function(){
@@ -61,6 +51,7 @@ Route::middleware('auth')->group(function(){
         Route::get('/therapist-list', [UserController::class, 'therapistList']);
         Route::get('/matcher',[MatcherController::class, 'viewTracking']);
         Route::post('/post-matcher', [MatcherController::class, 'postMatcher']);
+        ROute::post('/write-feedback',[FeedbackController::class, 'postFeed']);
     });
 
     Route::middleware('admin')->group(function(){
@@ -78,6 +69,9 @@ Route::middleware('auth')->group(function(){
         Route::get('/admin/solutions/{category}', [LibraryController::class, 'solutions']);
         Route::post('/add-solution',[LibraryController::class,'addSolution']);
         Route::get('/admin/edit-solution/{solution}',[LibraryController::class, 'editSolution']);
+        Route::get('/admin/change-password',[UserController::class, 'adminProfile']);
+        Route::get('/admin/feedbacks',[FeedbackController::class, 'feedbacks']);
+        Route::post('/admin/post-feedback/{feedback}', [FeedbackController::class, 'postFeedback']);
     });
     Route::middleware('psych')->group(function(){
         Route::get('/therapist-approval', [UserController::class, 'therapistApproval']);
