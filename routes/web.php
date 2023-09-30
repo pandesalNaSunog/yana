@@ -52,6 +52,7 @@ Route::middleware('auth')->group(function(){
     Route::get('/chats',[ChatController::class, 'chats']);
     Route::post('/send-message', [ChatController::class, 'sendMessage'])->name('send-message');
     Route::get('/chats/convo/{chats}',[ChatController::class, 'loadConversation']);
+    Route::get('/library',[LibraryController::class,'clientLibrary']);
     Route::middleware('patient')->group(function(){ //patient routes
         Route::get('/profile',[UserController::class, 'patientProfile']);
         Route::get('/edit-profile',[UserController::class, 'editProfile']);
@@ -69,6 +70,14 @@ Route::middleware('auth')->group(function(){
         Route::get('/admin/therapists', [UserController::class, 'therapists']);
         Route::get('/admin/users/{user}',[UserController::class, 'adminSideUserProfile']);
         Route::post('/admin/approve-therapist', [UserController::class, 'approveTherapist']);
+        Route::get('/admin/library', [LibraryController::class, 'library']);
+        Route::post('/add-category',[LibraryController::class, 'addCategory']);
+        Route::get('/admin/edit-category/{category}',[LibraryController::class, 'editCategory']);
+        Route::post('/admin/update-category/{category}', [LibraryController::class, 'updateCategory']);
+        Route::post('/admin/delete-category/{category}', [LibraryController::class, 'deleteCategory']);
+        Route::get('/admin/solutions/{category}', [LibraryController::class, 'solutions']);
+        Route::post('/add-solution',[LibraryController::class,'addSolution']);
+        Route::get('/admin/edit-solution/{solution}',[LibraryController::class, 'editSolution']);
     });
     Route::middleware('psych')->group(function(){
         Route::get('/therapist-approval', [UserController::class, 'therapistApproval']);
@@ -77,6 +86,7 @@ Route::middleware('auth')->group(function(){
         Route::post('/therapist/upload-profile-picture', [UserController::class, 'therapistUpdateProfilePicture']);
         Route::post('/therapist/update-profile',[UserController::class, 'therapistUpdateProfile']);
         Route::post('/therapist/confirm-session',[MatcherController::class, 'confirmSession']);
+
     });
     Route::get('/logout', [UserController::class, 'logout']);
  

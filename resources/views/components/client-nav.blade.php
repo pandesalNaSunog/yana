@@ -25,6 +25,9 @@
                 <li class="nav-item mx-3">
                     <a href="#" class="nav-link fw-bold">Careers</a>
                 </li>
+                <li class="nav-item mx-3">
+                    <a href="/yana/library" class="nav-link fw-bold">Library</a>
+                </li>
             </ul>
             @auth
             
