@@ -43,6 +43,8 @@ Route::middleware('auth')->group(function(){
     Route::post('/send-message', [ChatController::class, 'sendMessage'])->name('send-message');
     Route::get('/chats/convo/{chats}',[ChatController::class, 'loadConversation']);
     Route::get('/library',[LibraryController::class,'clientLibrary']);
+    Route::get('/forums',[ForumController::class, 'forums']);
+    Route::post('/write-post',[ForumController::class, 'writePost']);
     Route::middleware('patient')->group(function(){ //patient routes
         Route::get('/profile',[UserController::class, 'patientProfile']);
         Route::get('/edit-profile',[UserController::class, 'editProfile']);
@@ -51,7 +53,7 @@ Route::middleware('auth')->group(function(){
         Route::get('/therapist-list', [UserController::class, 'therapistList']);
         Route::get('/matcher',[MatcherController::class, 'viewTracking']);
         Route::post('/post-matcher', [MatcherController::class, 'postMatcher']);
-        ROute::post('/write-feedback',[FeedbackController::class, 'postFeed']);
+        Route::post('/write-feedback',[FeedbackController::class, 'postFeed']);
     });
 
     Route::middleware('admin')->group(function(){
