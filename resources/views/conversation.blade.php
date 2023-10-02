@@ -197,7 +197,7 @@
                                         },'slow');
                                     }
                                     function displaySentMessage(chatId, id, message, receiverId, senderId, createdAt){
-                                        conversationBox.append(`<div class="col-11">
+                                        conversationBox.append(`<div class="col-10 col-md-11">
                                             <div class="card bg-primary message-box shadow ms-auto">
                                                 <div class="card-body text-light text-end">
                                                     ${message}
@@ -205,7 +205,7 @@
                                             </div>
                                             <p class="text-secondary fs-6 text-end"><small>${createdAt}</small></p>
                                         </div>
-                                        <div class="col-1 text-end">
+                                        <div class="col-2 col-md-1 text-end">
                                             
                                             <img src="/yana/{{$messageDatum['image']}}" alt="" class="img-fluid rounded-circle" style="height: 50px; width: 50px; object-fit:cover">
                                         </div>`)
