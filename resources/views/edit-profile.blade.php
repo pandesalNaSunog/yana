@@ -6,11 +6,11 @@
     <x-imports></x-imports>
     <title>YANA | Edit Profile</title>
 </head>
-<body>
+<body class="bg-light">
     <x-toast></x-toast>
     <x-client-nav></x-client-nav>
-        <div class="container">
-            <div class="row row-cols-1 row-cols-lg-2 g-3 mt-5">
+        <div class="container my-5">
+            <div class="row row-cols-1 row-cols-lg-2 g-3">
                 <div class="col col-lg-4">
                     <div class="card shadow">
                         <div class="card-header">
@@ -141,5 +141,6 @@
             
            
         </div>
+        <x-footer></x-footer>
     </body>
 </html>

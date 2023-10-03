@@ -44,7 +44,9 @@
                     <p class="fs-3 p-3">{{$post['post']}}</p>
                 </div>
                 <div class="card-footer">
-                    <a href="" class="btn-link">View Comments</a>
+                    @if($post['total_comments'] > 4)
+                    <a href="/yana/post-comments/{{$post['id']}}" class="btn-link">View all {{$post['total_comments']}} Comments</a>
+                    @endif
                     <div class="mt-3" id="comments-with-post-id-{{$post['id']}}">
                         @foreach($post['comments'] as $comment)
                             <div class="card shadow my-1">
@@ -59,6 +61,7 @@
                             </div>
                         @endforeach
                     </div>
+                    
                     <div class="input-group mt-3">
                         <input id="write-comment-at-post-{{$post['id']}}" type="text" placeholder="Write your comment here..." name="comment" class="form-control">
                         

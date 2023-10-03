@@ -46,6 +46,7 @@ Route::middleware('auth')->group(function(){
     Route::get('/forums',[ForumController::class, 'forums']);
     Route::post('/write-post',[ForumController::class, 'writePost']);
     Route::post('/write-comment',[ForumController::class, 'writeComment'])->name('write-comment');
+    Route::get('/post-comments/{post}',[ForumController::class, 'viewPostComments']);
     Route::middleware('patient')->group(function(){ //patient routes
         Route::get('/profile',[UserController::class, 'patientProfile']);
         Route::get('/edit-profile',[UserController::class, 'editProfile']);

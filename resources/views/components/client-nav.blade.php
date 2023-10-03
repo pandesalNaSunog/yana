@@ -16,18 +16,6 @@
                     <a href="/yana/" class="nav-link fw-bold active-nav-link mx-3">Home</a>
                 </li>
                 <li class="nav-item mx-3">
-                    <a href="#" class="nav-link fw-bold">Services</a>
-                </li>
-                <li class="nav-item mx-3">
-                    <a href="#" class="nav-link fw-bold">About</a>
-                </li>
-                <li class="nav-item mx-3">
-                    <a href="#" class="nav-link fw-bold">Contact</a>
-                </li>
-                <li class="nav-item mx-3">
-                    <a href="#" class="nav-link fw-bold">Careers</a>
-                </li>
-                <li class="nav-item mx-3">
                     <a href="/yana/forums" class="nav-link fw-bold">Forums</a>
                 </li>
                 <li class="nav-item mx-3">

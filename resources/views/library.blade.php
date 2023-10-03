@@ -6,7 +6,7 @@
     <x-imports></x-imports>
     <title>YANA | Library</title>
 </head>
-<body>
+<body class="bg-light">
     <x-toast></x-toast>
     <x-client-nav></x-client-nav>
 
@@ -14,7 +14,7 @@
         Common Somatic Symptoms Related to Psychological Disorder and Possible Solutions
     </h3>
     <div class="container py-5">
-        <div class="accordion" id="accordionExample">
+        <div class="accordion shadow" id="accordionExample">
             @foreach($data as $datum)
             <div class="accordion-item">
                 <h2 class="accordion-header">
@@ -33,5 +33,6 @@
             @endforeach
         </div>
     </div>
+    <x-footer></x-footer>
 </body>
 </html>
