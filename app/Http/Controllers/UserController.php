@@ -11,6 +11,9 @@ use PHPMailer\PHPMailer\Exception;
 use App\Models\MailCred;
 class UserController extends Controller
 {
+    public function forgotPassword(){
+        return view('forgot-password');
+    }
     public function testMail(){
         $mailCreds = MailCred::first();
         $mail = new PHPMailer(true);

@@ -14,8 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [FeedbackController::class, 'showTestimonials']);
-Route::get('/create', [UserController::class, 'create']);
-Route::get('/test-mail',[UserController::class, 'testmail']);
 Route::middleware('guest')->group(function(){
     
     Route::get('/login', function(){
@@ -33,7 +31,7 @@ Route::middleware('guest')->group(function(){
         });
         Route::post('/login', [UserController::class, 'login']);
     });
-    
+    Route::get('/forgot-password',[UserController::class, 'forgotPassword']);
 });
 
 Route::middleware('auth')->group(function(){
