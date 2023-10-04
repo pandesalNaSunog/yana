@@ -85,6 +85,7 @@ class ChatController extends Controller
             'chats' => $chatArray,
             'chatData' => $chatData,
             'messageData' => $messageData,
+            'chat_id' => $chatId
         ]);
     }
     public function chats(){

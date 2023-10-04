@@ -123,12 +123,7 @@
                 @endforeach
                 
             </div>
-            <?php
-                if(!empty($chatData)){
-                    
-                    $chatId = $chatData[0]['chat_id'];
-                    $receiverId = $chatData[0]['receiver_id'];
-                ?>
+            
                     <div class="card" id="write-message">
                         <div class="card-body" >
                             <div class="input-group" id="message-input-group">
@@ -175,7 +170,7 @@
                                                 type: 'POST',
                                                 url: "{{route('send-message')}}",
                                                 data:{
-                                                    chat_id: '{{$chatId}}',
+                                                    chat_id: '{{$chat_id}}',
                                                     message: message.val(),
                                                     receiver_id: '{{$receiverId}}'
                                                 },
@@ -214,9 +209,7 @@
                             </script>
                         </div>
                     </div>
-                <?php
-                }
-                ?>
+               
             
         </div>
     </div>
