@@ -15,6 +15,15 @@ class UserController extends Controller
     public function forgotPassword(){
         return view('forgot-password');
     }
+    public function forgotPasswordVerification(Request $request){
+        session_start();
+        $userId = session()->get('user_id');
+        session()->flush();
+
+        return response([
+            'user_id' => $userId
+        ]);
+    }
 
     public function forgotPasswordEmail(Request $request){
         $fields = $request->validate([
@@ -27,7 +36,12 @@ class UserController extends Controller
                 'email' => 'Invalid Email'
             ])->onlyInput('email');
         }
+        $user->update([
+            'verified' => 1
+        ]);
 
+        session_start();
+        session()->put('user_id', $user->id);
         $passwordVerifications = PasswordVerification::where('user_id', $user->id)->delete();
 
         $code = "";
@@ -68,9 +82,7 @@ class UserController extends Controller
             ], 401);
         }
 
-        return response([
-            'message' => 'ok'
-        ]);
+        return redirect('/forgot-password-verification');
     }
     public function testMail(){
         $mailCreds = MailCred::first();
