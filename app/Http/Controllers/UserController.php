@@ -12,6 +12,22 @@ use App\Models\MailCred;
 use App\Models\PasswordVerification;
 class UserController extends Controller
 {
+    public function postForgotPasswordChangePassword(Request $request){
+        $fields = $request->validate([
+            'user_id' => 'required',
+            'password' => 'required|confirmed'
+        ]);
+
+        $user = User::where('id', $fields['user_id'])->first();
+        if($user){
+            $user->update([
+                'password' => $fields['password']
+            ]);
+
+            return redirect('/login')->with('message', 'Password changed successfully.');
+        }
+        return redirect('/login')->with('message', 'Something went wrong.');
+    }
     public function forgotPasswordChangePassword(){
         session_start();
         if(session()->has('can_change_password')){
