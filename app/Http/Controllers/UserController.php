@@ -20,7 +20,7 @@ class UserController extends Controller
         if(session()->has('user_id')){
             $userId = session()->get('user_id');
             session()->flush();
-            $user = User::where('id', $user->id)->first();
+            $user = User::where('id', $userId)->first();
             if($user){
                 return response($user);
             }
