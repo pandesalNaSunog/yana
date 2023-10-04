@@ -12,16 +12,17 @@ use App\Models\MailCred;
 class UserController extends Controller
 {
     public function testMail(){
+        $mailCreds = MailCred::first();
         $mail = new PHPMailer(true);
 
         $mail->SMTPDebug = 0;
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'yanaect@gmail.com'; 
-        $mail->Password = 'mqcy ehvx pmea rsyc'; 
-        $mail->SMTPSecure = 'ssl'; 
-        $mail->Port = '465';
+        $mail->Username = $mailCreds->username; 
+        $mail->Password = $mailCreds->password; 
+        $mail->SMTPSecure = $mailCreds->secure; 
+        $mail->Port = $mailCreds->port;
 
         $mail->setFrom('yanaect@gmail.com', 'YANA');
         $mail->addAddress('floresjem8@gmail.com');
