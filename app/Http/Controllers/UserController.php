@@ -9,10 +9,39 @@ use App\Models\Matcher;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use App\Models\MailCred;
+use App\Models\PasswordVerification;
 class UserController extends Controller
 {
     public function forgotPassword(){
         return view('forgot-password');
+    }
+
+    public function forgotPasswordEmail(Request $request){
+        $fields = $request->validate([
+            'email' => 'required'
+        ]);
+
+        $user = User::where('email', $fields['email'])->first();
+        if(!$user){
+            return back()->withErrors([
+                'email' => 'Invalid Email'
+            ])->onlyInput('email');
+        }
+
+        $code = "";
+        $characters = "1234567890";
+        for($i = 0; $i < 6; $i++){
+            $index = rand(0, strlen($characters) - 1);
+            $code .= $characters[$index];
+        }
+        PasswordVerification::create([
+            'user_id' => $user->id,
+            'code' => $code
+        ]);
+
+        return response([
+            'message' => 'ok'
+        ]);
     }
     public function testMail(){
         $mailCreds = MailCred::first();

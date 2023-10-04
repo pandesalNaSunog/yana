@@ -12,12 +12,14 @@
             <h4 class="text-center text-primary-color">Please enter your email below</h4>
             <div class="card shadow">
                 <div class="card-body text-center">
-                    <input type="text" placeholder="Email" class="form-control">
-                    <button class="primary-btn w-100 py-2 mt-3">Confirm</button>
+                    <form action="/forgot-password" method="POST">
+                        @csrf
+                        <input type="text" name="email" placeholder="Email" class="form-control">
+                        <button class="primary-btn w-100 py-2 mt-3">Confirm</button>
+                    </form>
                 </div>
             </div>
         </div>
-        
     </div>
 </body>
 </html>
