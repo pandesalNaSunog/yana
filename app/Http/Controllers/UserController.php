@@ -28,8 +28,7 @@ class UserController extends Controller
             ])->onlyInput('email');
         }
 
-        $passwordVerifications = PasswordVerification::where('user_id', $user->id)->get();
-        $passwordVerifications->delete();
+        $passwordVerifications = PasswordVerification::where('user_id', $user->id)->delete();
 
         $code = "";
         $characters = "1234567890";
