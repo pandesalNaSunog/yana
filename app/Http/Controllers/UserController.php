@@ -36,7 +36,7 @@ class UserController extends Controller
         session_start();
         if(session()->has('user_id')){
             $userId = session()->get('user_id');
-            session()->flush();
+            session()->forget('user_id');
             $user = User::where('id', $userId)->first();
             if($user){
                 return view('forgot-password-verification',[
