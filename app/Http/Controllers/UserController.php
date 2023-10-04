@@ -28,9 +28,7 @@ class UserController extends Controller
                 return response($user);
             }
         }
-        return back()->withErrors([
-            'code' => 'Invalid Code'
-        ]);
+        return redirect('/')->with('message', 'Invalid Code.');
     }
     public function forgotPasswordVerification(Request $request){
         session_start();
