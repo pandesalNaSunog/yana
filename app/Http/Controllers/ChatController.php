@@ -56,7 +56,7 @@ class ChatController extends Controller
             $reversedMessages = $messages->reverse();
             foreach($reversedMessages as $message){
                 $sender = User::where('id', $message->sender_id)->first();
-
+                $receiver = User::where('id', $message->receiver_id)->first();
                 if($sender){
                     if($sender->profile_picture != ""){
                         $image = 'public/storage/' . $sender->profile_picture;
@@ -65,7 +65,7 @@ class ChatController extends Controller
                     }
                     if($sender->id == auth()->user()->id){
                         $mine = 1;
-
+                        $receiverId = $receiver->id;
                     }else{
                         $mine = 0;
                         $receiverId = $sender->id;
