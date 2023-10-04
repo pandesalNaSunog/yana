@@ -118,7 +118,7 @@
                                 commentsSection.prepend(`<div class="card shadow my-1">
                                                             <div class="card-body d-flex">
                                                                 
-                                                                <img src="/${picture}" class="img-fluid rounded-circle" style="height: 50px; width: 50px; object-fit: cover">
+                                                                <img src="${picture}" class="img-fluid rounded-circle" style="height: 50px; width: 50px; object-fit: cover">
                                                                 <div class="ms-3">
                                                                 <p class="m-0 fw-bold">${name}</p>
                                                                 <p class="m-0">${comment}</p>
