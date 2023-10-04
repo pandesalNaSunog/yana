@@ -28,7 +28,7 @@
                         
                         <button class="primary-btn w-100 py-3 mt-3">Log In</button>
                     </form>
-                    <button class="btn btn-link">Forgot Password?</button>
+                    <a href="/forgot-password"><button class="btn btn-link">Forgot Password?</button></a>
                 </div>
             </div>
 
