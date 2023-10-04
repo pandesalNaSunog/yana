@@ -18,7 +18,7 @@ class UserController extends Controller
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
         $mail->Username = 'yanaect@gmail.com'; 
-        $mail->Password = 'evzuughjxenuidf'; 
+        $mail->Password = 'mqcy ehvx pmea rsyc'; 
         $mail->SMTPSecure = 'ssl'; 
         $mail->Port = '465';
 
