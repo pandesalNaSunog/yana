@@ -19,7 +19,7 @@
                         @error('code')
                         <x-error-text>{{$message}}</x-error-text>
                         @enderror
-                        <input type="hidden" name="user_id" value="{{$user->email}}">
+                        <input type="hidden" name="user_id" value="{{$user->id}}">
                         <button class="primary-btn w-100 py-2 mt-3">Confirm</button>
                     </form>
                 </div>
