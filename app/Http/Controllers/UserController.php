@@ -12,6 +12,22 @@ use App\Models\MailCred;
 use App\Models\PasswordVerification;
 class UserController extends Controller
 {
+    public function forgotPasswordChangePassword(){
+        session_start();
+        if(session()->has('can_change_password')){
+            session()->forget('can_change_password');
+            $userId = session()->get('user_id_change_password');
+            $user = User::where('id', $userId)->first();
+            if($user){
+                return view('forgot-password-change-password',[
+                    'user' => $user
+                ]);
+            }
+            return redirect('/login')->with('message', 'An error has occurred');
+            
+        }
+        return redirect('/login')->with('message', 'Invalid session');
+    }
     public function forgotPassword(){
         return view('forgot-password');
     }
@@ -25,10 +41,13 @@ class UserController extends Controller
         if($passwordVerification){
             $user = User::where('id', $fields['user_id'])->first();
             if($user){
-                return response($user);
+                session_start();
+                session()->put('can_change_password', 'yes');
+                session()->put('user_id_change_password', $user->id);
+                return redirect('/forgot-password/change');
             }
         }
-        return redirect('/')->with('message', 'Invalid Code.');
+        return redirect('/login')->with('message', 'Invalid Code.');
     }
     public function forgotPasswordVerification(Request $request){
         session_start();

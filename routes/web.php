@@ -35,6 +35,7 @@ Route::middleware('guest')->group(function(){
     Route::post('/forgot-password',[UserController::class, 'forgotPasswordEmail']);
     Route::get('/forgot-password-verification',[UserController::class, 'forgotPasswordVerification']);
     Route::post('/forgot-password-verification', [UserController::class, 'postForgotPasswordVerification']);
+    Route::get('/forgot-password/change',[UserController::class, 'forgotPasswordChangePassword']);
 });
 
 Route::middleware('auth')->group(function(){

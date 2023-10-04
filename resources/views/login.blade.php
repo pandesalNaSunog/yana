@@ -8,7 +8,7 @@
 </head>
 <body class="vh-100">
     
-    <img src="//bilog.png" style="height: 75vh; width: auto; position: absolute; left: -400px; margin-top: 50px;" alt="">
+    <img src="/bilog.png" style="height: 75vh; width: auto; position: absolute; left: -400px; margin-top: 50px;" alt="">
     <img src="/bilog with stripe.png" style="height: 75vh; width: auto; position: absolute; right: -400px; margin-top: -300px; rotate: 40deg" alt="">
     <div class="container h-100 d-flex align-items-center">
         <div class="mx-auto col col-md-6 col-lg-4">
