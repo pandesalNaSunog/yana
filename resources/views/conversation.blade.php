@@ -178,7 +178,7 @@
                                                 success: function(messageData){
                                                     
                                                     
-                                                    displaySentMessage(messageData.chat_id, messageData.id, messageData.message, messageData.receiver_id, messageData.sender_id, messageData.created_at);
+                                                    displaySentMessage(messageData.image,messageData.chat_id, messageData.id, messageData.message, messageData.receiver_id, messageData.sender_id, messageData.created_at);
                                                     scrollToBottomConversation(conversationBox);
                                                     message.val('');
                                                 }
@@ -191,7 +191,7 @@
                                             scrollTop: conversationBox.prop('scrollHeight')
                                         },'slow');
                                     }
-                                    function displaySentMessage(chatId, id, message, receiverId, senderId, createdAt){
+                                    function displaySentMessage(image,chatId, id, message, receiverId, senderId, createdAt){
                                         conversationBox.append(`<div class="col-10 col-md-11">
                                             <div class="card bg-primary message-box shadow ms-auto">
                                                 <div class="card-body text-light text-end">
@@ -202,7 +202,7 @@
                                         </div>
                                         <div class="col-2 col-md-1 text-end">
                                             
-                                            <img src="/{{$messageDatum['image']}}" alt="" class="img-fluid rounded-circle" style="height: 50px; width: 50px; object-fit:cover">
+                                            <img src="${image}" alt="" class="img-fluid rounded-circle" style="height: 50px; width: 50px; object-fit:cover">
                                         </div>`)
                                     }
                                 })

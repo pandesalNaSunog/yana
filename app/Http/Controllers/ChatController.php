@@ -149,7 +149,9 @@ class ChatController extends Controller
         ]);
         $fields['sender_id'] = auth()->user()->id;
         $message = Message::create($fields);
+        $sender = User::where('id', auth()->user()->id)->first();
         return response([
+            'image' => $sender->profile_picture,
             'id' => $message->id,
             'sender_id' => $message->sender_id,
             'receiver_id' => $message->receiver_id,
