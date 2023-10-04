@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('mail_creds', function (Blueprint $table) {
             $table->id();
+            $table->string('username');
+            $table->string('password');
+            $table->string('secure');
+            $table->string('port');
             $table->timestamps();
         });
     }
