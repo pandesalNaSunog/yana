@@ -15,9 +15,11 @@
                     <form action="/forgot-password-verification" method="POST">
                         @csrf
                         <input type="text" name="code" placeholder="XXXXXX" class="form-control">
+                    
                         @error('code')
                         <x-error-text>{{$message}}</x-error-text>
                         @enderror
+                        <input type="hidden" name="user_id" value="{{$user->email}}">
                         <button class="primary-btn w-100 py-2 mt-3">Confirm</button>
                     </form>
                 </div>
