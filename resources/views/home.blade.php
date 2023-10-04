@@ -206,9 +206,12 @@ ensuring personalized and effective care.</p>
                             <img src="/public/storage/{{$feedback['image']}}" class="img-fluid img-cover shadow rounded-4" style="height: 70%; width: 100%" alt="">
                             @endif
                         </div>
-                        <div class="col p-lg-5">
-                            <em class="fs-4">{{$feedback['feedback']}}</em>
-                            <h3 class="fw-bold mt-lg-5 mt-3">{{$feedback['name']}}</h3>
+                        <div class="col p-lg-5 d-flex align-items-center">
+                            <div>
+                                <em class="fs-4">{{$feedback['feedback']}}</em>
+                                <h3 class="fw-bold mt-lg-5 mt-3">{{$feedback['name']}}</h3>
+                            </div>
+                            
                             <!-- <p class="lead fs-5">Student</p> -->
                         </div>
                     </div>
