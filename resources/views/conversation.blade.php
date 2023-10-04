@@ -172,7 +172,7 @@
                                                 data:{
                                                     chat_id: '{{$chat_id}}',
                                                     message: message.val(),
-                                                    receiver_id: '{{$receiverId}}'
+                                                    receiver_id: '{{$receiver_id}}'
                                                 },
                                 
                                                 success: function(messageData){

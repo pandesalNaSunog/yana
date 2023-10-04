@@ -65,8 +65,10 @@ class ChatController extends Controller
                     }
                     if($sender->id == auth()->user()->id){
                         $mine = 1;
+
                     }else{
                         $mine = 0;
+                        $receiverId = $sender->id;
                     }
                     
     
@@ -85,7 +87,8 @@ class ChatController extends Controller
             'chats' => $chatArray,
             'chatData' => $chatData,
             'messageData' => $messageData,
-            'chat_id' => $chatId
+            'chat_id' => $chatId,
+            'receiver_id' => $receiverId
         ]);
     }
     public function chats(){
