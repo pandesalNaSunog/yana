@@ -52,7 +52,7 @@
                             <div class="card shadow my-1">
                                 <div class="card-body d-flex">
                                     
-                                    <img src="/<?php if($comment['image'] == ""){ echo 'empty.jpeg';}else{ echo '/public/storage/' . $comment['image']; }?>" class="img-fluid rounded-circle" style="height: 50px; width: 50px; object-fit: cover">
+                                    <img src="<?php if($comment['image'] == ""){ echo 'empty.jpeg';}else{ echo '/public/storage/' . $comment['image']; }?>" class="img-fluid rounded-circle" style="height: 50px; width: 50px; object-fit: cover">
                                     <div class="ms-3">
                                     <p class="m-0 fw-bold">{{$comment['name']}}</p>
                                     <p class="m-0">{{$comment['comment']}}</p>
