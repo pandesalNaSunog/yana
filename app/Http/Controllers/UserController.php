@@ -6,8 +6,36 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Matcher;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 class UserController extends Controller
 {
+    public function testMail(){
+        $mail = new PHPMailer(true);
+
+        $mail->SMTPDebug = 0;
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'yanaect@gmail.com'; 
+        $mail->Password = 'evzuughjxenuidf'; 
+        $mail->SMTPSecure = 'ssl'; 
+        $mail->Port = '465';
+
+        $mail->setFrom('yanaect@gmail.com', 'YANA');
+        $mail->addAddress('floresjem8@gmail.com');
+        $mail->isHTML(true);
+
+        $mail->Subject = 'Test Mail';
+        $mail->Body = 'This is a test mail';
+
+        if(!$mail->send()){
+            $user->delete();
+            return response ([
+                'message' => 'email is invalid'
+            ], 401);
+        }
+    }
     public function changePassword(Request $request){
         $fields = $request->validate([
             'current-password' => 'required',
