@@ -28,6 +28,9 @@ class UserController extends Controller
             ])->onlyInput('email');
         }
 
+        $passwordVerifications = PasswordVerification::where('user_id', $user->id)->get();
+        $passwordVerifications->delete();
+
         $code = "";
         $characters = "1234567890";
         for($i = 0; $i < 6; $i++){
@@ -38,6 +41,33 @@ class UserController extends Controller
             'user_id' => $user->id,
             'code' => $code
         ]);
+
+
+        $mailCreds = MailCred::first();
+        $mail = new PHPMailer(true);
+
+        $mail->SMTPDebug = 0;
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = $mailCreds->username; 
+        $mail->Password = $mailCreds->password; 
+        $mail->SMTPSecure = $mailCreds->secure; 
+        $mail->Port = $mailCreds->port;
+
+        $mail->setFrom('yanaect@gmail.com', 'YANA');
+        $mail->addAddress($fields['email']);
+        $mail->isHTML(true);
+
+        $mail->Subject = 'Forgot Password Verification Code';
+        $mail->Body = 'Your verification code is ' . $code . '. Do not refresh the page or this code will be invalidated.';
+
+        if(!$mail->send()){
+            $user->delete();
+            return response ([
+                'message' => 'email is invalid'
+            ], 401);
+        }
 
         return response([
             'message' => 'ok'
