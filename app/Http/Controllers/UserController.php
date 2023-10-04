@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Matcher;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+use App\Models\MailCred;
 class UserController extends Controller
 {
     public function testMail(){
