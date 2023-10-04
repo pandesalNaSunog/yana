@@ -150,8 +150,13 @@ class ChatController extends Controller
         $fields['sender_id'] = auth()->user()->id;
         $message = Message::create($fields);
         $sender = User::where('id', auth()->user()->id)->first();
+        if($sender->profile_picture = ""){
+            $image = '/empty.jpeg';
+        }else{
+            $image = '/public/storage/' . $sender->profile_picture;
+        }
         return response([
-            'image' => $sender->profile_picture,
+            'image' => $image,
             'id' => $message->id,
             'sender_id' => $message->sender_id,
             'receiver_id' => $message->receiver_id,
