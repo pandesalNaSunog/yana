@@ -22,7 +22,9 @@ class UserController extends Controller
             session()->flush();
             $user = User::where('id', $userId)->first();
             if($user){
-                return response($user);
+                return view('forgot-password-verification',[
+                    'user' => $user
+                ]);
             }
             return redirect('/');
         }
