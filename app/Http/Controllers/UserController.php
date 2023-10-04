@@ -15,6 +15,23 @@ class UserController extends Controller
     public function forgotPassword(){
         return view('forgot-password');
     }
+    public function postForgotPasswordVerification(Request $request){
+        $fields = $request->validate([
+            'code' => 'required',
+            'user_id' => 'required'
+        ]);
+
+        $passwordVerification = PasswordVerification::where('code', $fields['code'])->where('user_id', $fields['user_id'])->first();
+        if($passwordVerification){
+            $user = User::where('id', $fields['user_id'])->first();
+            if($user){
+                return response($user);
+            }
+        }
+        return back()->withErrors([
+            'code' => 'Invalid Code'
+        ]);
+    }
     public function forgotPasswordVerification(Request $request){
         session_start();
         if(session()->has('user_id')){
