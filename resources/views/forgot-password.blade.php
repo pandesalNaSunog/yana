@@ -15,6 +15,9 @@
                     <form action="/forgot-password" method="POST">
                         @csrf
                         <input type="text" name="email" placeholder="Email" class="form-control">
+                        @error('email')
+                        <x-error-text>{{$message}}</x-error-text>
+                        @enderror
                         <button class="primary-btn w-100 py-2 mt-3">Confirm</button>
                     </form>
                 </div>
