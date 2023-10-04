@@ -38,7 +38,8 @@ class FeedbackController extends Controller
         }
         return view('admin.feedbacks',[
             'feedbacks' => $data,
-            'feedbackItems' => $feedbacks
+            'feedbackItems' => $feedbacks,
+            'active' => 'feedbacks'
         ]);
     }
     public function postFeedback(Feedback $feedback){

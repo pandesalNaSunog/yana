@@ -20,9 +20,9 @@
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item d-flex align-items-center ms-auto">
                     @if(auth()->user()->profile_picture == "")
-                    <img src="/yana/empty.jpeg" class="rounded-circle" style="height: 30px; width: 30px; object-fit: cover" alt="">
+                    <img src="/empty.jpeg" class="rounded-circle" style="height: 30px; width: 30px; object-fit: cover" alt="">
                     @else
-                    <img src="/yana/public/storage/{{auth()->user()->profile_picture}}" class="rounded-circle" style="height: 30px; width: 30px; object-fit: cover" alt="">
+                    <img src="/public/storage/{{auth()->user()->profile_picture}}" class="rounded-circle" style="height: 30px; width: 30px; object-fit: cover" alt="">
                     @endif
                     <p class="nav-link ms-2 m-0">Welcome, {{auth()->user()->first_name}}</p>
                 </li>
@@ -31,13 +31,13 @@
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Account</a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="/yana/therapist" class="dropdown-item">Profile</a>
+                                <a href="/therapist" class="dropdown-item">Profile</a>
                             </li>
                             <li>
                                 <hr class="drodown-divider">
                             </li>
                             <li>
-                                <a href="/yana/logout" class="dropdown-item">Log Out</a>
+                                <a href="/logout" class="dropdown-item">Log Out</a>
                             </li>
                         </ul>
                     </div>

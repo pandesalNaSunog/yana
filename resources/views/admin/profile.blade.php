@@ -7,7 +7,7 @@
     <title>YANA Administrator | Profile</title>
 </head>
 <body>
-    <x-admin-nav>
+    <x-admin-nav :active="$active">
     </x-admin-nav>
     <x-toast></x-toast>
 
@@ -19,7 +19,7 @@
                 </h4>
             </div>
             <div class="card-body">
-                <form action="/yana/change-password" method="POST">
+                <form action="/change-password" method="POST">
                     @csrf
                 
                     <label class="form-label">Current Password</label>

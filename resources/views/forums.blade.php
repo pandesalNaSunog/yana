@@ -15,7 +15,7 @@
         <div class="col col-lg-6 mx-auto">
             <div class="card shadow">
                 <div class="card-body">
-                    <form action="/yana/write-post" method="POST">
+                    <form action="/write-post" method="POST">
                         @csrf
                         <textarea name="post" class="form-control" placeholder="What's on your mind?"></textarea>
                         @error('post')
@@ -32,9 +32,9 @@
                 <div class="card-body">
                     <div class="d-flex">
                         @if($post['image'] == "")
-                        <img src="/yana/empty.jpeg" style="height: 60px; width: 60px; object-fit:cover" alt="" class="rounded-circle img-fluid">
+                        <img src="/empty.jpeg" style="height: 60px; width: 60px; object-fit:cover" alt="" class="rounded-circle img-fluid">
                         @else
-                        <img src="/yana/public/storage/{{$post['image']}}" style="height: 60px; width: 60px; object-fit:cover" alt="" class="rounded-circle img-fluid">
+                        <img src="/public/storage/{{$post['image']}}" style="height: 60px; width: 60px; object-fit:cover" alt="" class="rounded-circle img-fluid">
                         @endif
                         <div class="ms-3">
                             <p class="fw-bold m-0">{{$post['name']}}</p>
@@ -45,14 +45,14 @@
                 </div>
                 <div class="card-footer">
                     @if($post['total_comments'] > 4)
-                    <a href="/yana/post-comments/{{$post['id']}}" class="btn-link">View all {{$post['total_comments']}} Comments</a>
+                    <a href="/post-comments/{{$post['id']}}" class="btn-link">View all {{$post['total_comments']}} Comments</a>
                     @endif
                     <div class="mt-3" id="comments-with-post-id-{{$post['id']}}">
                         @foreach($post['comments'] as $comment)
                             <div class="card shadow my-1">
                                 <div class="card-body d-flex">
                                     
-                                    <img src="/yana/<?php if($comment['image'] == ""){ echo 'empty.jpeg';}else{ echo '/public/storage/' . $comment['image']; }?>" class="img-fluid rounded-circle" style="height: 50px; width: 50px; object-fit: cover">
+                                    <img src="/<?php if($comment['image'] == ""){ echo 'empty.jpeg';}else{ echo '/public/storage/' . $comment['image']; }?>" class="img-fluid rounded-circle" style="height: 50px; width: 50px; object-fit: cover">
                                     <div class="ms-3">
                                     <p class="m-0 fw-bold">{{$comment['name']}}</p>
                                     <p class="m-0">{{$comment['comment']}}</p>
@@ -118,7 +118,7 @@
                                 commentsSection.prepend(`<div class="card shadow my-1">
                                                             <div class="card-body d-flex">
                                                                 
-                                                                <img src="/yana/${picture}" class="img-fluid rounded-circle" style="height: 50px; width: 50px; object-fit: cover">
+                                                                <img src="/${picture}" class="img-fluid rounded-circle" style="height: 50px; width: 50px; object-fit: cover">
                                                                 <div class="ms-3">
                                                                 <p class="m-0 fw-bold">${name}</p>
                                                                 <p class="m-0">${comment}</p>

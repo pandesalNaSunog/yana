@@ -76,6 +76,7 @@ Route::middleware('auth')->group(function(){
         Route::get('/admin/change-password',[UserController::class, 'adminProfile']);
         Route::get('/admin/feedbacks',[FeedbackController::class, 'feedbacks']);
         Route::post('/admin/post-feedback/{feedback}', [FeedbackController::class, 'postFeedback']);
+        Route::post('/update-solution/{solution}',[LibraryController::class, 'updateSolution']);
     });
     Route::middleware('psych')->group(function(){
         Route::get('/therapist-approval', [UserController::class, 'therapistApproval']);

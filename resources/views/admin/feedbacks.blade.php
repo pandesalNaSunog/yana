@@ -7,7 +7,7 @@
     <title>YANA Administrator | Feedbacks</title>
 </head>
 <body>
-    <x-admin-nav></x-admin-nav>
+    <x-admin-nav :active="$active"></x-admin-nav>
     <x-toast></x-toast>
     <div class="container my-5">
         <div class="card shadow">
@@ -45,13 +45,13 @@
                                         <ul class="dropdown-menu">
                                             <li>
                                                 @if($feedback['feedback']->approval == 0)
-                                                <form action="/yana/admin/post-feedback/{{$feedback['feedback']->id}}" onsubmit="return confirm('Are you sure you want to post this feedback to client testimonials?')" method="POST">
+                                                <form action="/admin/post-feedback/{{$feedback['feedback']->id}}" onsubmit="return confirm('Are you sure you want to post this feedback to client testimonials?')" method="POST">
                                                     @csrf
                                                     <button class="dropdown-item">Post</button>
                                                 </form>
                                                 
                                                 @else
-                                                <form action="/yana/admin/unpost-feedback/{{$feedback['feedback']->id}}" onsubmit="return confirm('Are you sure you want to unpost this feedback from client testimonials?')" method="POST">
+                                                <form action="/admin/unpost-feedback/{{$feedback['feedback']->id}}" onsubmit="return confirm('Are you sure you want to unpost this feedback from client testimonials?')" method="POST">
                                                     @csrf
                                                     <button class="dropdown-item">Unpost</button>
                                                 </form>

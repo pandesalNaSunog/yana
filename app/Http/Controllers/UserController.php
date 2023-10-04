@@ -167,7 +167,8 @@ class UserController extends Controller
     }
     public function adminSideUserProfile(User $user){
         return view('admin.user-profile', [
-            'user' => $user
+            'user' => $user,
+            'active' => 'none'
         ]);
     }
     public function therapistList(){
@@ -195,7 +196,8 @@ class UserController extends Controller
         $therapists = User::where('role', 1)->latest()->paginate(5);
 
         $data = [
-            'therapists' => $therapists
+            'therapists' => $therapists,
+            'active' => 'therapists'
         ];
 
         return view('admin.therapists', $data);
@@ -204,7 +206,8 @@ class UserController extends Controller
     public function usersAdminSide(){
         $patients = User::where('role', 2)->latest()->paginate(5);
         $data = [
-            'patients' => $patients
+            'patients' => $patients,
+            'active' => 'patients'
         ];
 
         return view('admin.users', $data);
@@ -343,7 +346,9 @@ class UserController extends Controller
     }
 
     public function dashboard(){
-        return view('admin.dashboard');
+        return view('admin.dashboard',[
+            'active' => 'dashboard'
+        ]);
     }
 
     public function redirector(){

@@ -20,11 +20,11 @@
             <h1 class="fw-bold text-primary-color">YOU ARE NOT ALONE</h1>
             @auth
             @else
-            <a href="/yana/signup"><button class="primary-btn mt-4 px-5 py-2 fw-bold">Sign Up Now!</button></a>
+            <a href="/signup"><button class="primary-btn mt-4 px-5 py-2 fw-bold">Sign Up Now!</button></a>
             @endauth
         </div>
         <div class="d-lg-block d-none col">
-            <img src="/yana/home background.jpg" class="img-fluid cover-img" alt="">
+            <img src="/home background.jpg" class="img-fluid cover-img" alt="">
         </div>
 
 
@@ -124,11 +124,11 @@ ensuring personalized and effective care.</p>
                     </div>
                 </div>
                 
-                <a href="/yana/therapist-list"><button class="primary-btn px-5 py-2 mt-3">Get Matched to a Psychologist</button></a>
+                <a href="/therapist-list"><button class="primary-btn px-5 py-2 mt-3">Get Matched to a Psychologist</button></a>
             </div>
             <div class="col">
-                <img id="home-image-1" src="/yana/psychologist match 1.png" alt="" class="img-fluid">
-                <img id="home-image-2" src="/yana/psychologist match 2.png" alt="" class="img-fluid">
+                <img id="home-image-1" src="/psychologist match 1.png" alt="" class="img-fluid">
+                <img id="home-image-2" src="/psychologist match 2.png" alt="" class="img-fluid">
             </div>
         </div>
 
@@ -140,7 +140,7 @@ ensuring personalized and effective care.</p>
                 <div class="col">
                     <div class="card shadow feature-card text-center" style="height: 550px;">
                         <div class="card-body">
-                            <img src="/yana/choose.png" class="img-fluid" alt="">
+                            <img src="/choose.png" class="img-fluid" alt="">
                             <p class="fs-4 fw-bold mt-5">Choose Your Option</p>
                             <p class="lead">Select between YANA's free or 
                                 subscription-based options to access our 
@@ -157,7 +157,7 @@ ensuring personalized and effective care.</p>
                 <div class="col">
                     <div class="card shadow feature-card text-center" style="height: 550px;">
                         <div class="card-body">
-                            <img src="/yana/choose.png" class="img-fluid" alt="">
+                            <img src="/choose.png" class="img-fluid" alt="">
                             <p class="fs-4 fw-bold mt-5">Choose Your Option</p>
                             <p class="lead">Select between YANA's free or 
                                 subscription-based options to access our 
@@ -174,7 +174,7 @@ ensuring personalized and effective care.</p>
                 <div class="col">
                     <div class="card shadow feature-card text-center" style="height: 550px;">
                         <div class="card-body">
-                            <img src="/yana/choose.png" class="img-fluid" alt="">
+                            <img src="/choose.png" class="img-fluid" alt="">
                             <p class="fs-4 fw-bold mt-5">Choose Your Option</p>
                             <p class="lead">Select between YANA's free or 
                                 subscription-based options to access our 
@@ -201,9 +201,9 @@ ensuring personalized and effective care.</p>
                     <div class="row row-cols-1 row-cols-lg-2 g-lg-5 g-2">
                         <div class="col d-flex align-items-center">
                             @if($feedback['image'] == "")
-                            <img src="/yana/empty.jpeg" class="img-fluid shadow rounded-4" alt="">
+                            <img src="/empty.jpeg" class="img-fluid shadow rounded-4" alt="">
                             @else
-                            <img src="/yana/public/storage/{{$feedback['image']}}" class="img-fluid img-cover shadow rounded-4" style="height: 70%; width: 100%" alt="">
+                            <img src="/public/storage/{{$feedback['image']}}" class="img-fluid img-cover shadow rounded-4" style="height: 70%; width: 100%" alt="">
                             @endif
                         </div>
                         <div class="col p-lg-5">
@@ -238,7 +238,7 @@ ensuring personalized and effective care.</p>
                 <div class="col">
                     <div class="card shadow">
                         <div class="card-body">
-                            <form action="/yana/write-feedback" method="POST">
+                            <form action="/write-feedback" method="POST">
                                 @csrf
                                 <input required type="text" name="feedback" placeholder="Write your feedback here..." class="form-control">
                                 @error('feedback')

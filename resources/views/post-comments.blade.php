@@ -13,9 +13,9 @@
             <div class="card-body">
                 <div class="d-flex">
                     @if($post['image'] == "")
-                    <img src="/yana/empty.jpeg" style="height: 60px; width: 60px; object-fit:cover" alt="" class="rounded-circle img-fluid">
+                    <img src="/empty.jpeg" style="height: 60px; width: 60px; object-fit:cover" alt="" class="rounded-circle img-fluid">
                     @else
-                    <img src="/yana/public/storage/{{$post['image']}}" style="height: 60px; width: 60px; object-fit:cover" alt="" class="rounded-circle img-fluid">
+                    <img src="/public/storage/{{$post['image']}}" style="height: 60px; width: 60px; object-fit:cover" alt="" class="rounded-circle img-fluid">
                     @endif
                     <div class="ms-3">
                         <p class="fw-bold m-0">{{$post['name']}}</p>
@@ -31,7 +31,7 @@
                         <div class="card shadow my-1">
                             <div class="card-body d-flex">
                                 
-                                <img src="/yana/<?php if($comment['image'] == ""){ echo 'empty.jpeg';}else{ echo '/public/storage/' . $comment['image']; }?>" class="img-fluid rounded-circle" style="height: 50px; width: 50px; object-fit: cover">
+                                <img src="/<?php if($comment['image'] == ""){ echo 'empty.jpeg';}else{ echo '/public/storage/' . $comment['image']; }?>" class="img-fluid rounded-circle" style="height: 50px; width: 50px; object-fit: cover">
                                 <div class="ms-3">
                                 <p class="m-0 fw-bold">{{$comment['name']}}</p>
                                 <p class="m-0">{{$comment['comment']}}</p>
@@ -97,7 +97,7 @@
                             commentsSection.prepend(`<div class="card shadow my-1">
                                                         <div class="card-body d-flex">
                                                             
-                                                            <img src="/yana/${picture}" class="img-fluid rounded-circle" style="height: 50px; width: 50px; object-fit: cover">
+                                                            <img src="/${picture}" class="img-fluid rounded-circle" style="height: 50px; width: 50px; object-fit: cover">
                                                             <div class="ms-3">
                                                             <p class="m-0 fw-bold">${name}</p>
                                                             <p class="m-0">${comment}</p>

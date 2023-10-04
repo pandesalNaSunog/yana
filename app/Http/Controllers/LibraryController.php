@@ -28,7 +28,8 @@ class LibraryController extends Controller
     public function library(){
         $libraryCategories = LibraryCategory::latest()->paginate(3);
         $data = [
-            'libraryCategories' => $libraryCategories
+            'libraryCategories' => $libraryCategories,
+            'active' => 'library'
         ];
         return view('admin.library',$data);
     }
@@ -67,7 +68,8 @@ class LibraryController extends Controller
         $solutions = LibrarySolution::where('category_id', $category->id)->latest()->paginate(3);
         return view('admin.solutions',[
             'solutions' => $solutions,
-            'category' => $category
+            'category' => $category,
+            'active' => 'none'
         ]);
     }
     public function addSolution(Request $request){
@@ -80,8 +82,23 @@ class LibraryController extends Controller
         return redirect('/admin/solutions/' . $fields['category_id'])->with('message', 'Solution has been successfully added.');
     }
     public function editSolution(LibrarySolution $solution){
-        return view('admin.edit-solution',[
-            'solution' => $solution
+        $category = LibraryCategory::where('id', $solution->category_id)->first();
+        if($category){
+            return view('admin.edit-solution',[
+                'solution' => $solution,
+                'category' => $category,
+                'active' => 'none'
+            ]);
+        }
+        
+    }
+    public function updateSolution(Request $request, LibrarySolution $solution){
+        $fields = $request->validate([
+            'solution' => 'required'
         ]);
+
+        $solution->update($fields);
+
+        return back()->with('message', 'Solution has been updated successfully.');
     }
 }

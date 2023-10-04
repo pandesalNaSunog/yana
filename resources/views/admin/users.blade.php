@@ -7,7 +7,7 @@
     <title>YANA | Administrator | Patients</title>
 </head>
 <body>
-    <x-admin-nav></x-admin-nav>
+    <x-admin-nav :active="$active"></x-admin-nav>
     <div class="container">
         <div class="card mt-5 shadow">
             <div class="card-header">

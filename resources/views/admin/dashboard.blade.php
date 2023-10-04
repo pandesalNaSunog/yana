@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <x-admin-nav></x-admin-nav>
+    <x-admin-nav :active="$active"></x-admin-nav>
     
 
 </body>

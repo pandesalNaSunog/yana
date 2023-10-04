@@ -7,7 +7,7 @@
     <title>YANA | Administrator | Therapists</title>
 </head>
 <body>
-    <x-admin-nav></x-admin-nav>
+    <x-admin-nav :active="$active"></x-admin-nav>
     <div class="container">
         <div class="card mt-5 shadow">
             <div class="card-header">
@@ -31,7 +31,7 @@
                             <td>{{$therapist->email}}</td>
                             <td>{{$therapist->contact_number}}</td>
                             <td>{{date_format(date_create($therapist->birth_date), 'M d, Y')}}</td>
-                            <td><a href="/yana/admin/users/{{$therapist->id}}"><button class="primary-outline-btn px-5 py-2">View Credentials</button></a></td>
+                            <td><a href="/admin/users/{{$therapist->id}}"><button class="primary-outline-btn px-5 py-2">View Credentials</button></a></td>
                         </tr>
                         @endforeach
                     </tbody>
