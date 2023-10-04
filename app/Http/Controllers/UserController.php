@@ -17,12 +17,17 @@ class UserController extends Controller
     }
     public function forgotPasswordVerification(Request $request){
         session_start();
-        $userId = session()->get('user_id');
-        session()->flush();
-
-        return response([
-            'user_id' => $userId
-        ]);
+        if(session()->has('user_id')){
+            $userId = session()->get('user_id');
+            session()->flush();
+            $user = User::where('id', $user->id)->first();
+            if($user){
+                return response($user);
+            }
+            return redirect('/');
+        }
+        
+        return redirect('/');
     }
 
     public function forgotPasswordEmail(Request $request){
