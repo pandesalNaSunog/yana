@@ -44,7 +44,8 @@ class LibraryController extends Controller
     }
     public function editCategory(LibraryCategory $category){
         return view('admin.edit-category',[
-            'category' => $category
+            'category' => $category,
+            'active' => 'none'
         ]);
     }
     public function updateCategory(LibraryCategory $category, Request $request){
