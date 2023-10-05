@@ -12,14 +12,14 @@
             <h4 class="text-center text-primary-color">Please enter the verification code sent to {{$user->email}}</h4>
             <div class="card shadow">
                 <div class="card-body text-center">
-                    <form action="/forgot-password-verification" method="POST">
+                    <form action="/email-verification" method="POST">
                         @csrf
                         <input type="text" name="code" placeholder="XXXXXX" class="form-control">
                     
                         @error('code')
                         <x-error-text>{{$message}}</x-error-text>
                         @enderror
-                        <input type="hidden" name="user_id" value="{{$user->id}}">
+                        <input type="hidden" name="user_id" value="{{auth()->user()->id}}">
                         <button class="primary-btn w-100 py-2 mt-3">Confirm</button>
                     </form>
                 </div>
