@@ -10,8 +10,23 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use App\Models\MailCred;
 use App\Models\PasswordVerification;
+use App\Models\EmailVerification;
 class UserController extends Controller
 {
+    public function emailVerification(){
+        $user = User::where('id', auth()->user()->id)->first();
+        if($user && $user->verified == 1){
+
+            return view('email-verification',[
+                'user' => $user
+            ]);
+            
+            
+        }
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/')->with('message', 'Something went wrong.');
+    }
     public function postForgotPasswordChangePassword(Request $request){
         $fields = $request->validate([
             'user_id' => 'required',
@@ -207,6 +222,8 @@ class UserController extends Controller
             $fields['role'] = 1;
             $fields['profile_picture'] = "";
             $fields['bio'] = "";
+            $fields['forgot_password'] = 0;
+            $fields['verified'] = 0;
             $user = User::create($fields);
             auth()->login($user);
             return redirect('/redirector');
@@ -320,6 +337,8 @@ class UserController extends Controller
         $fields['degree'] = "";
         $fields['role'] = 2;
         $fields['bio'] = "";
+        $fields['forgot_password'] = 0;
+        $fields['verified'] = 0;
 
         $user = User::create($fields);
         auth()->login($user);

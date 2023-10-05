@@ -40,6 +40,7 @@ Route::middleware('guest')->group(function(){
 });
 
 Route::middleware('auth')->group(function(){
+    Route::get('/email-verification', [UserController::class, 'emailVerification']);
     Route::get('/redirector', [UserController::class, 'redirector']);
     Route::post('/change-password', [UserController::class, 'changePassword']);
     Route::get('/chats',[ChatController::class, 'chats']);

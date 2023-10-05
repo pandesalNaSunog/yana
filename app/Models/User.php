@@ -29,7 +29,9 @@ class User extends Authenticatable
         'degree',
         'approval',
         'role',
-        'bio'
+        'bio',
+        'forgot_password',
+        'verified'
     ];
 
     /**
