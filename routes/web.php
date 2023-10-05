@@ -39,7 +39,7 @@ Route::middleware('guest')->group(function(){
     Route::post('/forgot-password/change', [UserController::class, 'postForgotPasswordChangePassword']);
 });
 
-Route::middleware('auth')->group(function(){
+Route::middleware(['auth','is_verified'])->group(function(){
     Route::get('/email-verification', [UserController::class, 'emailVerification']);
     Route::get('/redirector', [UserController::class, 'redirector']);
     Route::post('/change-password', [UserController::class, 'changePassword']);
