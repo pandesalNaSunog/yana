@@ -59,9 +59,12 @@ class FeedbackController extends Controller
                     return redirect('/email-verification');
                 }
             }
-            $request->session()->invalidate();
-            $request->session()->regenerateToken();
-            return redirect('/')->with('message', 'There is a problem with your account. Please try logging in again.');
+            if(!$user){
+                $request->session()->invalidate();
+                $request->session()->regenerateToken();
+                return redirect('/')->with('message', 'There is a problem with your account. Please try logging in again.');
+            }
+            
         }
 
         $feedbacks = Feedback::where('approval', 1)->get();
