@@ -16,6 +16,47 @@ class UserController extends Controller
     public function emailVerification(Request $request){
         $user = User::where('id', auth()->user()->id)->first();
         if($user && $user->verified == 1){
+            $emailVerifications = EmailVerification::where('user_id', $user->id)->delete();
+
+            $code = "";
+            $characters = "1234567890";
+            for($i = 0; $i < 6; $i++){
+                $index = rand(0, strlen($characters) - 1);
+                $code .= $characters[$index];
+            }
+
+            EmailVerification::create([
+
+                'user_id' => $user->id,
+                'code' => $code
+            ]);
+
+            $mailCreds = MailCred::first();
+            $mail = new PHPMailer(true);
+
+            $mail->SMTPDebug = 0;
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';
+            $mail->SMTPAuth = true;
+            $mail->Username = $mailCreds->username; 
+            $mail->Password = $mailCreds->password; 
+            $mail->SMTPSecure = $mailCreds->secure; 
+            $mail->Port = $mailCreds->port;
+
+            $mail->setFrom('yanaect@gmail.com', 'YANA');
+            $mail->addAddress($fields['email']);
+            $mail->isHTML(true);
+
+            $mail->Subject = 'Email Verification';
+            $mail->Body = 'Your verification code is ' . $code . '.';
+
+            if(!$mail->send()){
+                $user->delete();
+                return response ([
+                    'message' => 'email is invalid'
+                ], 401);
+            }
+
 
             return view('email-verification',[
                 'user' => $user
@@ -313,6 +354,13 @@ class UserController extends Controller
 
         if(auth()->attempt($fields)){
             $request->session()->regenerate();
+            $user = User::where('id', auth()->user()->id)->first();
+            if($user && $user->verified == 0){
+                $user->update([
+                    'verified' => 1
+                ]);
+                return redirect('/email-verification');
+            }
             return redirect('/redirector');
         }
 
