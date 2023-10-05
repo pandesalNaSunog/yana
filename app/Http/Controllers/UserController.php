@@ -13,7 +13,7 @@ use App\Models\PasswordVerification;
 use App\Models\EmailVerification;
 class UserController extends Controller
 {
-    public function emailVerification(){
+    public function emailVerification(Request $request){
         $user = User::where('id', auth()->user()->id)->first();
         if($user && $user->verified == 1){
 
