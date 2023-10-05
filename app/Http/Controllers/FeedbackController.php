@@ -48,13 +48,22 @@ class FeedbackController extends Controller
         ]);
         return back()->with('message', 'This feedback has been posted to Landing Page Testimonials');
     }
-    public function showTestimonials(){
+    public function showTestimonials(Request $request){
         if(auth()->check()){
             if(auth()->user()->role != 2){
                 return redirect('/redirector');
             }
-            
+            $user = User::where('id', auth()->user()->id)->first();
+            if($user){
+                if($user->verified != 2){
+                    return redirect('/email-verification');
+                }
+            }
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+            return redirect('/')->with('message', 'There is a problem with your account. Please try logging in again.');
         }
+
         $feedbacks = Feedback::where('approval', 1)->get();
         $data = [];
         foreach($feedbacks as $feedback){
