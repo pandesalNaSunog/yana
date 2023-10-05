@@ -13,6 +13,26 @@ use App\Models\PasswordVerification;
 use App\Models\EmailVerification;
 class UserController extends Controller
 {
+    public function postEmailVerification(Request $request){
+        $fields = $request->validate([
+            'code' => 'required'
+        ]);
+
+        $user = User::where('id', auth()->user()->id)->first();
+        if($user){
+            $emailVerification = EmailVerification::where('code', $fields['code'])->where('user_id', $user->id)->first();
+            if($emailVerification){
+                $user->update([
+                    'verified' => 2
+                ]);
+                return redirect('/')->with('message', 'Email has been successfully verified.');
+            }
+            return back()->withErrors('code', 'Invalid Code')->onlyInput('code');
+        }
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/')-with('message', 'There was a problem with your account. Please try loggin in again.');
+    }
     public function emailVerification(Request $request){
         $user = User::where('id', auth()->user()->id)->first();
         if($user && $user->verified == 1){
