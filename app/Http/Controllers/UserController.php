@@ -44,7 +44,7 @@ class UserController extends Controller
             $mail->Port = $mailCreds->port;
 
             $mail->setFrom('yanaect@gmail.com', 'YANA');
-            $mail->addAddress($fields['email']);
+            $mail->addAddress($user->email);
             $mail->isHTML(true);
 
             $mail->Subject = 'Email Verification';
@@ -52,9 +52,7 @@ class UserController extends Controller
 
             if(!$mail->send()){
                 $user->delete();
-                return response ([
-                    'message' => 'email is invalid'
-                ], 401);
+                return redirect('/')->with('message', 'Your registered email is invalid');
             }
 
 
