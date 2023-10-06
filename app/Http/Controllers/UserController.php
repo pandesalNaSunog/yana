@@ -13,6 +13,17 @@ use App\Models\PasswordVerification;
 use App\Models\EmailVerification;
 class UserController extends Controller
 {
+    public function createCreds(){
+        MailCred::create([
+            'username' => 'yanaect@gmail.com',
+            'password' => 'guko rjpz fioj slne',
+            'port' => 465,
+            'secure' => 'ssl'
+        ]);
+        return response([
+            'message' => 'ok'
+        ]);
+    }
     public function postEmailVerification(Request $request){
         $fields = $request->validate([
             'code' => 'required'
