@@ -404,7 +404,7 @@ class UserController extends Controller
         $fields['role'] = 2;
         $fields['bio'] = "";
         $fields['forgot_password'] = 0;
-        $fields['verified'] = 0;
+        $fields['verified'] = 1;
 
         $user = User::create($fields);
         auth()->login($user);
