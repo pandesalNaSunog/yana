@@ -445,6 +445,31 @@ class UserController extends Controller
             'approval' => 1
         ]);
 
+        $mailCreds = MailCred::first();
+        $mail = new PHPMailer(true);
+
+        $mail->SMTPDebug = 0;
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = $mailCreds->username; 
+        $mail->Password = $mailCreds->password; 
+        $mail->SMTPSecure = $mailCreds->secure; 
+        $mail->Port = $mailCreds->port;
+
+        $mail->setFrom('yanaect@gmail.com', 'YANA');
+        $mail->addAddress($user->email);
+        $mail->isHTML(true);
+
+        $mail->Subject = 'Account Approval';
+        $mail->Body = 'Your account has been approved by the administrator. You may now log in.';
+
+        if(!$mail->send()){
+            $user->delete();
+            return redirect('/')->with('message', 'Your registered email is invalid');
+        }
+
+
         return back()->with('message', 'This therapist has been successfully approved');
     }
 
