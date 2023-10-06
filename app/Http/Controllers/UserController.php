@@ -293,7 +293,7 @@ class UserController extends Controller
             $fields['profile_picture'] = "";
             $fields['bio'] = "";
             $fields['forgot_password'] = 0;
-            $fields['verified'] = 0;
+            $fields['verified'] = 1;
             $user = User::create($fields);
             auth()->login($user);
             return redirect('/redirector');
@@ -572,7 +572,7 @@ class UserController extends Controller
             'approval' => 0,
             'bio' => "",
             'degree' => "",
-            'forgot_password' => "",
+            'forgot_password' => 0,
             'verified' => 2
         ];
         
