@@ -41,7 +41,7 @@
                             </div>
                             <div class="col">
                                 <label class="form-label">Email</label>
-                                <input value="{{old('email')}}" name="email" type="text" class="form-control">
+                                <input value="{{old('email')}}" name="email" type="email" class="form-control">
                                 @error('email')
                                 <x-error-text>{{$message}}</x-error-text>
                                 @enderror

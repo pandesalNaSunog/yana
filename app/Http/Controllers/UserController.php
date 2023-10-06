@@ -279,7 +279,7 @@ class UserController extends Controller
         $fields = $request->validate([
             'first_name' => 'required',
             'last_name' => 'required',
-            'email' => 'required|unique:users,email',
+            'email' => 'required|email|unique:users,email',
             'contact_number' => 'required|min:11',
             'birth_date' => 'required|date',
             'degree' => 'required',
@@ -402,7 +402,7 @@ class UserController extends Controller
         $fields = $request->validate([
             'first_name' => 'required',
             'last_name' => 'required|min:3',
-            'email' => 'required|unique:users,email',
+            'email' => 'required|email|unique:users,email',
             'contact_number' => 'required|min:10',
             'birth_date' => 'required|date',
             'password' => 'required|confirmed',
