@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/create/creds/admin-admin', [UserController::class, 'create']);
 Route::get('/create/creds/cred-cred', [UserController::class, 'createCreds']);
 Route::get('/', [FeedbackController::class, 'showTestimonials']);
 Route::middleware('guest')->group(function(){

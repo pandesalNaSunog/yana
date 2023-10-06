@@ -571,7 +571,9 @@ class UserController extends Controller
             'certification' => "",
             'approval' => 0,
             'bio' => "",
-            'degree' => ""
+            'degree' => "",
+            'forgot_password' => "",
+            'verified' => 2
         ];
         
         
