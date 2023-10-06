@@ -589,7 +589,8 @@ class UserController extends Controller
     public function adminProfile(){
         $user = User::where('id', auth()->user()->id)->first();
         return view('admin.profile', [
-            'user' => $user
+            'user' => $user,
+            'active' => 'none'
         ]);
     }
     public function signup(){
