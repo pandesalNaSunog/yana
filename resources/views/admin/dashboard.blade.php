@@ -10,7 +10,7 @@
 
     <x-admin-nav :active="$active"></x-admin-nav>
     
-    <div class="container-fluid my-5">
+    <div class="container my-5">
         
         <div class="row row-cols-1 row-cols-lg-2 g-3">
             <div class="col">
