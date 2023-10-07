@@ -662,6 +662,7 @@ class UserController extends Controller
     }
 
     public function dashboard(){
+        dd(time());
         $patients = User::where('role', 2)->get()->count();
         $therapists = User::where('role', 1)->get()->count();
         $feedbacks = Feedback::all()->count();
