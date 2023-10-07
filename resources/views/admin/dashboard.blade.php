@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <x-imports></x-imports>
-    <title>YANA Administrator | Log In</title>
+    <title>YANA Administrator | Dashboard/title>
 </head>
 <body>
 
@@ -14,8 +14,8 @@
         <div class="row row-cols-1 row-cols-2">
             <div class="card shadow" style="border: none">
                 <div class="card-body">
-                    <h4 class="fw-bold">Patients</h4>
-                    <h1 class="fw-bold">200</h1>
+                    <h4>Patients</h4>
+                    <h1 class="fw-bold fs-1">200</h1>
                 </div>
             </div>
         </div>
