@@ -26,7 +26,7 @@
                         <form action="/post-matcher" method="POST">
                             @csrf
                             <input type="hidden" value="{{$therapist->id}}" name="therapist_id">
-                            <button class="px-5 py-2 primary-btn">Get Matched Now</button>
+                            <button class="w-100 py-2 primary-btn">Get Matched Now</button>
                         </form>
                         
                     </div>
