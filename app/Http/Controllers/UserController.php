@@ -705,7 +705,7 @@ class UserController extends Controller
             'feedbacks' => $feedbacks,
             'patient_rate_of_increase' => $patientRateOfIncrease,
             'therapist_rate_of_increase' => $therapistRateOfIncrease,
-            'feedback_rate_of_increse' => $feedbackRateOfIncrease
+            'feedback_rate_of_increase' => $feedbackRateOfIncrease
         ]);
     }
 
