@@ -45,7 +45,7 @@
                                 " alt="">
                         <h3 class="fw-bold mt-3">{{auth()->user()->first_name . " " . auth()->user()->last_name}}</h3>
                         <p class="m-0"><em>{{auth()->user()->email}}</em></p>
-                        <a href="/therapist/edit-profile"><button class="mt-4 primary-btn w-100">Edit Profile</button></a>
+                        <a href="/therapist/edit-profile"><button class="py-2 mt-4 primary-btn w-100">Edit Profile</button></a>
                         <hr>
                         @if(auth()->user()->bio == "")
                         <p class="m-0 text-center"><i>"No bio"</i></p>
