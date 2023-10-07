@@ -350,7 +350,8 @@ class UserController extends Controller
         }
         return view('therapist.therapist-dashboard', [
             'onlineSessions' => $onlineSessions,
-            'matchers' => $matchers
+            'matchers' => $matchers,
+            'active' => 'home'
         ]);
     }
     public function updateProfile(Request $request){

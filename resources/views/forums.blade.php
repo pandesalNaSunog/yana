@@ -7,9 +7,13 @@
     <title>YANA | Forums</title>
 </head>
 <body>
+    @if(auth()->user()->role == 2)
     <x-client-nav :active="$active">
-
     </x-client-nav>
+    @else
+    <x-therapist-nav :active="$active">
+
+    </x-therapist-nav>
     <x-toast></x-toast>
     <div class="container py-5">
         <div class="col col-lg-6 mx-auto">
