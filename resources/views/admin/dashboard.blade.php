@@ -16,7 +16,7 @@
                 <div class="card shadow" style="border: none">
                     <div class="card-body">
                         <h4 class="text-primary-color">Patients</h4>
-                        <h1 class="fw-bold fs-1">{{$patients}}</h1>
+                        <h1 class="fw-bold fs-1 py-5">{{$patients}}</h1>
                         @if($patient_rate_of_increase < 1)
                         <p class="text-danger">-{{$patient_rate_of_increase . "% for the month of " . date('F')}}</p>
                         @else
@@ -29,7 +29,7 @@
                 <div class="card shadow" style="border: none">
                     <div class="card-body">
                         <h4 class="text-primary-color">Therapists</h4>
-                        <h1 class="fw-bold fs-1">{{$therapists}}</h1>
+                        <h1 class="fw-bold fs-1 py-5">{{$therapists}}</h1>
                         @if($therapist_rate_of_increase < 1)
                         <p class="text-danger">-{{$therapist_rate_of_increase . "% for the month of " . date('F')}}</p>
                         @else
@@ -42,7 +42,7 @@
                 <div class="card shadow" style="border: none">
                     <div class="card-body">
                         <h4 class="text-primary-color">Feedbacks</h4>
-                        <h1 class="fw-bold fs-1">{{$feedbacks}}</h1>
+                        <h1 class="fw-bold fs-1 py-5">{{$feedbacks}}</h1>
                         @if($feedback_rate_of_increase < 1)
                         <p class="text-danger">-{{$feedback_rate_of_increase . "% for the month of " . date('F')}}</p>
                         @else
@@ -55,7 +55,7 @@
                 <div class="card shadow" style="border: none">
                     <div class="card-body">
                         <h4 class="text-primary-color">Forum Posts</h4>
-                        <h1 class="fw-bold fs-1">{{$posts}}</h1>
+                        <h1 class="fw-bold fs-1 py-5">{{$posts}}</h1>
                         @if($post_rate < 1)
                         <p class="text-danger">-{{$post_rate . "% for the month of " . date('F')}}</p>
                         @else
