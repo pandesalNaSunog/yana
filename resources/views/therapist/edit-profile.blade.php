@@ -8,7 +8,7 @@
 </head>
 <body>
     <x-toast></x-toast>
-    <x-client-nav></x-client-nav>
+    <x-therapist-nav :active="$active"></x-therapist-nav>
         <div class="container">
             <div class="row row-cols-1 row-cols-lg-2 g-3 mt-5">
                 <div class="col col-lg-4">
