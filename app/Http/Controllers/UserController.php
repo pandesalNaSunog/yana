@@ -666,7 +666,7 @@ class UserController extends Controller
 
         //calculate rate of increase of patients for today's month
 
-        $patientsThisMonth = User::where('created_at', 'like', $monthToday)->get()->count();
+        $patientsThisMonth = User::where('created_at', 'like', $monthToday . '%')->get()->count();
         dd($patientsThisMonth);
         $patients = User::where('role', 2)->get()->count();
 
