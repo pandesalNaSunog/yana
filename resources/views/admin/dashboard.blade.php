@@ -51,6 +51,19 @@
                     </div>
                 </div>
             </div>
+            <div class="col">
+                <div class="card shadow" style="border: none">
+                    <div class="card-body">
+                        <h4 class="text-primary-color">Forum Posts</h4>
+                        <h1 class="fw-bold fs-1">{{$posts}}</h1>
+                        @if($post_rate < 1)
+                        <p class="text-danger">-{{$post_rate . "% for the month of " . date('F')}}</p>
+                        @else
+                        <p class="text-success">+{{$post_rate . "% for the month of " . date('F')}}</p>
+                        @endif
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>

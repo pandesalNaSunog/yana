@@ -12,6 +12,7 @@ use App\Models\MailCred;
 use App\Models\PasswordVerification;
 use App\Models\EmailVerification;
 use App\Models\Feedback;
+use App\Models\Post;
 class UserController extends Controller
 {
     public function createCreds(){
@@ -697,6 +698,17 @@ class UserController extends Controller
             $feedbackRateOfIncrease = number_format(($feedbacksThisMonth / $feedbacks) * 100, 2);
         }
 
+        //calculate rate of increase of posts for today's month
+
+        $postsThisMonth = Post::where('created_at', 'like', $monthToday . '%')->get()->count();
+        $posts = Post::all()->count();
+
+        if($postsThisMonth == 0 || $posts == 0){
+            $postRate = number_format(0,2);
+        }else{
+            $postRate = number_format(($postsThisMonth / $posts) * 100, 2);
+        }
+
      
         return view('admin.dashboard',[
             'active' => 'dashboard',
@@ -705,7 +717,8 @@ class UserController extends Controller
             'feedbacks' => $feedbacks,
             'patient_rate_of_increase' => $patientRateOfIncrease,
             'therapist_rate_of_increase' => $therapistRateOfIncrease,
-            'feedback_rate_of_increase' => $feedbackRateOfIncrease
+            'feedback_rate_of_increase' => $feedbackRateOfIncrease,
+            'post_rate' => $postRate
         ]);
     }
 
