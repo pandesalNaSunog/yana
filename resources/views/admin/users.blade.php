@@ -14,6 +14,9 @@
                 <h3 class="fw-bold">Patients</h3>
             </div>
             <div class="card-body">
+                <div class="table-responsive">
+
+                
                 <table class="table table-striped table-hover">
                     <thead>
                         <th scope="col">First Name</th>
@@ -34,6 +37,7 @@
                         @endforeach
                     </tbody>
                 </table>
+                </div>
             </div>
 
             
