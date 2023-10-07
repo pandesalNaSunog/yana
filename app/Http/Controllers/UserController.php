@@ -703,7 +703,7 @@ class UserController extends Controller
 
         $postsThisMonth = Post::where('created_at', 'like', $monthToday . '%')->get()->count();
         $posts = Post::all()->count();
-
+        $postsData = Post::all();
         if($postsThisMonth == 0 || $posts == 0){
             $postRate = number_format(0,2);
         }else{
@@ -717,7 +717,7 @@ class UserController extends Controller
 
 
         $numberOfCommentsEachPost = [];
-        foreach($posts as $post){
+        foreach($postsData as $post){
             
             $commentsEachPost = Comment::where('post_id', $post->id)->get()->count();
             $numberOfCommentsEachPost[] = $commentsEachPost;
