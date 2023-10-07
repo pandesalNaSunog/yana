@@ -14,6 +14,7 @@
     <x-therapist-nav :active="$active">
 
     </x-therapist-nav>
+    @endif
     <x-toast></x-toast>
     <div class="container py-5">
         <div class="col col-lg-6 mx-auto">

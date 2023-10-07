@@ -7,7 +7,7 @@
     <title>YANA | Dashboard</title>
 </head>
 <body>
-    <x-therapist-nav></x-therapist-nav>
+    <x-therapist-nav :active="$active"></x-therapist-nav>
     <x-toast></x-toast>
     <div class="modal fade" id="edit-bio-modal">
         <div class="modal-dialog">
