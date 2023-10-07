@@ -64,7 +64,21 @@
                     </div>
                 </div>
             </div>
+            <div class="col">
+                <div class="card shadow" style="border: none">
+                    <div class="card-body">
+                        <h4 class="text-primary-color">Comments Per Post (Avg.)</h4>
+                        <h1 class="fw-bold fs-1 py-5" style="font-size: 70px!important;">{{$comments}}</h1>
+                        @if($comment_rate < 1)
+                        <p class="text-danger">-{{$comment_rate . "% for the month of " . date('F')}}</p>
+                        @else
+                        <p class="text-success">+{{$comment_rate . "% for the month of " . date('F')}}</p>
+                        @endif
+                    </div>
+                </div>
+            </div>
         </div>
+        
     </div>
 </body>
 </html>

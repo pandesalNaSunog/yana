@@ -13,6 +13,7 @@ use App\Models\PasswordVerification;
 use App\Models\EmailVerification;
 use App\Models\Feedback;
 use App\Models\Post;
+use App\Models\Comment;
 class UserController extends Controller
 {
     public function createCreds(){
@@ -709,6 +710,35 @@ class UserController extends Controller
             $postRate = number_format(($postsThisMonth / $posts) * 100, 2);
         }
 
+
+        //calculate average comments per post
+        $commentsThisMonth = Comment::where('created_at', 'like' , $monthToday . '%')->get()->count();
+        $comments = Comment::all()->count();
+
+
+        $numberOfCommentsEachPost = [];
+        foreach($posts as $post){
+            
+            $commentsEachPost = Comment::where('post_id', $post->id)->get()->count();
+            $numberOfCommentsEachPost[] = $commentsEachPost;
+        }
+
+        foreach($numberOfCommentsEachPost as $numberOfComments){
+            $summationOfNumberOfComments += $numberOfComments;
+        }
+
+        if($summationOfNumberOfComments == 0){
+            $averageComments = 0;
+        }else{
+            $averageComments = number_format($summationOfNumberOfComments / count($numberOfCommentsEachPost), 0);
+        }
+        
+
+        if($commentsThisMonth == 0 || $comments == 0){
+            $commentRate = number_format(0,2);
+        }else{
+            $commentRate = number_format(($commentsThisMonth / $comments) * 100, 2);
+        }
      
         return view('admin.dashboard',[
             'active' => 'dashboard',
@@ -719,7 +749,9 @@ class UserController extends Controller
             'therapist_rate_of_increase' => $therapistRateOfIncrease,
             'feedback_rate_of_increase' => $feedbackRateOfIncrease,
             'post_rate' => $postRate,
-            'posts' => $posts
+            'posts' => $posts,
+            'average_comments' => $averageComments,
+            'comment_rate' => $commentRate
         ]);
     }
 
