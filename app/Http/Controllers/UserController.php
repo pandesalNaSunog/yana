@@ -686,15 +686,26 @@ class UserController extends Controller
             $therapistRateOfIncrease = number_format(($therapistsThisMonth / $therapists) * 100, 2);
         }
 
-        $therapists = User::where('role', 1)->get()->count();
+        //calculate rate of increase of feedbacks for today's month
+
+        $feedbacksThisMonth = Feedback::where('created_at', 'like', $monthToday . '%')->where('role',1)->get()->count();
         $feedbacks = Feedback::all()->count();
+
+        if($feedbacksThisMonth == 0 || $feedbacks == 0){
+            $feedbackRateOfIncrease = number_format(0,2);
+        }else{
+            $feedbackRateOfIncrease = number_format(($feedbacksThisMonth / $feedbacks) * 100, 2);
+        }
+
+     
         return view('admin.dashboard',[
             'active' => 'dashboard',
             'therapists' => $therapists,
             'patients' => $patients,
             'feedbacks' => $feedbacks,
             'patient_rate_of_increase' => $patientRateOfIncrease,
-            'therapist_rate_of_increase' => $therapistRateOfIncrease
+            'therapist_rate_of_increase' => $therapistRateOfIncrease,
+            'feedback_rate_of_increse' => $feedbackRateOfIncrease
         ]);
     }
 

@@ -43,6 +43,11 @@
                     <div class="card-body">
                         <h4 class="text-primary-color">Feedbacks</h4>
                         <h1 class="fw-bold fs-1">{{$feedbacks}}</h1>
+                        @if($feedback_rate_of_increase < 1)
+                        <p class="text-danger">-{{$feedback_rate_of_increase . "% for the month of " . date('F')}}</p>
+                        @else
+                        <p class="text-success">+{{$feedback_rate_of_increase . "% for the month of " . date('F')}}</p>
+                        @endif
                     </div>
                 </div>
             </div>
