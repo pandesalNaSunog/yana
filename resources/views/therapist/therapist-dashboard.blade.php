@@ -52,6 +52,7 @@
                     <p class="m-0 text-center"><i>"No bio"</i></p>
                     @else
                     <p class="m-0 text-center"><i>{{auth()->user()->bio}}</i></p>
+                    @endif
                     <button class="primary-btn mt-3 w-100" data-bs-toggle="modal" data-bs-target="#edit-bio-modal">Edit Bio</button>
                 </div>
                 
