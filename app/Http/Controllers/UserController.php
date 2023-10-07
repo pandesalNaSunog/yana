@@ -661,8 +661,14 @@ class UserController extends Controller
     }
 
     public function dashboard(){
+        $patients = User::where('role', 2)->get()->count();
+        $therapists = User::where('role', 1)->get()->count();
+        $feedbacks = Feedback::all()->count();
         return view('admin.dashboard',[
-            'active' => 'dashboard'
+            'active' => 'dashboard',
+            'therapists' => $therapists,
+            'patients' => $patients,
+            'feedbacks' => $feedbacks
         ]);
     }
 
