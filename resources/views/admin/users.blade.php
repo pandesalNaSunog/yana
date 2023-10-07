@@ -24,6 +24,7 @@
                         <th scope="col">Email</th>
                         <th scope="col">Contact Number</th>
                         <th scope="col">Date of Birth</th>
+                        <th scope="col">Verification Status</th>
                     </thead>
                     <tbody>
                         @foreach($patients as $patient)
@@ -33,6 +34,13 @@
                             <td>{{$patient->email}}</td>
                             <td>{{$patient->contact_number}}</td>
                             <td>{{date_format(date_create($patient->birth_date), 'M d, Y')}}</td>
+                            <td>
+                                @if($patient->verified != 2)
+                                Verified
+                                @else
+                                Non-verified
+                                @endif
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>
