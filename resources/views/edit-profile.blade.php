@@ -8,7 +8,7 @@
 </head>
 <body class="bg-light">
     <x-toast></x-toast>
-    <x-client-nav></x-client-nav>
+    <x-client-nav :active="$active"></x-client-nav>
         <div class="container my-5">
             <div class="row row-cols-1 row-cols-lg-2 g-3">
                 <div class="col col-lg-4">

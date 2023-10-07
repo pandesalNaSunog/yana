@@ -7,7 +7,7 @@
     <title>YANA | Comments</title>
 </head>
 <body>
-    <x-client-nav></x-client-nav>
+    <x-client-nav :active="$active"></x-client-nav>
     <div class="container my-5">
         <div class="card shadow mx-auto col-lg-5">
             <div class="card-body">

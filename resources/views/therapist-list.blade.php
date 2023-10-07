@@ -7,7 +7,7 @@
     <title>YANA | Therapist List</title>
 </head>
 <body>
-    <x-client-nav></x-client-nav>
+    <x-client-nav :active="$active"></x-client-nav>
 
     <div class="container py-5">
         <h2 class="fw-bold text-center text-primary-color">Our Psychologists</h2>

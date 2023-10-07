@@ -7,7 +7,7 @@
     <title>YANA | My Profile</title>
 </head>
 <body class="bg-light">
-    <x-client-nav></x-client-nav>
+    <x-client-nav :active="$active"></x-client-nav>
     <x-toast></x-toast>
     <div class="container my-5">
         <div class="row row-cols-1 row-cols-lg-2 g-3">

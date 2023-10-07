@@ -8,7 +8,7 @@
 </head>
 <body class="bg-light">
     <x-toast></x-toast>
-    <x-client-nav></x-client-nav>
+    <x-client-nav :active="$active"></x-client-nav>
 
     <h3 class="fw-bold text-center mt-5 text-primary-color">
         Common Somatic Symptoms Related to Psychological Disorder and Possible Solutions

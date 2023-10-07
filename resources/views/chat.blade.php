@@ -12,7 +12,7 @@
     @elseif(auth()->user()->role == 1)
     <x-therapist-nav></x-therapist-nav>
     @else
-    <x-client-nav></x-client-nav>
+    <x-client-nav :active="$active"></x-client-nav>
     @endif
     
     <div class="d-flex h-100">

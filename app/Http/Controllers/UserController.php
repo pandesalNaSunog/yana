@@ -457,7 +457,8 @@ class UserController extends Controller
     public function therapistList(){
         $therapists = User::where('role', 1)->where('approval', 1)->get();
         return view('therapist-list',[
-            'therapists' => $therapists
+            'therapists' => $therapists,
+            'active' => 'none'
         ]);
     }
     public function approveTherapist(Request $request){
@@ -560,12 +561,15 @@ class UserController extends Controller
         $data = [
             'user' => $user,
             'onlineSessions' => $onlineSessions,
-            'matchers' => $matchers
+            'matchers' => $matchers,
+            'active' => 'none'
         ];
         return view('profile', $data);
     }
     public function editProfile(){
-        return view('edit-profile');
+        return view('edit-profile',[
+            'active' => 'none'
+        ]);
     }
     public function therapistEditProfile(){
         return view('therapist.edit-profile');

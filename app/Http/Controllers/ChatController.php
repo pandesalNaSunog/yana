@@ -88,7 +88,8 @@ class ChatController extends Controller
             'chatData' => $chatData,
             'messageData' => $messageData,
             'chat_id' => $chatId,
-            'receiver_id' => $receiverId
+            'receiver_id' => $receiverId,
+            'active' => 'none'
         ]);
     }
     public function chats(){
@@ -137,7 +138,8 @@ class ChatController extends Controller
 
         
         return view('chat',[
-            'chatData' => $chatData
+            'chatData' => $chatData,
+            'active' => 'none'
         ]);
     }
 

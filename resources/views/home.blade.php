@@ -12,7 +12,7 @@
     
 </head>
 <body>
-    <x-client-nav></x-client-nav>
+    <x-client-nav :active="$active"></x-client-nav>
     <x-toast></x-toast>
     <div class="vh-100 container h-100 d-flex align-items-center justify-content-between">
 

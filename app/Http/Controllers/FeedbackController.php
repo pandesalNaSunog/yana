@@ -81,7 +81,8 @@ class FeedbackController extends Controller
             }
         }
         return view('home',[
-            'feedbacks' => $data
+            'feedbacks' => $data,
+            'active' => 'home'
         ]);
     }
 }

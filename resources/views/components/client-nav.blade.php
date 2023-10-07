@@ -13,13 +13,13 @@
         <div id="navmenu" class="collapse navbar-collapse">
             <ul class="navbar-nav text-dark">
                 <li class="nav-item">
-                    <a href="/" class="nav-link fw-bold active-nav-link mx-3">Home</a>
+                    <a href="/" class="nav-link fw-bold <?php if($active == 'home'){ echo 'active-nav-link'; }?> mx-3">Home</a>
                 </li>
                 <li class="nav-item mx-3">
-                    <a href="/forums" class="nav-link fw-bold">Forums</a>
+                    <a href="/forums" class="nav-link <?php if($active == 'forums'){ echo 'active-nav-link'; }?> fw-bold">Forums</a>
                 </li>
                 <li class="nav-item mx-3">
-                    <a href="/library" class="nav-link fw-bold">Library</a>
+                    <a href="/library" class="nav-link <?php if($active == 'library'){ echo 'active-nav-link'; }?> fw-bold">Library</a>
                 </li>
             </ul>
             @auth

@@ -7,7 +7,7 @@
     <title>YANA | Forums</title>
 </head>
 <body>
-    <x-client-nav>
+    <x-client-nav :active="$active">
 
     </x-client-nav>
     <x-toast></x-toast>

@@ -22,7 +22,8 @@ class LibraryController extends Controller
             ];
         }
         return view('library',[
-            'data' => $data
+            'data' => $data,
+            'active' => 'library'
         ]);
     }
     public function library(){

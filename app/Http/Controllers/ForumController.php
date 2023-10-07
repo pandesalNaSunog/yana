@@ -34,7 +34,8 @@ class ForumController extends Controller
                 'comments' => $commentData
             ];
             return view('post-comments',[
-                'post' => $postData
+                'post' => $postData,
+                'active' => 'none'
             ]);
         }
         
@@ -74,7 +75,8 @@ class ForumController extends Controller
         }
         //return response($postData);
         return view('forums',[
-            'posts' => $postData
+            'posts' => $postData,
+            'active' => 'forums'
         ]);
     }
     public function writePost(Request $request){
