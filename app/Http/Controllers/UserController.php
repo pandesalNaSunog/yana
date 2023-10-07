@@ -722,7 +722,7 @@ class UserController extends Controller
             $commentsEachPost = Comment::where('post_id', $post->id)->get()->count();
             $numberOfCommentsEachPost[] = $commentsEachPost;
         }
-
+        $summationOfNumberOfComments = 0;
         foreach($numberOfCommentsEachPost as $numberOfComments){
             $summationOfNumberOfComments += $numberOfComments;
         }
