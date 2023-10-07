@@ -666,13 +666,13 @@ class UserController extends Controller
 
         //calculate rate of increase of patients for today's month
 
-        $patientsThisMonth = User::where('created_at', 'like', $monthToday . '%')->get()->count();
+        $patientsThisMonth = User::where('created_at', 'like', $monthToday . '%')->where('role',2)->get()->count();
         $patients = User::where('role', 2)->get()->count();
 
         if($patientsThisMonth == 0 || $patients == 0){
             $patientRateOfIncrease = number_format(0,2);
         }else{
-            $patientRateOfIncrease = number_format($patientsThisMonth / $patients, 2);
+            $patientRateOfIncrease = number_format(($patientsThisMonth / $patients) * 100, 2);
         }
         
 
