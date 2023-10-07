@@ -576,7 +576,9 @@ class UserController extends Controller
         ]);
     }
     public function therapistEditProfile(){
-        return view('therapist.edit-profile');
+        return view('therapist.edit-profile',[
+            'active' => 'none'
+        ]);
     }
 
 
