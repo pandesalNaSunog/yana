@@ -10,7 +10,7 @@
     <x-client-nav></x-client-nav>
 
     <div class="container py-5">
-        <h2 class="fw-bold text-center">Our Psychologists</h2>
+        <h2 class="fw-bold text-center text-primary-color">Our Psychologists</h2>
         <div class="row row-cols-1 row-cols-lg-4 g-3">
             @foreach($therapists as $therapist)
             <div class="col">
