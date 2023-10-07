@@ -369,8 +369,18 @@ class UserController extends Controller
         $user->update($fields);
         return redirect('/therapist')->with('message', 'Your profile has been successfully updated!');
     }
-    public function therapistApproval(){
-        return view('therapist.therapist-approval');
+    public function therapistApproval(Request $request){
+        $user = User::where('id', auth()->user()->id)->first();
+        if($user){
+            if($user->approval == 0){
+                return view('therapist.therapist-approval');
+            }
+            return redirect('/therapist');
+        }
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/')->with('message', 'Something went wrong.');
+        
     }
     public function signupTherapist(){
         return view('therapist-signup');
