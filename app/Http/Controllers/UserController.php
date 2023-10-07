@@ -675,8 +675,16 @@ class UserController extends Controller
             $patientRateOfIncrease = number_format(($patientsThisMonth / $patients) * 100, 2);
         }
         
+        //calculate rate of increase of therapists for today's month
 
+        $therapistsThisMonth = User::where('created_at', 'like', $monthToday . '%')->where('role',1)->get()->count();
+        $therapists = User::where('role', 1)->get()->count();
 
+        if($therapistsThisMonth == 0 || $therapists == 0){
+            $therapistRateOfIncrease = number_format(0,2);
+        }else{
+            $therapistRateOfIncrease = number_format(($therapistsThisMonth / $therapists) * 100, 2);
+        }
 
         $therapists = User::where('role', 1)->get()->count();
         $feedbacks = Feedback::all()->count();
@@ -685,7 +693,8 @@ class UserController extends Controller
             'therapists' => $therapists,
             'patients' => $patients,
             'feedbacks' => $feedbacks,
-            'patient_rate_of_increase' => $patientRateOfIncrease
+            'patient_rate_of_increase' => $patientRateOfIncrease,
+            'therapist_rate_of_increase' => $therapistRateOfIncrease
         ]);
     }
 

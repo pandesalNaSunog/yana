@@ -30,6 +30,11 @@
                     <div class="card-body">
                         <h4 class="text-primary-color">Therapists</h4>
                         <h1 class="fw-bold fs-1">{{$therapists}}</h1>
+                        @if($therapist_rate_of_increase < 1)
+                        <p class="text-danger">-{{$therapist_rate_of_increase . "%"}}</p>
+                        @else
+                        <p class="text-success">+{{$therapist_rate_of_increase . "%"}}</p>
+                        @endif
                     </div>
                 </div>
             </div>
