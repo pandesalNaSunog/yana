@@ -713,6 +713,17 @@ class UserController extends Controller
             $postRate = number_format(($postsThisMonth / $posts) * 100, 2);
         }
 
+        //calculate number of consultations
+
+        $consultationsThisMonth = Matcher::where('approval', 1)->where('created_at','like', $monthToday . '%')->get()->count();
+        $consultations = Matcher::all()->count();
+
+        if($consultationsThisMonth == 0 || $consultations == 0){
+            $consultationRate = number_format(0, 2);
+        }else{
+            $consultationRate = number_format(($consultationsThisMonth / $consultations) * 100, 2);
+        }
+
 
         //calculate average comments per post
         $commentsThisMonth = Comment::where('created_at', 'like' , $monthToday . '%')->get()->count();
@@ -754,7 +765,9 @@ class UserController extends Controller
             'post_rate' => $postRate,
             'posts' => $posts,
             'average_comments' => $averageComments,
-            'comment_rate' => $commentRate
+            'comment_rate' => $commentRate,
+            'consultations' => $consultations,
+            'consultation_rate' => $consultationRate
         ]);
     }
 
