@@ -47,13 +47,14 @@
                         <p class="m-0"><em>{{auth()->user()->email}}</em></p>
                         <a href="/therapist/edit-profile"><button class="mt-4 primary-btn px-5 py-2">Edit Profile</button></a>
                         <hr>
+                        @if(auth()->user()->bio == "")
+                        <p class="m-0 text-center"><i>"No bio"</i></p>
+                        @else
+                        <p class="m-0 text-center"><i>{{auth()->user()->bio}}</i></p>
+                        @endif
+                        <button class="primary-btn mt-3 w-100" data-bs-toggle="modal" data-bs-target="#edit-bio-modal">Edit Bio</button>
                     </div>
-                    @if(auth()->user()->bio == "")
-                    <p class="m-0 text-center"><i>"No bio"</i></p>
-                    @else
-                    <p class="m-0 text-center"><i>{{auth()->user()->bio}}</i></p>
-                    @endif
-                    <button class="primary-btn mt-3 w-100" data-bs-toggle="modal" data-bs-target="#edit-bio-modal">Edit Bio</button>
+                    
                 </div>
                 
             </div>
