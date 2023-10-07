@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <x-imports></x-imports>
-    <title>YANA Administrator | Dashboard/title>
+    <title>YANA Administrator | Dashboard</title>
 </head>
 <body>
 
