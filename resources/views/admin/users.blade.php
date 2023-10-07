@@ -36,9 +36,9 @@
                             <td>{{date_format(date_create($patient->birth_date), 'M d, Y')}}</td>
                             <td>
                                 @if($patient->verified != 2)
-                                Verified
-                                @else
                                 Non-verified
+                                @else
+                                Verified
                                 @endif
                             </td>
                         </tr>
