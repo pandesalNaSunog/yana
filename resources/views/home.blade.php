@@ -157,12 +157,9 @@ ensuring personalized and effective care.</p>
                 <div class="col">
                     <div class="card shadow feature-card text-center" style="height: 550px;">
                         <div class="card-body">
-                            <img src="/choose.png" class="img-fluid" alt="">
-                            <p class="fs-4 fw-bold mt-5">Choose Your Option</p>
-                            <p class="lead">Select between YANA's free or 
-                                subscription-based options to access our 
-                                platform and connect with licensed
-                                psychologists.</p>
+                            <img src="/connect.png" class="img-fluid" alt="">
+                            <p class="fs-4 fw-bold mt-5">Connect with a Psychologist</p>
+                            <p class="lead">Free clients are matched with a psychologist, while premium clients can freely choose from a list of recommended psychologists with YANA.</p>
                         </div>
                     </div>
                 </div>
@@ -174,12 +171,9 @@ ensuring personalized and effective care.</p>
                 <div class="col">
                     <div class="card shadow feature-card text-center" style="height: 550px;">
                         <div class="card-body">
-                            <img src="/choose.png" class="img-fluid" alt="">
-                            <p class="fs-4 fw-bold mt-5">Choose Your Option</p>
-                            <p class="lead">Select between YANA's free or 
-                                subscription-based options to access our 
-                                platform and connect with licensed
-                                psychologists.</p>
+                            <img src="/communicate.png" class="img-fluid" alt="">
+                            <p class="fs-4 fw-bold mt-5">Communicate Your Way with YANA</p>
+                            <p class="lead">Connect with your psychologist through text, chat, phone, or video, based on your preferred mode of communication.</p>
                         </div>
                     </div>
                 </div>
