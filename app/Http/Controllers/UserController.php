@@ -688,7 +688,7 @@ class UserController extends Controller
 
         //calculate rate of increase of feedbacks for today's month
 
-        $feedbacksThisMonth = Feedback::where('created_at', 'like', $monthToday . '%')->where('role',1)->get()->count();
+        $feedbacksThisMonth = Feedback::where('created_at', 'like', $monthToday . '%')->get()->count();
         $feedbacks = Feedback::all()->count();
 
         if($feedbacksThisMonth == 0 || $feedbacks == 0){
