@@ -16,7 +16,7 @@
                 <div class="card shadow" style="border: none">
                     <div class="card-body">
                         <h4 class="text-primary-color">Patients</h4>
-                        <h1 class="fw-bold fs-1">200</h1>
+                        <h1 class="fw-bold fs-1">{{$patients}}</h1>
                     </div>
                 </div>
             </div>
@@ -24,7 +24,7 @@
                 <div class="card shadow" style="border: none">
                     <div class="card-body">
                         <h4 class="text-primary-color">Therapists</h4>
-                        <h1 class="fw-bold fs-1">200</h1>
+                        <h1 class="fw-bold fs-1">{{$therapists}}</h1>
                     </div>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                 <div class="card shadow" style="border: none">
                     <div class="card-body">
                         <h4 class="text-primary-color">Feedbacks</h4>
-                        <h1 class="fw-bold fs-1">200</h1>
+                        <h1 class="fw-bold fs-1">{{$feedbacks}}</h1>
                     </div>
                 </div>
             </div>
