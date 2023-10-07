@@ -18,9 +18,9 @@
                         <h4 class="text-primary-color">Patients</h4>
                         <h1 class="fw-bold fs-1">{{$patients}}</h1>
                         @if($patient_rate_of_increase < 1)
-                        <p class="text-danger">-{{$patient_rate_of_increase . "%"}}</p>
+                        <p class="text-danger">-{{$patient_rate_of_increase . "% for the month of " . date('M')}}</p>
                         @else
-                        <p class="text-success">+{{$patient_rate_of_increase . "%"}}</p>
+                        <p class="text-success">+{{$patient_rate_of_increase . "% for the month of " . date('M')}}</p>
                         @endif
                     </div>
                 </div>
@@ -31,9 +31,9 @@
                         <h4 class="text-primary-color">Therapists</h4>
                         <h1 class="fw-bold fs-1">{{$therapists}}</h1>
                         @if($therapist_rate_of_increase < 1)
-                        <p class="text-danger">-{{$therapist_rate_of_increase . "%"}}</p>
+                        <p class="text-danger">-{{$therapist_rate_of_increase . "% for the month of " . date('M')}}</p>
                         @else
-                        <p class="text-success">+{{$therapist_rate_of_increase . "%"}}</p>
+                        <p class="text-success">+{{$therapist_rate_of_increase . "% for the month of " . date('M')}}</p>
                         @endif
                     </div>
                 </div>
