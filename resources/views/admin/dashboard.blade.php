@@ -102,7 +102,6 @@
                 </div>
             </div>
         </div>
-    </div>
         <div class="card shadow mt-4" style="border: none">
             <div class="card-body">
                 <canvas id="consultations-chart" style="width: 100%; heigh"></canvas>
@@ -134,7 +133,8 @@
                 });
                 </script>
             </div>
-        
+        </div>
     </div>
+        
 </body>
 </html>
