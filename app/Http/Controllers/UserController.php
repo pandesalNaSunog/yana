@@ -253,6 +253,23 @@ class UserController extends Controller
             ], 401);
         }
     }
+
+    public function therapistUpdateBio(Request $request){
+        $fields = $request->validate([
+            'bio' => 'required'
+        ]);
+
+        $user = User::where('id', auth()->user()->id)->first();
+        if($user){
+            $user->update([
+                'bio' => $fields['bio']
+            ]);
+            return back()->with('message', 'Bio has been updated');
+        }
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/')->with('message', 'Something went wrong.');
+    }
     public function changePassword(Request $request){
         $fields = $request->validate([
             'current-password' => 'required',

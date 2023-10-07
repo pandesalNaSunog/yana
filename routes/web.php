@@ -92,7 +92,7 @@ Route::middleware('auth')->group(function(){
             Route::post('/therapist/upload-profile-picture', [UserController::class, 'therapistUpdateProfilePicture']);
             Route::post('/therapist/update-profile',[UserController::class, 'therapistUpdateProfile']);
             Route::post('/therapist/confirm-session',[MatcherController::class, 'confirmSession']);
-
+            Route::post('/therapist/updated-bio',[UserController::class, 'therapistUpdateBio']);
         });
         Route::get('/logout', [UserController::class, 'logout']);
     });
