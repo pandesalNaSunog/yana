@@ -12,7 +12,10 @@
         <div id="navmenu" class="collapse navbar-collapse">
             <ul class="navbar-nav text-dark">
                 <li class="nav-item">
-                    <a href="#" class="nav-link fw-bold active-nav-link mx-3">Home</a>
+                    <a href="/therapist" class="nav-link fw-bold active-nav-link mx-3">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/forums" class="nav-link fw-bold active-nav-link mx-3">Forums</a>
                 </li>
             </ul>
             @auth
