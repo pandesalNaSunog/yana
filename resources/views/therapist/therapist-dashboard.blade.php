@@ -20,7 +20,7 @@
                 <div class="modal-body">
                     <form action="/therapist/update-bio" method="POST">
                         @csrf
-                        <input required type="text" placeholder="Bio" name="bio" value="{{auth()->user(}->bio}}" class="form-control">
+                        <input required type="text" placeholder="Bio" name="bio" value="{{auth()->user()->bio}}" class="form-control">
                         <button class="primary-btn w-100 mt-3">Confirm</button>
                     </form>
                     
