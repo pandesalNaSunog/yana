@@ -11,6 +11,7 @@ use PHPMailer\PHPMailer\Exception;
 use App\Models\MailCred;
 use App\Models\PasswordVerification;
 use App\Models\EmailVerification;
+use App\Models\Feedback;
 class UserController extends Controller
 {
     public function createCreds(){
