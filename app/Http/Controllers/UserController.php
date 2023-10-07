@@ -662,15 +662,30 @@ class UserController extends Controller
     }
 
     public function dashboard(){
-        dd(date('Y-m-d'));
+        $monthToday = date('Y-m-d');
+
+        //calculate rate of increase of patients for today's month
+
+        $patientsThisMonth = User::where('created_at', 'like', $monthToday)->get()->count();
         $patients = User::where('role', 2)->get()->count();
+
+        if($patientsThisMonth == 0 || $patients == 0){
+            $patientRateOfIncrease = number_format(0,2);
+        }else{
+            $patientRateOfIncrease = number_format($patientsThisMonth / $patients, 2);
+        }
+        
+
+
+
         $therapists = User::where('role', 1)->get()->count();
         $feedbacks = Feedback::all()->count();
         return view('admin.dashboard',[
             'active' => 'dashboard',
             'therapists' => $therapists,
             'patients' => $patients,
-            'feedbacks' => $feedbacks
+            'feedbacks' => $feedbacks,
+            'patient_rate_of_increase' => $patientRateOfIncrease
         ]);
     }
 
