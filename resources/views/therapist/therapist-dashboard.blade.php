@@ -20,7 +20,7 @@
                 <div class="modal-body">
                     <form action="/therapist/update-bio" method="POST">
                         @csrf
-                        <input required type="text" placeholder="Bio" name="bio" value="{{auth()->user(}->bio}" class="form-control">
+                        <input required type="text" placeholder="Bio" name="bio" value="{{auth()->user(}->bio}}" class="form-control">
                         <button class="primary-btn w-100 mt-3">Confirm</button>
                     </form>
                     
@@ -52,7 +52,7 @@
                         @else
                         <p class="m-0 text-center"><i>{{auth()->user()->bio}}</i></p>
                         @endif
-                        <button class="primary-btn mt-3 w-100" data-bs-toggle="modal" data-bs-target="#edit-bio-modal">Edit Bio</button>
+                        <button class="primary-btn mt-3 w-100 py-2" data-bs-toggle="modal" data-bs-target="#edit-bio-modal">Edit Bio</button>
                     </div>
                     
                 </div>
