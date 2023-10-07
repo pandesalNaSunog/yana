@@ -662,12 +662,11 @@ class UserController extends Controller
     }
 
     public function dashboard(){
-        $monthToday = date('Y-m-d');
+        $monthToday = date('Y-m');
 
         //calculate rate of increase of patients for today's month
 
         $patientsThisMonth = User::where('created_at', 'like', $monthToday)->get()->count();
-        dd($patientsThisMonth);
         $patients = User::where('role', 2)->get()->count();
 
         if($patientsThisMonth == 0 || $patients == 0){
