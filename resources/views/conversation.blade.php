@@ -91,7 +91,7 @@
         <div class="col col-lg-9">
             <div class="card" style="border-radius: 0">
                 <div class="card-body">
-                    <h3 class="fw-bold">Lorem, ipsum.</h3>
+                    <h3 class="fw-bold">{{$receiver_name}}</h3>
                 </div>
             </div>
             <div class="row row-cols-2 g-2 p-4" id="conversation-box" style="overflow: overlay; height: 80vh">
