@@ -82,7 +82,7 @@ class ChatController extends Controller
                 
             }
         }
-        
+        dd($chatData);
         return view('conversation',[
             'chats' => $chatArray,
             'chatData' => $chatData,
