@@ -773,7 +773,7 @@ class UserController extends Controller
                     'consultations' => $consultationsPerMonth
                 ];
                 
-                $consultationsPerMonth = 0;
+                $consultationsPerMonth = 1;
             }
             $previousMonth = $currentMonth;
         }
