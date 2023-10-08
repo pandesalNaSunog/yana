@@ -759,7 +759,7 @@ class UserController extends Controller
         //calculate consultations per month
 
         $allConsultations = Matcher::where('approval', 1)->orderBy('created_at', 'asc')->get();
-        $consultationsDataSet = []
+        $consultationsDataSet = [];
         $previousMonth = "";
         $currentMonth = "";
         $consultationsPerMonth = 0;
@@ -772,7 +772,7 @@ class UserController extends Controller
                     'month' => $currentMonth,
                     'consultations' => $consultationsPerMonth
                 ];
-                $previousMonth = $currentMonth
+                $previousMonth = $currentMonth;
                 $consultationsPerMonth = 0;
             }
             
