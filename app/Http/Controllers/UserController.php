@@ -783,8 +783,6 @@ class UserController extends Controller
         ];
         
         $consultationsPerMonth = 0;
-
-
      
         return view('admin.dashboard',[
             'active' => 'dashboard',

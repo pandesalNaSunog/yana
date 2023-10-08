@@ -107,7 +107,12 @@
                 <canvas id="consultations-chart" style="width: 100%; heigh"></canvas>
                 
                 <script>
-                const xValues = <?php echo $consultation_data_set['month'] ?>;
+                const xValues = <?php 
+                    foreach($consultation_data_set as $set){
+                        $months[] = $set['month'];
+                    }
+                    echo $months;
+                ?>;
 
                 new Chart("consultations-chart", {
                 type: "line",
