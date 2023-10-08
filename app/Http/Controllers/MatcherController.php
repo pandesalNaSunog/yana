@@ -8,6 +8,8 @@ use App\Models\User;
 use App\Models\Chats;
 use App\Models\Message;
 use App\Models\MailCred;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 class MatcherController extends Controller
 {
     public function confirmSession(Request $request){
@@ -35,6 +37,8 @@ class MatcherController extends Controller
             ]);
             $user = User::where('id', $matcher->patient_id)->first();
             if($user){
+                $mail = new PHPMailer(true);
+                
                 $mail->SMTPDebug = 0;
                 $mail->isSMTP();
                 $mail->Host = 'smtp.gmail.com';
