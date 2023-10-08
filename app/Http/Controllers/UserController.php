@@ -763,24 +763,23 @@ class UserController extends Controller
         $previousMonth = "";
         $currentMonth = "";
         $consultationsPerMonth = 0;
+        $months = [];
+        $numberOfConsultations = [];
         foreach($allConsultations as $consultation){
             $currentMonth = $consultation->created_at->format('F');
             if($previousMonth == "" || $previousMonth == $currentMonth){
                 $consultationsPerMonth++;
             }else{
-                $consultationsDataSet[] = [
-                    'month' => $previousMonth,
-                    'consultations' => $consultationsPerMonth
-                ];
+                $months[] = $previousMonth;
+                $numberOfConsultations[] = $consultationsPerMonth;
                 
                 $consultationsPerMonth = 1;
             }
             $previousMonth = $currentMonth;
         }
-        $consultationsDataSet[] = [
-            'month' => $previousMonth,
-            'consultations' => $consultationsPerMonth
-        ];
+        
+        $months[] = $previousMonth;
+        $numberOfConsultations[] = $consultationsPerMonth;
         
         $consultationsPerMonth = 0;
      
@@ -798,7 +797,8 @@ class UserController extends Controller
             'comment_rate' => $commentRate,
             'consultations' => $consultations,
             'consultation_rate' => $consultationRate,
-            'consultation_data_set' => $consultationsDataSet
+            'months' => $months,
+            'consultations_per_month' => $numberOfConsultations
         ]);
     }
 

@@ -107,10 +107,7 @@
                 <canvas id="consultations-chart" style="width: 100%; heigh"></canvas>
                 
                 <script>
-                const xValues = <?php 
-                    foreach($consultation_data_set as $set){
-                        $months[] = $set['month'];
-                    }
+                let xValues = <?php 
                     echo $months;
                 ?>;
 
@@ -120,7 +117,7 @@
                     labels: xValues,
                     datasets: [
                         { 
-                            data: [300,700,2000,5000,6000,4000,2000,1000,200,100],
+                            data: <?php echo $consultations_per_month; ?>,
                             borderColor: "blue",
                             fill: false
                         }
