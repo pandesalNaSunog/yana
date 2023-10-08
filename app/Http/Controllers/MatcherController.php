@@ -7,13 +7,14 @@ use App\Models\Matcher;
 use App\Models\User;
 use App\Models\Chats;
 use App\Models\Message;
+use App\Models\MailCred;
 class MatcherController extends Controller
 {
     public function confirmSession(Request $request){
         $fields = $request->validate([
             'matcher_id' => 'required'
         ]);
-
+        $mailCreds = MailCred::first();
         $matcher = Matcher::where('id', $fields['matcher_id'])->first();
         if($matcher){
             
