@@ -31,7 +31,7 @@ class ChatController extends Controller
             }
 
             if($user->profile_picture == ""){
-                $profilePicture = "/empty.jpeg";
+                $profilePicture = "empty.jpeg";
             }else{
                 $profilePicture = $user->profile_picture;
             }
@@ -82,8 +82,6 @@ class ChatController extends Controller
                 
             }
         }
-
-        dd($messageData);
         
         return view('conversation',[
             'chats' => $chatArray,
