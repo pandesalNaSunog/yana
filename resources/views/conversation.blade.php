@@ -31,7 +31,7 @@
                                 <div class="row row-cols-3">
                                     
                                     <div class="col-3 text-center">
-                                        {{$chat['image']}}
+                                       <h1>jklafljfdaljkfd</h1>
                                         @if($chat['image'] != "empty.jpeg")
                                         <img src="public/storage/{{$chat['image']}}" style="height: 50px; width: 50px; object-fit: cover" class="rounded-circle" alt="">
                                         @else
