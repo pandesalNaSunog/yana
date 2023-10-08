@@ -82,6 +82,8 @@ class ChatController extends Controller
                 
             }
         }
+
+        dd($messageData);
         
         return view('conversation',[
             'chats' => $chatArray,
