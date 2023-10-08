@@ -769,7 +769,7 @@ class UserController extends Controller
                 $consultationsPerMonth++;
             }else{
                 $consultationsDataSet[] = [
-                    'month' => $currentMonth,
+                    'month' => $previousMonth,
                     'consultations' => $consultationsPerMonth
                 ];
                 
