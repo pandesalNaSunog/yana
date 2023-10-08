@@ -782,7 +782,6 @@ class UserController extends Controller
         $numberOfConsultations[] = $consultationsPerMonth;
         
         $consultationsPerMonth = 0;
-        dd($months);
         return view('admin.dashboard',[
             'active' => 'dashboard',
             'therapists' => $therapists,

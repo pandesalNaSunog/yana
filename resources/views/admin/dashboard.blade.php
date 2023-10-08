@@ -108,7 +108,7 @@
                 
                 <script>
                 let xValues = <?php 
-                    echo $months;
+                    echo json_encode($months);
                 ?>;
 
                 new Chart("consultations-chart", {
@@ -117,7 +117,7 @@
                     labels: xValues,
                     datasets: [
                         { 
-                            data: <?php echo $consultations_per_month; ?>,
+                            data: <?php echo json_encode($consultations_per_month); ?>,
                             borderColor: "blue",
                             fill: false
                         }
