@@ -772,13 +772,13 @@ class UserController extends Controller
                     'month' => $currentMonth,
                     'consultations' => $consultationsPerMonth
                 ];
-                $previousMonth = $currentMonth;
+                
                 $consultationsPerMonth = 0;
             }
-            
+            $previousMonth = $currentMonth;
         }
 
-        dd($consultationsPerMonth);
+        dd($consultationsDataSet);
 
      
         return view('admin.dashboard',[
