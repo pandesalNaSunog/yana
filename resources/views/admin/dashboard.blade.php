@@ -102,7 +102,11 @@
                 </div>
             </div>
         </div>
+        
         <div class="card shadow mt-4" style="border: none">
+            <div class="card-header">
+                <h4 class="fw-bold">Consultations for year {{date('Y')}}</h4>
+            </div>
             <div class="card-body">
                 <canvas id="consultations-chart" style="width: 100%; heigh"></canvas>
                 
