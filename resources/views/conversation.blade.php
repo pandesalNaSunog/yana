@@ -69,7 +69,7 @@
                                     @if($chat['image'] != "empty.jpeg")
                                     <img src="/public/storage/{{$chat['image']}}" style="height: 50px; width: 50px; object-fit: cover" class="rounded-circle" alt="">
                                     @else
-                                    <img src="{{$chat['image']}}" style="height: 50px; width: 50px; object-fit: cover" class="rounded-circle" alt="">
+                                    <img src="/{{$chat['image']}}" style="height: 50px; width: 50px; object-fit: cover" class="rounded-circle" alt="">
                                     @endif
                                 </div>
                                 <div class="col-6">
