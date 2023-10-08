@@ -554,7 +554,8 @@ class UserController extends Controller
                 'submission_date' => $submissionDate,
                 'therapist_name' => $therapistName,
                 'status' => $status,
-                'chat_id' => $matcher->chat_id
+                'chat_id' => $matcher->chat_id,
+                'tracking_code' => $matcher->tracking_number
             ];
         }
         if(!$user){

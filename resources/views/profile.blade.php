@@ -43,6 +43,7 @@
                                     <th scope="col">Name</th>
                                     <th scope="col">Therapist Name</th>
                                     <th scope="col">Submission Date</th>
+                                    <th scope="col">Tracking Code</th>
                                     <th scope="col">Status</th>
                                     <th scope="col">Action</th>
                                 </thead>
@@ -58,6 +59,9 @@
                                             </td>
                                             <td>
                                                 {{$onlineSession['submission_date']}}
+                                            </td>
+                                            <td>
+                                                {{$onlineSession['tracking_code']}}
                                             </td>
                                             <td>
                                                 {{$onlineSession['status']}}
