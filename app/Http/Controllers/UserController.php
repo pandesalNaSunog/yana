@@ -757,8 +757,8 @@ class UserController extends Controller
 
 
         //calculate consultations per month
-
-        $allConsultations = Matcher::where('approval', 1)->orderBy('created_at', 'asc')->get();
+        $yearNow = date('Y');
+        $allConsultations = Matcher::where('approval', 1)->where('created_at', 'like', $yearNow . '%')->orderBy('created_at', 'asc')->get();
         $consultationsDataSet = [];
         $previousMonth = "";
         $currentMonth = "";
