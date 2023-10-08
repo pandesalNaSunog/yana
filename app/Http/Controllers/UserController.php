@@ -753,6 +753,19 @@ class UserController extends Controller
         }else{
             $commentRate = number_format(($commentsThisMonth / $comments) * 100, 2);
         }
+
+
+
+        //calculate consultations per month
+
+        $allConsultations = Matcher::where('approval', 1)->orderBy('created_at', 'asc')->get();
+        $months = [];
+        foreach($allConsultations as $consultation){
+            $months[] = $consultation->created_at->format('F');
+        }
+
+        dd($months);
+
      
         return view('admin.dashboard',[
             'active' => 'dashboard',
