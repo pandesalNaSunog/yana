@@ -777,6 +777,12 @@ class UserController extends Controller
             }
             $previousMonth = $currentMonth;
         }
+        $consultationsDataSet[] = [
+            'month' => $previousMonth,
+            'consultations' => $consultationsPerMonth
+        ];
+        
+        $consultationsPerMonth = 0;
 
         dd($consultationsDataSet);
 
