@@ -7,7 +7,7 @@
     <title>YANA | Chats</title>
 </head>
 <body>
-    @if(auth()->user()->role == 0)
+    <!-- @if(auth()->user()->role == 0)
     <x-admin-nav :active="$active"></x-admin-nav>
     @elseif(auth()->user()->role == 1)
     <x-therapist-nav :active="$active"></x-therapist-nav>
@@ -213,6 +213,6 @@
                
             
         </div>
-    </div>
+    </div> -->
 </body>
 </html>
