@@ -784,7 +784,6 @@ class UserController extends Controller
         
         $consultationsPerMonth = 0;
 
-        dd($consultationsDataSet);
 
      
         return view('admin.dashboard',[
@@ -800,7 +799,8 @@ class UserController extends Controller
             'average_comments' => $averageComments,
             'comment_rate' => $commentRate,
             'consultations' => $consultations,
-            'consultation_rate' => $consultationRate
+            'consultation_rate' => $consultationRate,
+            'consultation_data_set' => $consultationsDataSet
         ]);
     }
 
