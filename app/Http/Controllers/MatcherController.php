@@ -32,8 +32,34 @@ class MatcherController extends Controller
                 'message' => 'Hello there. How may I help you?',
                 'chat_id' => $chat->id
             ]);
+            $user = User::where('id', $matcher->patient_id)->first();
+            if($user){
+                $mail->SMTPDebug = 0;
+                $mail->isSMTP();
+                $mail->Host = 'smtp.gmail.com';
+                $mail->SMTPAuth = true;
+                $mail->Username = $mailCreds->username; 
+                $mail->Password = $mailCreds->password; 
+                $mail->SMTPSecure = $mailCreds->secure; 
+                $mail->Port = $mailCreds->port;
+    
+                $mail->setFrom('yanaect@gmail.com', 'YANA');
+                $mail->addAddress($user->email);
+                $mail->isHTML(true);
+    
+                $mail->Subject = 'Session Confirmation';
+                $mail->Body = 'Your session request with tracking code ' . $matcher->tracking_number . ' has been approved by Dr. ' . auth()->user()->first_name . " " . auth()->user()->last_name . '.';
+    
+                if(!$mail->send()){
+                    $user->delete();
+                    return redirect('/')->with('message', 'Your registered email is invalid');
+                }
+                return redirect('/chats/convo/' . $chat->id);
+            }
+            
+            
         }
-        return redirect('/chats/convo/' . $chat->id);
+        return redirect('/therapist')->with('message', 'Something went wrong');
         
     }
     public function postMatcher(Request $request){
