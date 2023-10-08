@@ -31,11 +31,11 @@
                                 <div class="row row-cols-3">
                                     
                                     <div class="col-3 text-center">
-                                        <!-- @if($chat['image'] != "empty.jpeg")
+                                        @if($chat['image'] != "empty.jpeg")
                                         <img src="public/storage/{{$chat['image']}}" style="height: 50px; width: 50px; object-fit: cover" class="rounded-circle" alt="">
                                         @else
                                         <img src="{{$chat['image']}}" style="height: 50px; width: 50px; object-fit: cover" class="rounded-circle" alt="">
-                                        @endif -->
+                                        @endif
                                     </div>
                                     <div class="col-6">
                                         <p class="fw-bold m-0 fs-6"><small>{{$chat['name']}}</small></p>
@@ -66,10 +66,10 @@
                             <div class="row row-cols-3">
                                 
                                 <div class="col-3 text-center">
-                                    @if($chat['image'] != "/empty.jpeg")
+                                    @if($chat['image'] != "empty.jpeg")
                                     <img src="/public/storage/{{$chat['image']}}" style="height: 50px; width: 50px; object-fit: cover" class="rounded-circle" alt="">
                                     @else
-                                    <img src="/{{$chat['image']}}" style="height: 50px; width: 50px; object-fit: cover" class="rounded-circle" alt="">
+                                    <img src="{{$chat['image']}}" style="height: 50px; width: 50px; object-fit: cover" class="rounded-circle" alt="">
                                     @endif
                                 </div>
                                 <div class="col-6">
