@@ -14,7 +14,7 @@
             <h1 class="text-primary-color">Your submission has been successfull!</h1>
             <p class="text-primary-color">We will send you an email for confirmation</p>
             <h3 class="text-primary-color">Tracking Code: {{$tracking_number}}</h3>
-            <button class="primary-btn mt-3 px-5 py-2">Home</button>
+            <a href="/"><button class="primary-btn mt-3 px-5 py-2">Home</button></a>
         </div>
     </div>
     
