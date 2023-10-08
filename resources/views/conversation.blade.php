@@ -8,9 +8,9 @@
 </head>
 <body>
     @if(auth()->user()->role == 0)
-    <x-admin-nav></x-admin-nav>
+    <x-admin-nav :$active="$active"></x-admin-nav>
     @elseif(auth()->user()->role == 1)
-    <x-therapist-nav></x-therapist-nav>
+    <x-therapist-nav :$active="$active"></x-therapist-nav>
     @else
     <x-client-nav :active="$active"></x-client-nav>
     @endif
