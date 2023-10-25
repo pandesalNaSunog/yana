@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Matcher;
@@ -17,17 +18,7 @@ use App\Models\Comment;
 use App\Models\Evaluation;
 class UserController extends Controller
 {
-    public function createCreds(){
-        MailCred::create([
-            'username' => 'yanaect@gmail.com',
-            'password' => 'guko rjpz fioj slne',
-            'port' => 465,
-            'secure' => 'ssl'
-        ]);
-        return response([
-            'message' => 'ok'
-        ]);
-    }
+    
     public function postEmailVerification(Request $request){
         $fields = $request->validate([
             'code' => 'required'
@@ -276,10 +267,12 @@ class UserController extends Controller
             'last_name' => 'required',
             'email' => 'required|email|unique:users,email',
             'contact_number' => 'required|min:11',
-            'birth_date' => 'required|date',
+            'birth_date' => 'required|date|before:' . date('Y-m-d'),
             'degree' => 'required',
-            'password' => 'required|confirmed'
+            'password' => 'required|confirmed|min:8'
         ]);
+
+
 
         if($request->hasFile('certification')){
             $fields['certification'] = $request->file('certification')->store('images','public');
@@ -426,8 +419,8 @@ class UserController extends Controller
             'last_name' => 'required|min:3',
             'email' => 'required|email|unique:users,email',
             'contact_number' => 'required|min:10',
-            'birth_date' => 'required|date',
-            'password' => 'required|confirmed',
+            'birth_date' => 'required|date|before:' . date('Y-m-d'),
+            'password' => 'required|confirmed|min:8',
         ]);
 
         $fields['approval'] = 0;
