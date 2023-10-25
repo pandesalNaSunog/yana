@@ -30,6 +30,7 @@
                         <hr>
                     </div>
                 </div>
+                <a href="/evaluation-form"><button class="mt-3 w-100 py-2 primary-btn">Take Progress Tracking Examination</button></a>
             </div>
             <div class="col col-lg-8">
                 <div class="card shadow">
