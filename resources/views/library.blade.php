@@ -32,6 +32,7 @@
             </div>
             @endforeach
         </div>
+        
     </div>
     <x-footer></x-footer>
 </body>

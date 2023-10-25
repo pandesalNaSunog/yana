@@ -14,6 +14,7 @@ use App\Models\EmailVerification;
 use App\Models\Feedback;
 use App\Models\Post;
 use App\Models\Comment;
+use App\Models\Evaluation;
 class UserController extends Controller
 {
     public function createCreds(){
@@ -229,33 +230,7 @@ class UserController extends Controller
 
         return redirect('/forgot-password-verification');
     }
-    public function testMail(){
-        $mailCreds = MailCred::first();
-        $mail = new PHPMailer(true);
 
-        $mail->SMTPDebug = 0;
-        $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';
-        $mail->SMTPAuth = true;
-        $mail->Username = $mailCreds->username; 
-        $mail->Password = $mailCreds->password; 
-        $mail->SMTPSecure = $mailCreds->secure; 
-        $mail->Port = $mailCreds->port;
-
-        $mail->setFrom('yanaect@gmail.com', 'YANA');
-        $mail->addAddress('floresjem8@gmail.com');
-        $mail->isHTML(true);
-
-        $mail->Subject = 'Test Mail';
-        $mail->Body = 'This is a test mail';
-
-        if(!$mail->send()){
-            $user->delete();
-            return response ([
-                'message' => 'email is invalid'
-            ], 401);
-        }
-    }
 
     public function therapistUpdateBio(Request $request){
         $fields = $request->validate([
@@ -314,6 +289,7 @@ class UserController extends Controller
             $fields['bio'] = "";
             $fields['forgot_password'] = 0;
             $fields['verified'] = 1;
+            $fields['can_take_evalutation'] = 0;
             $user = User::create($fields);
             auth()->login($user);
             return redirect('/redirector');
@@ -345,7 +321,8 @@ class UserController extends Controller
                 'submission_date' => $submissionDate,
                 'matcher_id' => $matcher->id,
                 'status' => $status,
-                'chat_id' => $matcher->chat_id
+                'chat_id' => $matcher->chat_id,
+                'patient' => $patient
             ];
         }
         return view('therapist.therapist-dashboard', [
@@ -353,6 +330,20 @@ class UserController extends Controller
             'matchers' => $matchers,
             'active' => 'home'
         ]);
+    }
+    public function allowEvalutation(User $user){
+        $user->update([
+            'can_take_evalutation' => 1
+        ]);
+
+        return back()->with('message', 'Success');
+    }
+    public function cancelEvalutation(User $user){
+        $user->update([
+            'can_take_evalutation' => 0
+        ]);
+
+        return back()->with('message', 'Success');
     }
     public function updateProfile(Request $request){
         $fields = $request->validate([
@@ -447,7 +438,7 @@ class UserController extends Controller
         $fields['bio'] = "";
         $fields['forgot_password'] = 0;
         $fields['verified'] = 1;
-
+        $fields['can_take_evalutation'] = 0;
         $user = User::create($fields);
         auth()->login($user);
         return redirect('/redirector');
@@ -528,6 +519,25 @@ class UserController extends Controller
     public function patientProfile(Request $request){
         $user = User::where('id', auth()->user()->id)->first();
         $matchers = Matcher::where('patient_id', auth()->user()->id)->latest()->paginate(5);
+        $evaluations = Evaluation::where('user_id', $user->id)->get();
+        $anxiety = [];
+        $depression = [];
+        $evaluationDates = [];
+        $stress = [];
+        $sleepDisturbances = [];
+        $mood = [];
+        $progress = [];
+        foreach($evaluations as $evaluation){
+            $anxiety[] = $evaluation->anxiety;
+            
+            $depression[] = $evaluation->depression;
+            $stress[] = $evaluation->stress;
+            $sleepDisturbances[] = $evaluation->sleep_disturbances;
+            $mood[] = $evaluation->mood;
+            $progress[] = $evaluation->progress;
+            
+            $evaluationDates[] = $evaluation->created_at->format('M d, Y');
+        }
         $onlineSessions = [];
         $submissionDate = "";
         foreach($matchers as $matcher){
@@ -567,7 +577,14 @@ class UserController extends Controller
             'user' => $user,
             'onlineSessions' => $onlineSessions,
             'matchers' => $matchers,
-            'active' => 'none'
+            'active' => 'none',
+            'anxiety' => $anxiety,
+            'depression' => $depression,
+            'evaluation_dates' => $evaluationDates,
+            'stress' => $stress,
+            'sleep_disturbances' => $sleepDisturbances,
+            'mood' => $mood,
+            'progress' => $progress
         ];
         return view('profile', $data);
     }

@@ -12,7 +12,7 @@
         <div class="col col-lg-4 mx-auto mt-5">
             <div class="card shadow">
                 <div class="card-body">
-                    <form action="/admin/login" method="POST">
+                    <form action="/yana/admin/login" method="POST">
                         @csrf
                         <input type="text" name="email" placeholder="Email" class="form-control">
                         @error('email')

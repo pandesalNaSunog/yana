@@ -16,7 +16,7 @@
                 <div class="modal-header">
                     <h4 class="fw-bold">Add Category</h4>
                 </div>
-                <form action="/add-category" method="POST">
+                <form action="/yana/add-category" method="POST">
                     @csrf
                     <div class="modal-body">
                         <input required type="text" name="category" placeholder="Category" class="form-control">
@@ -56,14 +56,14 @@
                                         <button data-bs-toggle="dropdown" class="primary-outline-btn px-5 py-2 dropdown-toggle">Actions</button>
                                         <ul class="dropdown-menu">
                                             <li>
-                                                <a href="/admin/solutions/{{$category->id}}" class="dropdown-item">View Solutions</a>
+                                                <a href="/yana/admin/solutions/{{$category->id}}" class="dropdown-item">View Solutions</a>
                                             </li>
                                             <li>
-                                                <a href="/admin/edit-category/{{$category->id}}" class="dropdown-item">Edit</a>
+                                                <a href="/yana/admin/edit-category/{{$category->id}}" class="dropdown-item">Edit</a>
                                             </li>
                                             <hr class="dropdown-divider">
                                             <li>
-                                                <form action="/admin/delete-category/{{$category->id}}" onsubmit="return confirm('Are you sure you want to delete this category? All solutions related to this will also be deleted.')" method="POST">
+                                                <form action="/yana/admin/delete-category/{{$category->id}}" onsubmit="return confirm('Are you sure you want to delete this category? All solutions related to this will also be deleted.')" method="POST">
                                                     @csrf
                                                     <button class="dropdown-item text-danger">Delete</button>
                                                 </form>

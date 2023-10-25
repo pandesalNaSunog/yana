@@ -4,91 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <x-imports></x-imports>
-    <title>YANA | My Profile</title>
+    <title>YANA | Progress Tracker</title>
 </head>
-<body class="bg-light">
-    <x-client-nav :active="$active"></x-client-nav>
-    <x-toast></x-toast>
-    <div class="container my-5">
-        <div class="row row-cols-1 row-cols-lg-2 g-3">
-            <div class="col col-lg-4">
-                <div class="card shadow">
-                    <div class="card-body text-center">
-                        <img class="img-fluid img-cover rounded-circle" style="height: 200px; width: 200px" src="
-                                <?php
-                                    if(auth()->user()->profile_picture == ""){
-                                        echo '/empty.jpeg';
-                                    }else{
-                                        echo '/public/storage/' . auth()->user()->profile_picture;
-                                    }
-                                ?>
-                                
-                                " alt="">
-                        <h3 class="fw-bold mt-3">{{auth()->user()->first_name . " " . auth()->user()->last_name}}</h3>
-                        <p class="m-0"><em>{{auth()->user()->email}}</em></p>
-                        <a href="/edit-profile"><button class="mt-4 primary-btn px-5 py-2">Edit Profile</button></a>
-                        <hr>
-                    </div>
-                </div>
+<body>
+    <x-therapist-nav :active="$active"></x-therapist-nav>
+
+    <div class="container py-5">
+        <div class="card shadow">
+            <div class="card-header">
+                <h4 class="fw-bold">Patient Information</h4>
             </div>
-            <div class="col col-lg-8">
-                <div class="card shadow">
-                    <div class="card-header">
-                        <h3 class="fw-bold">My Online Sessions</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-hover table-striped">
-                                <thead>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Therapist Name</th>
-                                    <th scope="col">Submission Date</th>
-                                    <th scope="col">Tracking Code</th>
-                                    <th scope="col">Status</th>
-                                    <th scope="col">Action</th>
-                                </thead>
-                                <tbody>
-                                
-                                        @foreach($onlineSessions as $onlineSession)
-                                        <tr>
-                                            <td>
-                                                {{$onlineSession['name']}}
-                                            </td>
-                                            <td>
-                                                {{$onlineSession['therapist_name']}}
-                                            </td>
-                                            <td>
-                                                {{$onlineSession['submission_date']}}
-                                            </td>
-                                            <td>
-                                                {{$onlineSession['tracking_code']}}
-                                            </td>
-                                            <td>
-                                                {{$onlineSession['status']}}
-                                            </td>
-                                            <td>
-                                                @if($onlineSession['status'] == "Ongoing")
-                                                <a href="/chats/convo/{{$onlineSession['chat_id']}}"><button class="primary-btn py-2 px-5">View Conversation</button></a>
-                                                @endif
-                                            </td>
-                                        </tr>
-                                        @endforeach
-                                    
-                                </tbody>
-                            </table>
-                            @if(empty($onlineSessions))
-                            <p class="text-center fw-bold text-secondary p-5">No Online Sessions</p>
-                            @endif
-                        </div>
-                    </div>
-                </div>
-                <div class="py-4">
-                    {{$matchers->links()}}
+            <div class="card-body">
+                <div class="ms-3">
+                    <h3 class="fw-bold">{{$user->first_name . " " . $user->last_name}}</h3>
+                    <p class="m-0">{{$user->contact_number}}</p>
+                    <p class="m-0"><em>{{$user->email}}</em></p>
                 </div>
                 
-                </div>
             </div>
-            <div class="card shadow mt-3">
+        </div>
+
+
+        <div class="card shadow mt-3">
                 <div class="card-header">
                     <h3 class="fw-bold">Progress Tracker</h3>
                 </div>
@@ -286,10 +223,6 @@
                     </div>
                 </div>
             </div>
-            
-        </div>
-        
     </div>
-    <x-footer></x-footer>
 </body>
 </html>

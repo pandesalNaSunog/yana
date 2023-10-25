@@ -19,14 +19,14 @@
         <div class="col col-lg-3">
             <div class="card h-100" style="border-radius: 0; overflow: overlay">
                 @foreach($chatData as $chat)
-                <a href="/chats/convo/{{$chat['chat_id']}}" style="text-decoration: none">
+                <a href="/yana/chats/convo/{{$chat['chat_id']}}" style="text-decoration: none">
                     <div class="card" style="border-left: none; border-right: none; border-radius: 0; border-top: none">
                         <div class="card-body">
                             <div class="row row-cols-3">
                                 
                                 <div class="col-3 text-center">
                                     @if($chat['image'] != "/empty.jpeg")
-                                    <img src="/public/storage/{{$chat['image']}}" style="height: 50px; width: 50px; object-fit: cover" class="rounded-circle" alt="">
+                                    <img src="/yana/public/storage/{{$chat['image']}}" style="height: 50px; width: 50px; object-fit: cover" class="rounded-circle" alt="">
                                     @else
                                     <img src="{{$chat['image']}}" style="height: 50px; width: 50px; object-fit: cover" class="rounded-circle" alt="">
                                     @endif

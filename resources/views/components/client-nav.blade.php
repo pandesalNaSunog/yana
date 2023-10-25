@@ -13,13 +13,13 @@
         <div id="navmenu" class="collapse navbar-collapse">
             <ul class="navbar-nav text-dark">
                 <li class="nav-item">
-                    <a href="/" class="nav-link fw-bold <?php if($active == 'home'){ echo 'active-nav-link'; }?> mx-3">Home</a>
+                    <a href="/yana" class="nav-link fw-bold <?php if($active == 'home'){ echo 'active-nav-link'; }?> mx-3">Home</a>
                 </li>
                 <li class="nav-item mx-3">
-                    <a href="/forums" class="nav-link <?php if($active == 'forums'){ echo 'active-nav-link'; }?> fw-bold">Forums</a>
+                    <a href="/yana/forums" class="nav-link <?php if($active == 'forums'){ echo 'active-nav-link'; }?> fw-bold">Forums</a>
                 </li>
                 <li class="nav-item mx-3">
-                    <a href="/library" class="nav-link <?php if($active == 'library'){ echo 'active-nav-link'; }?> fw-bold">Library</a>
+                    <a href="/yana/library" class="nav-link <?php if($active == 'library'){ echo 'active-nav-link'; }?> fw-bold">Library</a>
                 </li>
             </ul>
             @auth
@@ -38,13 +38,13 @@
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Account</a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="/profile" class="dropdown-item">Profile</a>
+                                <a href="/yana/profile" class="dropdown-item">Profile</a>
                             </li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
                             <li>
-                                <a href="/logout" class="dropdown-item">Log Out</a>
+                                <a href="/yana/logout" class="dropdown-item">Log Out</a>
                             </li>
                         </ul>
                     </div>
@@ -54,10 +54,10 @@
             @else
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a href="/login" class="nav-link"><button class="w-100 w-lg-0 primary-btn px-3 py-2">Sign In</button></a>
+                    <a href="/yana/login" class="nav-link"><button class="w-100 w-lg-0 primary-btn px-3 py-2">Sign In</button></a>
                 </li>
                 <li class="nav-item">
-                    <a href="/signup" class="nav-link"><button class="w-100 w-lg-0 primary-outline-btn px-3 py-2">Sign Up</button></a>
+                    <a href="/yana/signup" class="nav-link"><button class="w-100 w-lg-0 primary-outline-btn px-3 py-2">Sign Up</button></a>
                 </li>
             </ul>
             @endauth

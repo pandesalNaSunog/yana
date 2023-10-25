@@ -63,6 +63,8 @@ Route::middleware('auth')->group(function(){
             Route::get('/matcher',[MatcherController::class, 'viewTracking']);
             Route::post('/post-matcher', [MatcherController::class, 'postMatcher']);
             Route::post('/write-feedback',[FeedbackController::class, 'postFeed']);
+            Route::get('/evaluation-form', [EvaluationController::class, 'evaluationForm']);
+            Route::post('/submit-assessment', [EvaluationController::class, 'submitAssessment']);
         });
 
         Route::middleware('admin')->group(function(){
@@ -93,6 +95,9 @@ Route::middleware('auth')->group(function(){
             Route::post('/therapist/update-profile',[UserController::class, 'therapistUpdateProfile']);
             Route::post('/therapist/confirm-session',[MatcherController::class, 'confirmSession']);
             Route::post('/therapist/update-bio',[UserController::class, 'therapistUpdateBio']);
+            Route::post('/allow-evaluation/{user}', [UserController::class, 'allowEvalutation']);
+            Route::post('/cancel-evaluation/{user}', [UserController::class, 'cancelEvalutation']);
+            Route::get('/therapist/patient-progress/{user}', [EvaluationController::class, 'patientProgressTracker']);
         });
         Route::get('/logout', [UserController::class, 'logout']);
     });

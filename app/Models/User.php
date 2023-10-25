@@ -31,7 +31,8 @@ class User extends Authenticatable
         'role',
         'bio',
         'forgot_password',
-        'verified'
+        'verified',
+        'can_take_evalutation'
     ];
 
     /**
