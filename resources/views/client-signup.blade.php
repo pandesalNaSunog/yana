@@ -48,7 +48,7 @@
                             </div>
                             <div class="col">
                                 <label class="form-label">Contact Number</label>
-                                <input value="{{old('contact_number')}}" name="contact_number" type="text" class="form-control">
+                                <input value="{{old('contact_number')}}" name="contact_number" type="number" class="form-control">
                                 @error('contact_number')
                                 <x-error-text>{{$message}}</x-error-text>
                                 @enderror
