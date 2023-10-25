@@ -25,16 +25,16 @@
                 </div>
                 <div class="modal-body">
                     @foreach($chatData as $key => $chat)
-                    <a href="/yana/chats/convo/{{$chats[$key]->id}}" style="text-decoration: none">
+                    <a href="/chats/convo/{{$chats[$key]->id}}" style="text-decoration: none">
                         <div class="card" style="border-left: none; border-right: none; border-radius: 0; border-top: none">
                             <div class="card-body">
                                 <div class="row row-cols-3">
                                     
                                     <div class="col-3 text-center">
                                         @if($chat['image'] != "empty.jpeg")
-                                        <img src="/yana/public/storage/{{$chat['image']}}" style="height: 50px; width: 50px; object-fit: cover" class="rounded-circle" alt="">
+                                        <img src="/public/storage/{{$chat['image']}}" style="height: 50px; width: 50px; object-fit: cover" class="rounded-circle" alt="">
                                         @else
-                                        <img src="/yana/{{$chat['image']}}" style="height: 50px; width: 50px; object-fit: cover" class="rounded-circle" alt="">
+                                        <img src="/{{$chat['image']}}" style="height: 50px; width: 50px; object-fit: cover" class="rounded-circle" alt="">
                                         @endif
                                     </div>
                                     <div class="col-6">
@@ -60,16 +60,16 @@
         <div class="col col-lg-3 d-none d-lg-block">
             <div class="card h-100" style="border-radius: 0; overflow: overlay">
                 @foreach($chatData as $key => $chat)
-                <a href="/yana/chats/convo/{{$chats[$key]->id}}" style="text-decoration: none">
+                <a href="/chats/convo/{{$chats[$key]->id}}" style="text-decoration: none">
                     <div class="card" style="border-left: none; border-right: none; border-radius: 0; border-top: none">
                         <div class="card-body">
                             <div class="row row-cols-3">
                                 
                                 <div class="col-3 text-center">
                                     @if($chat['image'] != "empty.jpeg")
-                                    <img src="/yana/public/storage/{{$chat['image']}}" style="height: 50px; width: 50px; object-fit: cover" class="rounded-circle" alt="">
+                                    <img src="/public/storage/{{$chat['image']}}" style="height: 50px; width: 50px; object-fit: cover" class="rounded-circle" alt="">
                                     @else
-                                    <img src="/yana/{{$chat['image']}}" style="height: 50px; width: 50px; object-fit: cover" class="rounded-circle" alt="">
+                                    <img src="/{{$chat['image']}}" style="height: 50px; width: 50px; object-fit: cover" class="rounded-circle" alt="">
                                     @endif
                                 </div>
                                 <div class="col-6">
@@ -100,7 +100,7 @@
                     @if($messageDatum['mine'] == 0)
                     <!-- for receivers message -->
                     <div class="col-2 col-md-1">
-                        <img src="/yana/{{$messageDatum['image']}}" alt="" class="img-fluid rounded-circle" style="height: 50px; width: 50px; object-fit:cover">
+                        <img src="/{{$messageDatum['image']}}" alt="" class="img-fluid rounded-circle" style="height: 50px; width: 50px; object-fit:cover">
                     </div>
                     <div class="col-10 col-md-11">
                         <div class="card shadow message-box">
@@ -122,7 +122,7 @@
                     </div>
                     <div class="col-2 col-md-1 text-end">
                         
-                        <img src="/yana/{{$messageDatum['image']}}" alt="" class="img-fluid rounded-circle" style="height: 50px; width: 50px; object-fit:cover">
+                        <img src="/{{$messageDatum['image']}}" alt="" class="img-fluid rounded-circle" style="height: 50px; width: 50px; object-fit:cover">
                     </div>
                     @endif
                 @endforeach

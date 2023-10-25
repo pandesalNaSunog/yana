@@ -18,7 +18,7 @@
                     </div>
                 </div>
                 <div class="modal-body">
-                    <form action="/yana/therapist/update-bio" method="POST">
+                    <form action="/therapist/update-bio" method="POST">
                         @csrf
                         <input required type="text" placeholder="Bio" name="bio" value="{{auth()->user()->bio}}" class="form-control">
                         <button class="primary-btn w-100 mt-3">Confirm</button>
@@ -36,16 +36,16 @@
                         <img class="img-fluid img-cover rounded-circle" style="height: 200px; width: 200px" src="
                                 <?php
                                     if(auth()->user()->profile_picture == ""){
-                                        echo '/yana/empty.jpeg';
+                                        echo '/empty.jpeg';
                                     }else{
-                                        echo '/yana/public/storage/' . auth()->user()->profile_picture;
+                                        echo '/public/storage/' . auth()->user()->profile_picture;
                                     }
                                 ?>
                                 
                                 " alt="">
                         <h3 class="fw-bold mt-3">{{auth()->user()->first_name . " " . auth()->user()->last_name}}</h3>
                         <p class="m-0"><em>{{auth()->user()->email}}</em></p>
-                        <a href="/yana/therapist/edit-profile"><button class="py-2 mt-4 primary-btn w-100">Edit Profile</button></a>
+                        <a href="/therapist/edit-profile"><button class="py-2 mt-4 primary-btn w-100">Edit Profile</button></a>
                         <hr>
                         @if(auth()->user()->bio == "")
                         <p class="m-0 text-center"><i>"No bio"</i></p>
@@ -94,32 +94,32 @@
                                                     <button class="dropdown-toggle px-5 py-2 primary-btn" data-bs-toggle="dropdown">View Actions</button>
                                                     <ul class="dropdown-menu">
                                                         <li>
-                                                            <a href="/yana/therapist/patient-progress/{{$onlineSession['patient']->id}}" class="dropdown-item">View Progress Tracker</a>
+                                                            <a href="/therapist/patient-progress/{{$onlineSession['patient']->id}}" class="dropdown-item">View Progress Tracker</a>
                                                         </li>
                                                         <hr class="dropdown-divider">
                                                         <li>
                                                             @if($onlineSession['status'] == "Pending")
-                                                            <form action="/yana/therapist/confirm-session" method="POST">
+                                                            <form action="/therapist/confirm-session" method="POST">
                                                                 @csrf
                                                                 <input type="hidden" name="matcher_id" value="{{$onlineSession['matcher_id']}}">
                                                                 <button class="dropdown-item">Confirm</button>
                                                             </form>
                                                             @else
-                                                            <a href="/yana/chats/convo/{{$onlineSession['chat_id']}}" class="dropdown-item">View Conversation</a>
+                                                            <a href="/chats/convo/{{$onlineSession['chat_id']}}" class="dropdown-item">View Conversation</a>
                                                             @endif
 
                                                         </li>
                                                         <hr class="dropdown-divider">
                                                         <li>
                                                             @if($onlineSession['patient']->can_take_evalutation == 0)
-                                                            <form action="/yana/allow-evaluation/{{$onlineSession['patient']->id}}" method="POST">
+                                                            <form action="/allow-evaluation/{{$onlineSession['patient']->id}}" method="POST">
                                                                 @csrf
                                                                 <button class="dropdown-item">
                                                                     Authorize Evaluation
                                                                 </button>
                                                             </form>
                                                             @else
-                                                            <form action="/yana/cancel-evaluation/{{$onlineSession['patient']->id}}" method="POST">
+                                                            <form action="/cancel-evaluation/{{$onlineSession['patient']->id}}" method="POST">
                                                                 @csrf
                                                                 <button class="dropdown-item">
                                                                     Cancel Evaluation

@@ -11,7 +11,7 @@
 
     <div class="container py-5">
         <div class="col-lg-5 mx-auto">
-            <form action="/yana/submit-assessment" method="POST">
+            <form action="/submit-assessment" method="POST">
                 @csrf
                 <div class="card shadow">
                     <div class="card-header">

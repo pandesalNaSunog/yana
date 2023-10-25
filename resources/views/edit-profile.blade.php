@@ -23,9 +23,9 @@
                                 <img id="profile-picture-image" src="
                                 <?php
                                     if(auth()->user()->profile_picture == ""){
-                                        echo '/yana/empty.jpeg';
+                                        echo '/empty.jpeg';
                                     }else{
-                                        echo '/yana/public/storage/' . auth()->user()->profile_picture;
+                                        echo '/public/storage/' . auth()->user()->profile_picture;
                                     }
                                 ?>
                                 
@@ -36,7 +36,7 @@
                                 <x-error-text>{{$message}}</x-error-text>
                                 @enderror
                                 <br>
-                                <form action="/yana/upload-profile-picture" method="POST" enctype="multipart/form-data">
+                                <form action="/upload-profile-picture" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <label for="profile-picture-file-upload" style="cursor: pointer" class="px-5 py-2 primary-btn mt-3">Choose File</label>
                                     <input name="profile-picture" type="file" style="display: none" id="profile-picture-file-upload">
@@ -69,7 +69,7 @@
                             <h3 class="fw-bold">Basic Information</h3>
                         </div>
                         <div class="card-body">
-                            <form action="/yana/update-profile" method="POST">
+                            <form action="/update-profile" method="POST">
                                 @csrf
                                 <div class="row row-cols-1 row-cols-lg-2 g-3">
                                     <div class="col">
@@ -106,7 +106,7 @@
                             
                         </div>
                         <div class="card-body">
-                            <form action="/yana/change-password" method="POST">
+                            <form action="/change-password" method="POST">
                                 @csrf
                                 <div class="row row-cols-1 row-cols-lg-3">
                                     <div class="col">

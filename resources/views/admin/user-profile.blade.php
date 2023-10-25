@@ -29,13 +29,13 @@
                     @if($user->role == 1)
                         <div class="text-start">
                             <p class="fw-bold">Certification:</p>
-                            <img src="/yana/public/storage/{{$user->certification}}" class="img-fluid img-contain" style="height:auto; width: 100%" alt="">
+                            <img src="/public/storage/{{$user->certification}}" class="img-fluid img-contain" style="height:auto; width: 100%" alt="">
                             
                         </div>
 
                     
                         @if($user->approval == 0)
-                        <form action="/yana/admin/approve-therapist" method="POST">
+                        <form action="/admin/approve-therapist" method="POST">
                             @csrf
                             <input type="hidden" value="{{$user->id}}" name="therapist-id">
                             <button class="primary-btn w-100 py-2 mt-3">Approve Therapist</button>

@@ -12,7 +12,7 @@
             <h4 class="text-center text-primary-color">Please enter the verification code sent to {{$user->email}}</h4>
             <div class="card shadow">
                 <div class="card-body text-center">
-                    <form action="/yana/email-verification" method="POST">
+                    <form action="/email-verification" method="POST">
                         @csrf
                         <input type="text" name="code" placeholder="XXXXXX" class="form-control">
                     

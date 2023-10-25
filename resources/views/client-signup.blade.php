@@ -20,7 +20,7 @@
             <br>
             <br>
             <h5>Create Account</h5>
-            <form action="/yana/signup" method="POST">
+            <form action="/signup" method="POST">
                 @csrf
                 <div class="mt-5 card shadow">
                     <div class="card-body">
@@ -93,13 +93,13 @@
                 </div>
             </form>
             <div class="text-center mt-3">
-                <a href="/yana/signup-therapist"><button class="primary-outline-btn px-5 py-2">I'm a Therapist</button></a>
+                <a href="/signup-therapist"><button class="primary-outline-btn px-5 py-2">I'm a Therapist</button></a>
             </div>
            
             
             <div class="text-center mt-5">
                 
-                <p><small>Already have an Account? <a href="/yana/login">Sign In</a></small></p>
+                <p><small>Already have an Account? <a href="/login">Sign In</a></small></p>
             </div>
             
         </div>

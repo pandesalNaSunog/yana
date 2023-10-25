@@ -26,7 +26,7 @@
   
 
             <div class="card-body">
-                <form action="/yana/update-solution/{{$solution->id}}" method="POST">
+                <form action="/update-solution/{{$solution->id}}" method="POST">
                     @csrf
                     <input type="text" placeholder="Solution" name="solution" value="{{$solution->solution}}" class="form-control">
                     <div class="mt-3">
@@ -44,7 +44,7 @@
             
         </div>
         <div class="text-center mt-3">
-                <a href="/yana/admin/solutions/{{$category->id}}" class="btn-link">Back</a>
+                <a href="/admin/solutions/{{$category->id}}" class="btn-link">Back</a>
             </div>
     </div>
 </body>
