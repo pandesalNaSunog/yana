@@ -48,6 +48,12 @@ class FeedbackController extends Controller
         ]);
         return back()->with('message', 'This feedback has been posted to Landing Page Testimonials');
     }
+    public function unpostFeedback(Feedback $feedback){
+        $feedback->update([
+            'approval' => 0
+        ]);
+        return back()->with('message', 'This feedback has been unposted to Landing Page Testimonials');
+    }
     public function showTestimonials(Request $request){
         if(auth()->check()){
             if(auth()->user()->role != 2){

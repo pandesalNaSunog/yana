@@ -418,7 +418,7 @@ class UserController extends Controller
             'first_name' => 'required',
             'last_name' => 'required|min:3',
             'email' => 'required|email|unique:users,email',
-            'contact_number' => 'required|min:10',
+            'contact_number' => 'required|min:11',
             'birth_date' => 'required|date|before:' . date('Y-m-d'),
             'password' => 'required|confirmed|min:8',
         ]);
@@ -427,7 +427,7 @@ class UserController extends Controller
         $fields['profile_picture'] = "";
         $fields['certification'] = "";
         $fields['degree'] = "";
-        $fields['role'] = 2;
+        $fields['role'] = 2; //Administrator = 0, Therapist = 1, Patient = 2
         $fields['bio'] = "";
         $fields['forgot_password'] = 0;
         $fields['verified'] = 1;
